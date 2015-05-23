@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     
+    /*
     _nCurrentPage = 0;
     NSUInteger numberofPages = 3;
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -101,6 +102,7 @@
     _pageControl.backgroundColor = [UIColor clearColor];
     _pageControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_pageControl];
+     */
 }
 
 - (void)enter
@@ -110,6 +112,7 @@
     }
 }
 
+/*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 }
@@ -126,7 +129,7 @@
     else {
         _pageControl.currentPage = round(offset.x/scrollView.bounds.size.width);
     }
-}
+}*/
 
 #pragma mark StatusBar
 

@@ -217,6 +217,9 @@ static QViewController * _shareViewController = nil;
     [_shareViewController exitMainMenu];
     [QViewController gotoPage:@"QHomePage" withParam:nil];
     
+    [self showGuideView];
+    
+    /*
     NSDictionary *infoList = [[NSBundle mainBundle] infoDictionary];
     NSString *guideVersion = [infoList objectForKey:GuideViewVersion];
     NSString *guideShowVersion = [ASUserDefaults objectForKey:GuideViewVersion];
@@ -228,7 +231,7 @@ static QViewController * _shareViewController = nil;
     {
         [self showGuideView];
         [ASUserDefaults setObject:guideVersion forKey:GuideViewVersion];
-    }
+    }*/
 }
 
 //将newPage放至堆栈顶部，对当前显示页做退出处理

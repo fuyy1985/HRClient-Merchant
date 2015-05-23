@@ -79,8 +79,8 @@
         accountLabel.layer.borderColor = [QTools colorWithRGB:213 :213 :213].CGColor;
         accountLabel.layer.borderWidth = 1;
         accountLabel.userInteractionEnabled = YES;
-//        accountLabel.backgroundColor = [UIColor yellowColor];
         [_view addSubview:accountLabel];
+        
 //        icon
         UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 9, 17, 16)];
         iconImageView.image = [UIImage imageNamed:@"icon_login_name"];
