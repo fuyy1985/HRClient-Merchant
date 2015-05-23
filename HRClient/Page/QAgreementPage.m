@@ -71,15 +71,15 @@
 {
     if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetAgreement:) name:kGetAgreement object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetAgreement:) name:kGetAgreement object:nil];
         
-        [[QHttpMessageManager sharedHttpMessageManager] accessGetAgreement:_agreementType];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessGetAgreement:_agreementType];
         [ASRequestHUD show];
     }
     else if (eventType == kPageEventViewDispose)
     {
         [ASRequestHUD dismiss];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetAgreement object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetAgreement object:nil];
     }
 }
 

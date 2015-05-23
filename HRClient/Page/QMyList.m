@@ -52,9 +52,11 @@
 {
     if (eventType == kPageEventWillShow)
     {
+        /*
         NSString *userId = [ASUserDefaults objectForKey:AccountUserID];
         [[QHttpMessageManager sharedHttpMessageManager] accessGetListQtyAccordingDifStatus:userId];
         [ASRequestHUD show];
+        */
     }
     else if (eventType == kPageEventViewCreate)
     {
@@ -63,6 +65,7 @@
         _dataPage = [[QDataPaging alloc] init];
         [self initDataPage];
         
+        /*
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveListQty:) name:kGetQtyAccountStatus object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveListDifStatus:) name:kGetListAccountStatus object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reveiveDeleInfro:) name:kGetEditDelegate object:nil];
@@ -70,6 +73,7 @@
         NSString *userId = [ASUserDefaults objectForKey:AccountUserID];
         [[QHttpMessageManager sharedHttpMessageManager] accessGetListQtyAccordingDifStatus:userId];
         [ASRequestHUD show];
+        */
     }
     else if (eventType == kPageEventWillHide)
     {
@@ -248,9 +252,11 @@
 
 - (void)getListByStatus:(NSString*)status
 {
+    /*
     [[QHttpMessageManager sharedHttpMessageManager] accessGetListAccordStatus:status
                                                                andcurrentPage:INTTOSTRING(_dataPage.nextPage)
                                                                   andPageSize:INTTOSTRING(_dataPage.pageSize)];
+    */
 }
 
 - (void)initDataPage
@@ -335,8 +341,10 @@
     }
     else
     {
+        /*
         [[QHttpMessageManager sharedHttpMessageManager] accessEditDelegate:orderListId];
         [ASRequestHUD show];
+        */
     }
 }
 
@@ -388,7 +396,7 @@
     //table恢复正常
     [self setEditigToDele];
     
-    [[QHttpMessageManager sharedHttpMessageManager] accessGetListQtyAccordingDifStatus:[ASUserDefaults objectForKey:AccountUserID]];
+//    [[QHttpMessageManager sharedHttpMessageManager] accessGetListQtyAccordingDifStatus:[ASUserDefaults objectForKey:AccountUserID]];
 }
 
 #pragma mark - UISegmentedControl Delegate

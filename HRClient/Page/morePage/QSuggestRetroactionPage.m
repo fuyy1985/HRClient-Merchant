@@ -25,10 +25,10 @@
     if (eventType == kPageEventViewCreate)
     {
         //NOTE:页面的消息接口 同普通controller的 隐藏消失回调
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successToAcceive:) name:kSuggestRetroaction object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successToAcceive:) name:kSuggestRetroaction object:nil];
         
     }else if (eventType == kPageEventWillHide){
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kSuggestRetroaction object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kSuggestRetroaction object:nil];
     }
 }
 
@@ -102,8 +102,8 @@
 
 - (void)clickToSend{
     if (self.myTextView.text.length != 0) {
-        [[QHttpMessageManager sharedHttpMessageManager] accessSuggestRetroaction:self.myTextView.text];
-        [ASRequestHUD show];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessSuggestRetroaction:self.myTextView.text];
+//        [ASRequestHUD show];
     }else{
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"您还未填写内容噢" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];

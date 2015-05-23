@@ -31,7 +31,7 @@
 #define Q_OrderNotarize @"/companyOrderController/notarizeOrder"
 //一键确认订单
 #define Q_AllOrderNotarize @"/companyOrderController/notarizeOrders"
-//账户信息
+//账户信息,银行卡列表
 #define Q_CompanyAccount @"/companyBank/companyAccount"
 //手机号码获取验证码
 #define Q_AcquireCode @"/user/sendSMSVerifyCode"
@@ -39,26 +39,18 @@
 #define Q_InsertBank @"/companyBank/insertBank"
 //删除银行
 #define Q_DeleteBank @"/companyBank/deleteCompanyBank"
+//提取现金
+#define Q_WithdrawCash @"/companyBank/companyReceipt"
+//我的服务
+#define Q_MyService @"/companyOrderController/myservice"
 
-
-
-//热门城市
-#define HOT_CITY_MESSAGE @"/region/findAll"
-//获取区域
-#define Q_REGION @"/region/findById"
-
-
-//评论
-#define Q_BUSINESS_COMMENT @"/comment/getAllComments"
-#define Q_PRODUCT_COMMENT @"/comment/getproduct"
-//修改账户名
-#define Q_ACOMMEND_NICK @"/user/updateNick"
 //修改登录密码
 #define Q_ACOMMEND_LOGIN_KEY @"/user/updateOldPassword"
-//验证绑定手机
-#define Q_CONFIRM_BIND_PHONE @"/user/verifyPhone"
-//更改绑定手机
-#define Q_CHANGEBINDPHONE @"/user/updatePhone"
+//找回登录密码
+#define Q_FIND_LOGIN_PWD @"/user/quickLogin"
+//确认找回登录密码
+#define Q_SURE_FIND_LOGIN_PWD @"/user/updatePassword"
+
 //修改支付密码
 #define Q_ACOMMENDPAYPWD @"/user/updateOldPayPasswd"
 //找回支付密码
@@ -67,12 +59,28 @@
 #define Q_SET_PAYPWD @"/user/setPayPasswd"
 //重置支付密码
 #define Q_RESET_PAYPWD @"/user/updatePayPasswd"
+
+
+
+
+
+
+
+//热门城市
+#define HOT_CITY_MESSAGE @"/region/findAll"
+//获取区域
+#define Q_REGION @"/region/findById"
+//评论
+#define Q_BUSINESS_COMMENT @"/comment/getAllComments"
+#define Q_PRODUCT_COMMENT @"/comment/getproduct"
+//修改账户名
+#define Q_ACOMMEND_NICK @"/user/updateNick"
+//验证绑定手机
+#define Q_CONFIRM_BIND_PHONE @"/user/verifyPhone"
+//更改绑定手机
+#define Q_CHANGEBINDPHONE @"/user/updatePhone"
 //注册
 #define Q_REGISTER @"/user/doRegister"
-//找回登录密码
-#define Q_FIND_LOGIN_PWD @"/user/quickLogin"
-//确认找回登录密码
-#define Q_SURE_FIND_LOGIN_PWD @"/user/updatePassword"
 //获取不同状态订单的数
 #define Q_DIF_STATUS_LIST_QTY @"/orderList/getStatusCount"
 //获取不同状态的订单

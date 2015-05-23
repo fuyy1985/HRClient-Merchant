@@ -27,7 +27,7 @@
 @implementation QChangeTel
 
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kConfirmBindPhone object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kConfirmBindPhone object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcquireCode object:nil];
 }
 
@@ -35,12 +35,12 @@
 {
     if (eventType == kPageEventWillShow)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireBindInfo:) name:kConfirmBindPhone object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireBindInfo:) name:kConfirmBindPhone object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireCode:) name:kAcquireCode object:nil];
     }
     else if (eventType == kPageEventWillHide)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kConfirmBindPhone object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kConfirmBindPhone object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcquireCode object:nil];
     }
 }
@@ -131,8 +131,8 @@
         [ASRequestHUD showErrorWithStatus:@"验证码不能为空"];
     }
     else {
-        [[QHttpMessageManager sharedHttpMessageManager] accessConfirmBindPhone:codeTextFiled.text andVerifyCode:inputNewTel.text];
-        [ASRequestHUD show];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessConfirmBindPhone:codeTextFiled.text andVerifyCode:inputNewTel.text];
+//        [ASRequestHUD show];
     }
 }
 //验证手机成功

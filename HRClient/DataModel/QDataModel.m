@@ -146,4 +146,15 @@
 
 @end
 
+@implementation QServiceModel
+
++ (QServiceModel*)getModelFromDic:(NSDictionary *)dic
+{
+    QServiceModel *model = [[QServiceModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
 

@@ -34,12 +34,12 @@
 {
     if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireRegisterInfo:) name:kRegister object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireRegisterInfo:) name:kRegister object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireCode:) name:kAcquireCode object:nil];
     }
     else if (eventType == kPageEventViewDispose)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kRegister object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kRegister object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcquireCode object:nil];
     }
 }
@@ -212,7 +212,7 @@
         return ;
     }
     if ([inputKeyTextFiled.text isEqualToString:sureTextFiled.text]) {
-        [[QHttpMessageManager sharedHttpMessageManager] accessRegister:accountTextFiled.text andVerifyCode:numberTextFiled.text andPassword:inputKeyTextFiled.text andVerifyPassword:sureTextFiled.text];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessRegister:accountTextFiled.text andVerifyCode:numberTextFiled.text andPassword:inputKeyTextFiled.text andVerifyPassword:sureTextFiled.text];
         [ASRequestHUD show];
     }else{
         [ASRequestHUD showErrorWithStatus:@"新密码两次输入不一致"];

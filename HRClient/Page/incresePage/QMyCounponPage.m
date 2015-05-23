@@ -38,9 +38,11 @@
 {
     if (eventType == kPageEventViewCreate)
     {
+        /*
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetCouponDetail:) name:kMyCouponDetail object:nil];
         [[QHttpMessageManager sharedHttpMessageManager] accessMyCouponDetail:[orderListId stringValue]];
         [ASRequestHUD show];
+        */
     }
     else if (eventType == kPageEventViewDispose)
     {

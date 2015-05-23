@@ -122,3 +122,17 @@
 + (QBankModel*)getModelFromDic:(NSDictionary *)dic;
 
 @end
+
+@interface QServiceModel : QDataModel
+
+@property (nonatomic, strong) NSString *categoryName;
+@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic, strong) NSNumber *bidPrice;
+@property (nonatomic, strong) NSNumber *bidType;
+@property (nonatomic, strong) NSNumber *guaranteePeriod;
+@property (nonatomic, strong) NSNumber *gmtModified;
+
++ (QServiceModel*)getModelFromDic:(NSDictionary *)dic;
+
+@end
+

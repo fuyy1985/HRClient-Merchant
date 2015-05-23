@@ -51,15 +51,11 @@
         
         deleteArr = [[NSMutableArray alloc] initWithCapacity:0];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successToGetMyFavoirty:) name:kMyFavority object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successToDeleteMyFavoirty:) name:kDelectFavority object:nil];
-        
         [collectTableView.legendHeader beginRefreshing];
     }
     else if (eventType == kPageEventViewDispose)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kMyFavority object:nil];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kDelectFavority object:nil];
+
     }
 }
 
@@ -113,15 +109,12 @@
 
 - (void)headerRefresh
 {
-    _dataPage.nextPage = 1;
-    [[QHttpMessageManager sharedHttpMessageManager] accessMyfavority:[NSString stringWithFormat:@"%d", _dataPage.nextPage]
-                                                         andPageSize:[NSString stringWithFormat:@"%d", _dataPage.pageSize]];
+
 }
 
 - (void)footerLoading
 {
-    [[QHttpMessageManager sharedHttpMessageManager] accessMyfavority:[NSString stringWithFormat:@"%d", _dataPage.nextPage]
-                                                         andPageSize:[NSString stringWithFormat:@"%d", _dataPage.pageSize]];
+
 }
 
 #pragma mark - Action
@@ -177,7 +170,6 @@
             orderListId = [orderListId stringByAppendingString:favoriteId];
         }
     }
-    [[QHttpMessageManager sharedHttpMessageManager] accessDelectMyFavority:orderListId];
     [ASRequestHUD show];
 }
 

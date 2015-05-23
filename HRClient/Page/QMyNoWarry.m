@@ -28,7 +28,7 @@
     return @"我的车夫券";
 }
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMyCoupon object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMyCoupon object:nil];
 }
 
 - (void)setActiveWithParams:(NSDictionary *)params
@@ -43,7 +43,7 @@
 {
     if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireMyCoupon:) name:kMyCoupon object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireMyCoupon:) name:kMyCoupon object:nil];
         
         _needRefreshList = YES;
     }
@@ -97,8 +97,10 @@
 #pragma mark - Private
 - (void)tryGetWarryList
 {
+    /*
     [[QHttpMessageManager sharedHttpMessageManager] accessMyCoupon:@"0"];
     [ASRequestHUD show];
+    */
 }
 
 #pragma mark - Notification
@@ -199,7 +201,9 @@
 }
 
 #pragma mark - UISegmentedControl
-- (void)gotoSelectIndex:(UISegmentedControl*)segmentedControl{
+- (void)gotoSelectIndex:(UISegmentedControl*)segmentedControl
+{
+    /*
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
         {
@@ -222,6 +226,7 @@
         default:
             break;
     }
+    */
 }
 
 @end

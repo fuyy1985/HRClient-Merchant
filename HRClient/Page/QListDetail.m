@@ -74,7 +74,7 @@ typedef enum{
     if (eventType == kPageEventViewCreate)
     {
         _isDataChanged = YES;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetListDetail:) name:kGetMyListDetail object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetListDetail:) name:kGetMyListDetail object:nil];
     }
     else if (eventType == kPageEventWillShow)
     {
@@ -242,6 +242,7 @@ typedef enum{
 
 - (void)tryListDetail:(NSInteger)status
 {
+    /*
     switch (status)
     {
         case kOrderStatusUnPayed:
@@ -275,6 +276,7 @@ typedef enum{
         default:
             break;
     }
+     */
 }
 
 - (void)successGetListDetail:(NSNotification *)noti
