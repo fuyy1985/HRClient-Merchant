@@ -44,6 +44,14 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kInterfaceFailed object:[NSNumber numberWithInt:type]];
 }
 
+//登录
+- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password{
+    [self.httpManager accessLogin:nick andPassword:password];
+}
+- (void)didGetLogin:(QLoginModel *)dataArr{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLogin object:dataArr];
+}
+
 - (void)accessHotCity{
     [self.httpManager accessHotCity];
 }
@@ -75,13 +83,7 @@ static QHttpMessageManager *httpMessageManager = nil;
 - (void)didGetAcquireCode:(NSString *)whetherSuccess{
     [[NSNotificationCenter defaultCenter] postNotificationName:kAcquireCode object:whetherSuccess];
 }
-//登录
-- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password{
-    [self.httpManager accessLogin:nick andPassword:password];
-}
-- (void)didGetLogin:(QLoginModel *)dataArr{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLogin object:dataArr];
-}
+
 //商家评论
 - (void)accessBusinessComment:(NSString*)companyId andPage:(int)pageSize andIndex:(int)index{
     [self.httpManager accessBussinessComment:companyId andPage:pageSize andIndex:index];

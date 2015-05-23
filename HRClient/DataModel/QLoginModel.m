@@ -10,26 +10,10 @@
 
 @implementation QLoginModel
 
-+ (QLoginModel *)getModelFromDic:(NSDictionary *)dic{
++ (QLoginModel *)getModelFromDic:(NSDictionary *)dic
+{
     QLoginModel *model = [[QLoginModel alloc] init];
-    
-    model.userId = [dic objectForKey:@"userId"];
-    model.realName = [dic objectForKey:@"realName"];
-    model.nick = [dic objectForKey:@"nick"];
-    model.mail = [dic objectForKey:@"mail"];
-    model.phone = [dic objectForKey:@"phone"];
-    model.password = [dic objectForKey:@"password"];
-    model.payPasswd = [dic objectForKey:@"payPasswd"];
-    model.gmtCreate = [dic objectForKey:@"gmtCreate"];
-    model.gmtModified = [dic objectForKey:@"gmtModified"];
-    model.createUser = [dic objectForKey:@"createUser"];
-    model.modifiedUser = [dic objectForKey:@"modifiedUser"];
-    model.status = [dic objectForKey:@"status"];
-    model.balance = [dic objectForKey:@"balance"];
-    model.ticket = [dic objectForKey:@"ticket"];
-    model.member = [dic objectForKey:@"member"];
-    model.photoPath = [dic objectForKey:@"photoPath"];
-    
+    [model setValuesForKeysWithDictionary:dic];
     return model;
 }
 
@@ -45,7 +29,7 @@
     NSUserDefaults *usrDefaults = [NSUserDefaults standardUserDefaults];
 //  加密
 //  NSString *password = [DES3Util encrypt:loginMoedel.password];
-    [usrDefaults setObject:self.realName forKey:@"realName"];
+//    [usrDefaults setObject:self.realName forKey:@"realName"];
     [usrDefaults setObject:self.mail forKey:@"mail"];
     [usrDefaults setObject:self.phone forKey:@"phone"];
 //  [usrDefaults setObject:loginMoedel.password forKey:@"password"];

@@ -165,6 +165,22 @@
     else if([[resultDic objectForKey:@"status"] intValue] == 1){
         //  状态为1时
         switch (requestType) {
+            case kLogin:
+            {
+                NSDictionary *result1 = [resultDic objectForKey:@"result"];
+                if (![[resultDic objectForKey:@"status"] intValue]) {
+                    
+                }
+                else{
+                    QLoginModel  *loginModel = [QLoginModel getModelFromDic:result1];
+                    if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
+                        [self.delegate didGetLogin:loginModel];
+                    }
+                    cookie = [request responseCookies];
+                    debug_NSLog(@"cookie%@",cookie);
+                }
+            }
+                break;
                 
             case kDrawback:
             {
@@ -205,22 +221,6 @@
                 NSString *success = [resultDic objectForKey:@"message"];
                 if ([self.delegate respondsToSelector:@selector(didGetAcquireCode:)]) {
                     [self.delegate didGetAcquireCode:success];
-                }
-            }
-                break;
-            case kLogin:
-            {
-                NSDictionary *result1 = [resultDic objectForKey:@"result"];
-                if (![[resultDic objectForKey:@"status"] intValue]) {
-                    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"账户名或密码错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    //                [alert show];
-                }else{
-                    QLoginModel  *loginModel = [QLoginModel getModelFromDic:result1];
-                    if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
-                        [self.delegate didGetLogin:loginModel];
-                    }
-                    cookie = [request responseCookies];
-                    debug_NSLog(@"cookie%@",cookie);
                 }
             }
                 break;
@@ -777,6 +777,22 @@
 }
 
 #pragma mark --接口访问的方法
+
+//登录
+- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_Login];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:nick forKey:@"nick"];
+    [request setPostValue:password forKey:@"password"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kLogin];
+    [_networkQueue addOperation:request];
+}
+
+
 //获取热门城市
 - (void)accessHotCity{
     NSString *path = [NSString stringWithFormat:@"%@%@%@",TESTADRESS,DOMAINN,HOT_CITY_MESSAGE];
@@ -807,18 +823,6 @@
     [_networkQueue addOperation:request];
 }
 
-//登录
-- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password{
-    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS,Q_LOGIN];
-    NSURL *url = [NSURL URLWithString:path];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
-    [request setPostValue:nick forKey:@"nick"];
-    [request setPostValue:password forKey:@"password"];
-    [request setUseCookiePersistence:YES];
-    [self setGetMthodWith:request andRequestType:kLogin];
-    [_networkQueue addOperation:request];
-}
 //评论
 - (void)accessBussinessComment:(NSString*)companyId andPage:(int)pageSize andIndex:(int)index{
     NSString *path = [NSString stringWithFormat:@"%@%@%@",TESTADRESS,DOMAINN,Q_BUSINESS_COMMENT];

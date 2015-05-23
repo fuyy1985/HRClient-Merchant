@@ -19,14 +19,17 @@
 #define DOMAINN @"appapi"
 //测试
 #define SERVERADRESS [NSString stringWithFormat:@"%@%@",TESTADRESS,DOMAINN]
+//登陆
+#define Q_Login @"/companyUserController/companydoLogin"
+
+
 //热门城市
 #define HOT_CITY_MESSAGE @"/region/findAll"
 //获取区域
 #define Q_REGION @"/region/findById"
 //手机号码获取验证码
 #define ACQUIRE_CODE @"/user/sendSMSVerifyCode"
-//登录
-#define Q_LOGIN @"/user/doLogin"
+
 //评论
 #define Q_BUSINESS_COMMENT @"/comment/getAllComments"
 #define Q_PRODUCT_COMMENT @"/comment/getproduct"

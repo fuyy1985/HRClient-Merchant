@@ -70,14 +70,17 @@
 
 @property (nonatomic,copy)NSString *filePath;
 + (QHttpMessageManager *)sharedHttpMessageManager;
+//登录
+- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
+
+
 - (void)accessHotCity;
 //获取区域
 - (void)accessGetRegion:(NSString*)parentId;
 //验证码
 - (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message;
 //- (void)accessAcquireCode:(NSString *)phone;
-//登录
-- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
+
 //评论
 - (void)accessBusinessComment:(NSString*)companyId andPage:(int)pageSize andIndex:(int)index;
 - (void)accessProductComment:(NSString*)companyId andProductID:(NSString *)productId andPage:(int)pageSize andIndex:(int)index;

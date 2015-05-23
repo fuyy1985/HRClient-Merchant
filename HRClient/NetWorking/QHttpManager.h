@@ -23,9 +23,12 @@
 
 #define USER_INFO_KEY_TYPE          @"requestType"
 typedef enum{
-    kHotCity = 0,
+    kLogin = 0,
+    
+    
+    
+    kHotCity,
     kAcquireCode,
-    kLogin,
     kProductComment,
     kBusinessComment,
     kAcommendNick,
@@ -205,6 +208,10 @@ typedef enum{
 
 - (id)initWithDelegate:(id<QiaoHttpDelegate>)delegate;
 //需要用的方法
+//登录
+- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
+
+
 //热门城市
 - (void)accessHotCity;
 //获取区域
@@ -213,8 +220,7 @@ typedef enum{
 - (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message;
 
 //- (void)accessAcquireCode:(NSString *)phone;
-//登录
-- (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
+
 //评论
 - (void)accessBussinessComment:(NSString*)companyId andPage:(int)pageSize andIndex:(int)index;
 - (void)accessProductComment:(NSString*)companyId andProductID:(NSString*)productId andPage:(int)pageSize andIndex:(int)index;
