@@ -14,11 +14,16 @@
 #define kScanCode @"kScanCode"
 #define kGetOrderList @"kGetOrderList"
 #define kGetOrderDetail @"kGetOrderDetail"
+#define kOrderNotarize @"kOrderNotarize"
+#define kAllOrderNotarize @"kAllOrderNotarize"
+#define kCompanyAccount @"kCompanyAccount"
+#define kAcquireCode @"kAcquireCode"
+#define kInsertBank @"kInsertBank"
+#define kDeleteBank @"kDeleteBank"
 
 
 #define kHotCity @"kHotCity"//热门城市
 #define kGetRegion @"kGetRegion"
-#define kAcquireCode @"kAcquireCode"
 #define kProductComment @"kProductComment"
 #define kBusinessComment @"kBusinessComment"
 #define kAcommendNick @"kAcommendNick"
@@ -83,16 +88,24 @@
 - (void)accessGetOrderList;
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId;
-
-
+//确认提款
+- (void)accessOrderNotarize:(NSNumber*)orderListId;
+//一键确认订单
+- (void)accessAllOrderNotarize;
+//账户信息
+- (void)accessGetCompanyAccount;
+//验证码
+- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message;
+//增加绑定银行卡
+- (void)accessInsertBankCard:(NSString*)cardUserName andBankName:(NSString*)bankName andBankNo:(NSString*)bankNo andPhone:(NSString*)phone andVerifyCode:(NSString*)verifyCode;
+//删除银行卡
+- (void)accessDeleteBankCard:(NSNumber*)bankId;
 
 
 
 - (void)accessHotCity;
 //获取区域
 - (void)accessGetRegion:(NSString*)parentId;
-//验证码
-- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message;
 //- (void)accessAcquireCode:(NSString *)phone;
 
 //评论

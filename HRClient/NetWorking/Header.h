@@ -27,13 +27,26 @@
 #define Q_OrderList @"/companyOrderController/companyOrderlist"
 //订单详情
 #define Q_OrderDetail @"/companyOrderController/getOrderDetail"
+//确认提款
+#define Q_OrderNotarize @"/companyOrderController/notarizeOrder"
+//一键确认订单
+#define Q_AllOrderNotarize @"/companyOrderController/notarizeOrders"
+//账户信息
+#define Q_CompanyAccount @"/companyBank/companyAccount"
+//手机号码获取验证码
+#define Q_AcquireCode @"/user/sendSMSVerifyCode"
+//添加银行卡
+#define Q_InsertBank @"/companyBank/insertBank"
+//删除银行
+#define Q_DeleteBank @"/companyBank/deleteCompanyBank"
+
+
 
 //热门城市
 #define HOT_CITY_MESSAGE @"/region/findAll"
 //获取区域
 #define Q_REGION @"/region/findById"
-//手机号码获取验证码
-#define ACQUIRE_CODE @"/user/sendSMSVerifyCode"
+
 
 //评论
 #define Q_BUSINESS_COMMENT @"/comment/getAllComments"

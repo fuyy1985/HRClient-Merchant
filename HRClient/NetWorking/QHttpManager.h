@@ -27,9 +27,15 @@ typedef enum{
     kScanCode,
     kGetOrderList,
     kGetOrderDetail,
+    kOrderNotarize,
+    kAllOrderNotarize,
+    kGetCompanyAccount,
+    kAcquireCode,
+    kInsertBank,
+    kDeleteBank,
+    
     
     kHotCity,
-    kAcquireCode,
     kProductComment,
     kBusinessComment,
     kAcommendNick,
@@ -90,15 +96,24 @@ typedef enum{
 - (void)didGetOrderList:(NSMutableArray*)dataArr;
 //订单详情
 - (void)didGetOrderDetail:(id)model;
+//确认提款
+- (void)didFinishOrderNotarize:(id)model;
+//一键全部订单提款
+- (void)didFinishAllOrderNotarize:(id)model;
+//账户信息
+- (void)didGetCompanyAccount:(id)model;
+//验证码的回调方法
+- (void)didGetAcquireCode:(NSString *)code;
+//增加银行卡
+- (void)didInsertBank:(id)model;
+//删除银行卡
+- (void)didDeleteBankCard:(id)model;
 
 
 //热门城市的回调方法
 - (void)didGetHotCity:(NSMutableArray *)dataArr;
 //获取区域
 - (void)didGetRegion:(NSMutableArray *)dataArr;
-//验证码的回调方法
-- (void)didGetAcquireCode:(NSString *)code;
-
 //评论
 - (void)didGetBusinessComment:(NSMutableArray *)dataArr;
 - (void)didGetProductComment:(NSMutableArray *)dataArr;
@@ -226,8 +241,16 @@ typedef enum{
 - (void)accessGetOrderList;
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId;
-
-
+//确认提款
+- (void)accessOrderNotarize:(NSNumber*)orderListId;
+//一键确认订单
+- (void)accessAllOrderNotarize;
+//账户信息
+- (void)accessGetCompanyAccount;
+//增加银行卡
+- (void)accessInsertBankCard:(NSString*)cardUserName andBankName:(NSString*)bankName andBankNo:(NSString*)bankNo andPhone:(NSString*)phone andVerifyCode:(NSString*)verifyCode;
+//删除银行卡
+- (void)accessDeleteBankCard:(NSNumber*)bankId;
 
 //热门城市
 - (void)accessHotCity;

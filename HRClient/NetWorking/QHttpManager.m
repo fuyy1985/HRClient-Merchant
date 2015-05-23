@@ -212,6 +212,51 @@
                 }
             }
                 break;
+            case kOrderNotarize:
+            {
+                if (self.delegate && [self respondsToSelector:@selector(didFinishOrderNotarize:)]) {
+                    [self.delegate didFinishOrderNotarize:nil];
+                }
+            }
+                break;
+            case kAllOrderNotarize:
+            {
+                if ([self respondsToSelector:@selector(didFinishAllOrderNotarize:)]) {
+                    [self.delegate didFinishAllOrderNotarize:nil];
+                }
+            }
+                break;
+            case kGetCompanyAccount:
+            {
+                NSDictionary *dict = [resultDic objectForKey:@"result"];
+                QCompanyAccount *model = [QCompanyAccount getModelFromDic:dict];
+                if ([self respondsToSelector:@selector(didGetCompanyAccount:)]) {
+                    [self.delegate didGetCompanyAccount:model];
+                }
+            }
+                break;
+            case kAcquireCode://验证码
+            {
+                NSString *success = [resultDic objectForKey:@"message"];
+                if ([self.delegate respondsToSelector:@selector(didGetAcquireCode:)]) {
+                    [self.delegate didGetAcquireCode:success];
+                }
+            }
+                break;
+            case kInsertBank:
+            {
+                if ([self.delegate respondsToSelector:@selector(didInsertBank:)]) {
+                    [self.delegate didInsertBank:nil];
+                }
+            }
+                break;
+            case kDeleteBank:
+            {
+                if ([self.delegate respondsToSelector:@selector(didDeleteBankCard:)]){
+                    [self.delegate didDeleteBankCard:nil];
+                }
+            }
+                break;
             case kDrawback:
             {
                 NSNumber *ret = [resultDic objectForKey:@"result"];
@@ -243,14 +288,6 @@
                 }
                 if ([self.delegate respondsToSelector:@selector(didGetRegion:)]) {
                     [self.delegate didGetRegion:modeArray];
-                }
-            }
-                break;
-            case kAcquireCode://验证码
-            {
-                NSString *success = [resultDic objectForKey:@"message"];
-                if ([self.delegate respondsToSelector:@selector(didGetAcquireCode:)]) {
-                    [self.delegate didGetAcquireCode:success];
                 }
             }
                 break;
@@ -858,6 +895,78 @@
     [_networkQueue addOperation:request];
 }
 
+//确认提款
+- (void)accessOrderNotarize:(NSNumber*)orderListId
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderNotarize];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:orderListId forKey:@"receiptOrdLstId"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kOrderNotarize];
+    [_networkQueue addOperation:request];
+}
+//一键确认订单
+- (void)accessAllOrderNotarize
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_AllOrderNotarize];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kAllOrderNotarize];
+    [_networkQueue addOperation:request];
+}
+//账户信息
+- (void)accessGetCompanyAccount
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_CompanyAccount];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kGetCompanyAccount];
+    [_networkQueue addOperation:request];
+}
+//获取验证码
+- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS,Q_AcquireCode];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:phone forKey:@"phone"];
+    [request setPostValue:message forKey:@"message"];
+    [self setGetMthodWith:request andRequestType:kAcquireCode];
+    [_networkQueue addOperation:request];
+}
+//添加银行卡
+- (void)accessInsertBankCard:(NSString*)cardUserName andBankName:(NSString*)bankName andBankNo:(NSString*)bankNo andPhone:(NSString*)phone andVerifyCode:(NSString*)verifyCode
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_InsertBank];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:cardUserName forKey:@"accName"];
+    [request setPostValue:bankName forKey:@"bankName"];
+    [request setPostValue:bankNo forKey:@"bankNo"];
+    [request setPostValue:phone forKey:@"phone"];
+    [request setPostValue:verifyCode forKey:@"verifyCode"];
+    [self setGetMthodWith:request andRequestType:kInsertBank];
+    [_networkQueue addOperation:request];
+}
+//删除银行卡
+- (void)accessDeleteBankCard:(NSNumber*)bankId
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_DeleteBank];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:bankId forKey:@"bankId"];
+    [self setGetMthodWith:request andRequestType:kDeleteBank];
+    [_networkQueue addOperation:request];
+}
 
 
 
@@ -880,16 +989,6 @@
     [_networkQueue addOperation:request];
 }
 
-- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message{
-    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS,ACQUIRE_CODE];
-    NSURL *url = [NSURL URLWithString:path];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
-    [request setPostValue:phone forKey:@"phone"];
-    [request setPostValue:message forKey:@"message"];
-    [self setGetMthodWith:request andRequestType:kAcquireCode];
-    [_networkQueue addOperation:request];
-}
 
 //评论
 - (void)accessBussinessComment:(NSString*)companyId andPage:(int)pageSize andIndex:(int)index{

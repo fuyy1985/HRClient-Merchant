@@ -82,6 +82,67 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderDetail object:nil];
 }
 
+//确认提款
+- (void)accessOrderNotarize:(NSNumber*)orderListId
+{
+    [self.httpManager accessOrderNotarize:orderListId];
+}
+
+- (void)didFinishOrderNotarize:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kOrderNotarize object:model];
+}
+
+//一键确认订单
+- (void)accessAllOrderNotarize
+{
+    [self.httpManager accessAllOrderNotarize];
+}
+
+- (void)didFinishAllOrderNotarize:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAllOrderNotarize object:model];
+}
+
+//账户信息
+- (void)accessGetCompanyAccount
+{
+    [self.httpManager accessGetCompanyAccount];
+}
+
+- (void)didGetCompanyAccount:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCompanyAccount object:model];
+}
+
+- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message{
+    [self.httpManager accessAcquireCode:phone andMessage:message];
+}
+
+- (void)didGetAcquireCode:(NSString *)whetherSuccess{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAcquireCode object:whetherSuccess];
+}
+
+//增加绑定银行卡
+- (void)accessInsertBankCard:(NSString*)cardUserName andBankName:(NSString*)bankName andBankNo:(NSString*)bankNo andPhone:(NSString*)phone andVerifyCode:(NSString*)verifyCode
+{
+    [self.httpManager accessInsertBankCard:cardUserName andBankName:bankName andBankNo:bankNo andPhone:phone andVerifyCode:verifyCode];
+}
+- (void)didInsertBank:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInsertBank object:model];
+}
+
+//删除银行卡
+- (void)accessDeleteBankCard:(NSNumber*)bankId
+{
+    [self.httpManager accessDeleteBankCard:bankId];
+}
+- (void)didDeleteBankCard:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDeleteBank object:model];
+}
+
 
 - (void)accessHotCity{
     [self.httpManager accessHotCity];
@@ -102,17 +163,6 @@ static QHttpMessageManager *httpMessageManager = nil;
 }
 - (void)didGetRegion:(NSMutableArray *)dataArr{
     [[NSNotificationCenter defaultCenter] postNotificationName:kGetRegion object:dataArr];
-}
-
-- (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message{
-    [self.httpManager accessAcquireCode:phone andMessage:message];
-}
-//- (void)accessAcquireCode:(NSString *)phone{
-//    [self.httpManager accessAcquireCode:phone];
-//}
-
-- (void)didGetAcquireCode:(NSString *)whetherSuccess{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAcquireCode object:whetherSuccess];
 }
 
 //商家评论
