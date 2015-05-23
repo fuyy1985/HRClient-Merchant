@@ -35,12 +35,12 @@
 {
     if (eventType == kPageEventWillShow)
     {
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDone:) name:Noti_Location_Done object:nil];
-        [[QHttpMessageManager sharedHttpMessageManager] accessScanCode:@"999034926502"];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
+        [[QHttpMessageManager sharedHttpMessageManager] accessLogin:@"15157193193" andPassword:@"000000"];
     }
     else if (eventType == kPageEventWillHide)
     {
-        //[[NSNotificationCenter defaultCenter] removeObserver:self name:kHomePage object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
     }
     else if (eventType == kPageEventViewCreate)
     {
@@ -64,6 +64,12 @@
     }
     
     return _view;
+}
+
+#pragma mark - Noticiation
+- (void)successLogin:(NSNotification*)noti
+{
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList];
 }
 
 

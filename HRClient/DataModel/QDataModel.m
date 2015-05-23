@@ -76,3 +76,16 @@
 }
 
 @end
+
+@implementation QOrderModel
+
++ (QOrderModel *)getModelFromDic:(NSDictionary *)dic
+{
+    QOrderModel *model = [[QOrderModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
+

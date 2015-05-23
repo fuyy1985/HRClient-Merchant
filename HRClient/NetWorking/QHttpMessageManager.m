@@ -62,6 +62,16 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kScanCode object:model];
 }
 
+//订单列表
+- (void)accessGetOrderList
+{
+    [self.httpManager accessGetOrderList];
+}
+- (void)didGetOrderList:(NSMutableArray*)dataArr
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderList object:dataArr];
+}
+
 
 - (void)accessHotCity{
     [self.httpManager accessHotCity];

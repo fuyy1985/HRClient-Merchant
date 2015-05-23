@@ -47,3 +47,17 @@
 
 
 @end
+
+@interface QOrderModel : QDataModel
+
+@property (nonatomic, strong) NSString *orderListNo;
+@property (nonatomic, strong) NSNumber *orderListId;
+@property (nonatomic, strong) NSNumber *gmtCreate;
+@property (nonatomic, strong) NSString *nick;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic,strong)NSNumber *status;
+@property (nonatomic,strong)NSNumber *receiptOrdLstId;
++ (QOrderModel *)getModelFromDic:(NSDictionary *)dic;
+
+@end

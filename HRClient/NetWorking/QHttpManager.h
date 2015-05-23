@@ -25,7 +25,7 @@
 typedef enum{
     kLogin = 0,
     kScanCode,
-    
+    kGetOrderList,
     
     kHotCity,
     kAcquireCode,
@@ -85,7 +85,8 @@ typedef enum{
 - (void)didGetLogin:(QLoginModel *)dataArr;
 //扫描用户版的二维码
 - (void)didScanCode:(id)model;
-
+//订单列表
+- (void)didGetOrderList:(NSMutableArray*)dataArr;
 
 
 //热门城市的回调方法
@@ -218,6 +219,11 @@ typedef enum{
 - (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
 //扫描用户版的二维码
 - (void)accessScanCode:(NSString*)verificationCode;
+//订单列表
+- (void)accessGetOrderList;
+
+
+
 
 //热门城市
 - (void)accessHotCity;

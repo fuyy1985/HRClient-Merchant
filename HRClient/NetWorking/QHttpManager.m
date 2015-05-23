@@ -190,6 +190,19 @@
                 }
             }
                 break;
+            case kGetOrderList:
+            {
+                NSArray *resultArray = [resultDic objectForKey:@"result"];
+                for (NSDictionary *dict in resultArray)
+                {
+                    QOrderModel *hotModel = [QOrderModel getModelFromDic:dict];
+                    [modeArray addObject:hotModel];
+                }
+                if ([self.delegate respondsToSelector:@selector(didGetOrderList:)]) {
+                    [self.delegate didGetOrderList:modeArray];
+                }
+            }
+                break;
             case kDrawback:
             {
                 NSNumber *ret = [resultDic objectForKey:@"result"];
@@ -809,6 +822,17 @@
     [request setPostValue:verificationCode forKey:@"verificationCode"];
     [request setUseCookiePersistence:YES];
     [self setGetMthodWith:request andRequestType:kScanCode];
+    [_networkQueue addOperation:request];
+}
+//订单列表
+- (void)accessGetOrderList
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderList];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kGetOrderList];
     [_networkQueue addOperation:request];
 }
 
