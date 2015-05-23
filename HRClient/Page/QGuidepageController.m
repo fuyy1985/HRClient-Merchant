@@ -174,8 +174,8 @@
     [self.view addSubview:speedBtn];
     
     //test
-    accountTextFiled.text = @"15157193193";
-    keyTextFiled.text = @"000000";
+    accountTextFiled.text = @"18958056805";
+    keyTextFiled.text = @"123456";
     
     /*
     CGFloat lineW = 0.3 * self.view.frame.size.width;

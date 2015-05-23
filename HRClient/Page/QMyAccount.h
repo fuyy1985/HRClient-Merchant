@@ -1,5 +1,5 @@
 //
-//  QMyCollect.h
+//  QMyAccount.h
 //  HRClient
 //
 //  Created by ekoo on 14/12/17.
@@ -8,6 +8,6 @@
 
 #import "QPage.h"
 
-@interface QMyCollect : QPage<UITableViewDelegate,UITableViewDataSource>
+@interface QMyAccount : QPage<UITableViewDelegate,UITableViewDataSource>
 
 @end
