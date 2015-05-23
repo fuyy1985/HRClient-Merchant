@@ -27,14 +27,6 @@
 		</dict>
 		<dict>
 			<key>pageID</key>
-			<string>QMyOrders</string>
-			<key>menuIcon</key>
-			<string>dingdan.png</string>
-			<key>menuName</key>
-			<string>订单</string>
-		</dict>
-		<dict>
-			<key>pageID</key>
 			<string>QMyPage</string>
 			<key>menuIcon</key>
 			<string>shangjia.png</string>

@@ -107,14 +107,6 @@
     UIButton *btn = (UIButton*)sender;
     NSInteger index = btn.tag - tagBtn;
     
-    //未登录情况
-    if (index == 2) {
-        if ([QUser sharedQUser].isLogin == NO) {
-            [QViewController gotoPage:@"QAccountLogin" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:@"QMyPage", @"NextPage", nil]];
-            return;
-        }
-    }
-    
     [self setMenuIndex:index];
     self.curIndex = index;
 }

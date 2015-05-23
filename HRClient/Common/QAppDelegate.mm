@@ -29,10 +29,10 @@ void handler(int n)
     sigaction(SIGPIPE, &sa, 0);
     
     [UMSocialData setAppKey:UMSocalAppKey];
+    
     //urlType也需要改，是appid，我写的是appkey
     [UMSocialWechatHandler setWXAppId:@"wxba1f0f3a73571da2" appSecret:@"60837783636e52eedd34b7675c0d793c"
                                   url:@"http://www.wanliwuyou.com/member/downloadiPhone.html"];
-    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -49,7 +49,6 @@ void handler(int n)
     [self installDownloadCache];
     return YES;
 }
-
 
 - (void)installDownloadCache
 {
@@ -99,3 +98,4 @@ int main(int argc, char * argv[])
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([QAppDelegate class]));
     }
 }
+

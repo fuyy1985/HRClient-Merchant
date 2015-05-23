@@ -1789,9 +1789,9 @@
 		A7268F261B07078E00A00F88 /* guideAndLoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				DD2873221A2B55B30000B242 /* QLoginPage.h */,
 				DD2873201A2B55B30000B242 /* QGuidepageController.h */,
 				DD2873211A2B55B30000B242 /* QGuidepageController.m */,
+				DD2873221A2B55B30000B242 /* QLoginPage.h */,
 				DD2873231A2B55B30000B242 /* QLoginPage.m */,
 			);
 			name = guideAndLoginPage;
