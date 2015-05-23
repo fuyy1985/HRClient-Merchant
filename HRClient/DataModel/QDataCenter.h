@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "QConfigration.h"
+#import "QDataModel.h"
 
 @interface QDataCenter : NSObject
 {
+@public
+    QLoginModel *loginModel;
 }
 
 + (QDataCenter *) sharedDataCenter;

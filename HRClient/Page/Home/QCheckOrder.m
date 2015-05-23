@@ -29,6 +29,7 @@
 
 - (void)setActiveWithParams:(NSDictionary *)params
 {
+    
 }
 
 - (void)pageEvent:(QPageEventType)eventType
@@ -58,7 +59,6 @@
 
 - (void)gotoScanPage:(id)sender
 {
-    
 }
 
 - (void)gotoCheck:(id)sender
@@ -87,7 +87,7 @@
         UILabel *stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(14,CGRectGetMaxY(scanBtn.frame)+13,frame.size.width - 28,40)];
         stateLabel.backgroundColor = [UIColor clearColor];
         stateLabel.font = [UIFont systemFontOfSize:15];
-        stateLabel.textColor = ColorTheme;
+        stateLabel.textColor = ColorDarkGray;
         stateLabel.text = @"您也可以输入消费码进行验证";
         [_view addSubview:stateLabel];
         

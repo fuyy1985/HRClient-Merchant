@@ -11,6 +11,7 @@
 #import "QViewController.h"
 #import "QHttpMessageManager.h"
 #import "QDataModel.h"
+#import "QDataCenter.h"
 
 @interface QGuidepageController ()
 /*
@@ -52,6 +53,11 @@
 {
     [ASRequestHUD dismiss];
     QLoginModel *model = noti.object;
+    
+    if (model)
+    {
+        [QDataCenter sharedDataCenter]->loginModel = model;
+    }
     
     //登录成功
     if (model.status.intValue)
