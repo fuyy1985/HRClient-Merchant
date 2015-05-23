@@ -8,6 +8,7 @@
 
 #import "QCheckOrder.h"
 #import "QViewController.h"
+#import "QScanPage.h"
 #import "QHttpMessageManager.h"
 
 @implementation QCheckOrder
@@ -55,16 +56,6 @@
 - (QBottomMenuType)bottomMenuType
 {
     return kBottomMenuTypeNormal;
-}
-
-- (void)gotoScanPage:(id)sender
-{
-}
-
-- (void)gotoCheck:(id)sender
-{
-    UITextField *infoText = (UITextField*)[_view viewWithTag:10000];
-    NSLog(@"%@",infoText.text);
 }
 
 - (UIView *)viewWithFrame:(CGRect)frame
@@ -122,10 +113,16 @@
     return _view;
 }
 
-//#pragma mark - Noticiation
-//- (void)successLogin:(NSNotification*)noti
-//{
-//    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderDetail:[NSNumber numberWithInt:1189]];
-//}
+#pragma mark - Action
+- (void)gotoScanPage:(id)sender
+{
+    [QViewController gotoPage:@"QScanPage" withParam:nil];
+}
+
+- (void)gotoCheck:(id)sender
+{
+    UITextField *infoText = (UITextField*)[_view viewWithTag:10000];
+    NSLog(@"%@",infoText.text);
+}
 
 @end
