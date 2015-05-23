@@ -56,10 +56,66 @@
     return kBottomMenuTypeNormal;
 }
 
+- (void)gotoScanPage:(id)sender
+{
+    
+}
+
+- (void)gotoCheck:(id)sender
+{
+    UITextField *infoText = (UITextField*)[_view viewWithTag:10000];
+    NSLog(@"%@",infoText.text);
+}
 
 - (UIView *)viewWithFrame:(CGRect)frame
 {
     if ([super viewWithFrame:frame]) {
+        
+        //scan
+        UIButton *scanBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        scanBtn.frame = CGRectMake(14,13,frame.size.width - 28,45);
+        [scanBtn setTitle:@"  扫描验单" forState:UIControlStateNormal];
+        [scanBtn setImage:IMAGEOF(@"shaomiao") forState:UIControlStateNormal];
+        [scanBtn setTitleColor:ColorTheme forState:UIControlStateNormal];
+        [scanBtn setTitleColor:ColorLightGray forState:UIControlStateHighlighted];
+        scanBtn.backgroundColor = [UIColor whiteColor];
+        scanBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        [scanBtn addTarget:self action:@selector(gotoScanPage:) forControlEvents:UIControlEventTouchUpInside];
+        [_view addSubview:scanBtn];
+        
+        //state
+        UILabel *stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(14,CGRectGetMaxY(scanBtn.frame)+13,frame.size.width - 28,40)];
+        stateLabel.backgroundColor = [UIColor clearColor];
+        stateLabel.font = [UIFont systemFontOfSize:15];
+        stateLabel.textColor = ColorTheme;
+        stateLabel.text = @"您也可以输入消费码进行验证";
+        [_view addSubview:stateLabel];
+        
+        //验证码输入
+        UITextField* inputNewTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(14, CGRectGetMaxY(stateLabel.frame)+13,
+                                                                                       frame.size.width - 28, 45)];
+        inputNewTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        inputNewTextFiled.tag = 10000;
+        inputNewTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+        inputNewTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+        inputNewTextFiled.font = [UIFont systemFontOfSize:15];
+        inputNewTextFiled.secureTextEntry = NO;
+        inputNewTextFiled.placeholder = @"输入8位消费劵密码";
+        inputNewTextFiled.textAlignment = NSTextAlignmentCenter;
+        inputNewTextFiled.backgroundColor = [UIColor whiteColor];
+        inputNewTextFiled.textColor = ColorTheme;
+        [_view addSubview:inputNewTextFiled];
+        
+        //check
+        UIButton *checkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        checkBtn.frame = CGRectMake(14,CGRectGetMaxY(inputNewTextFiled.frame)+30,frame.size.width - 28,45);
+        [checkBtn setTitle:@"验单" forState:UIControlStateNormal];
+        [checkBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [checkBtn setTitleColor:ColorLightGray forState:UIControlStateHighlighted];
+        checkBtn.backgroundColor = ColorTheme;
+        checkBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        [checkBtn addTarget:self action:@selector(gotoCheck:) forControlEvents:UIControlEventTouchUpInside];
+        [_view addSubview:checkBtn];
         
     }
     
