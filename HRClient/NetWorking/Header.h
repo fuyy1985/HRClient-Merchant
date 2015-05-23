@@ -25,6 +25,8 @@
 #define Q_ScanCode @"/companyUserController/scanList"
 //订单列表
 #define Q_OrderList @"/companyOrderController/companyOrderlist"
+//订单详情
+#define Q_OrderDetail @"/companyOrderController/getOrderDetail"
 
 //热门城市
 #define HOT_CITY_MESSAGE @"/region/findAll"

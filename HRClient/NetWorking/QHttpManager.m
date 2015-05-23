@@ -203,6 +203,15 @@
                 }
             }
                 break;
+            case kGetOrderDetail:
+            {
+                NSDictionary *dict = [resultDic objectForKey:@"result"];
+                QOrderDetailModel *model = [QOrderDetailModel getModelFromDic:dict];
+                if ([self.delegate respondsToSelector:@selector(didGetOrderDetail:)]) {
+                    [self.delegate didGetOrderDetail:model];
+                }
+            }
+                break;
             case kDrawback:
             {
                 NSNumber *ret = [resultDic objectForKey:@"result"];
@@ -835,6 +844,21 @@
     [self setGetMthodWith:request andRequestType:kGetOrderList];
     [_networkQueue addOperation:request];
 }
+
+//订单详情
+- (void)accessGetOrderDetail:(NSNumber*)orderListId
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderDetail];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:orderListId forKey:@"orderListId"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kGetOrderDetail];
+    [_networkQueue addOperation:request];
+}
+
+
 
 
 //获取热门城市

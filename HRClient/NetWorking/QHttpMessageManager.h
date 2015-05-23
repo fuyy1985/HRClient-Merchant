@@ -13,6 +13,7 @@
 #define kLogin @"kLogin"
 #define kScanCode @"kScanCode"
 #define kGetOrderList @"kGetOrderList"
+#define kGetOrderDetail @"kGetOrderDetail"
 
 
 #define kHotCity @"kHotCity"//热门城市
@@ -80,7 +81,8 @@
 - (void)accessScanCode:(NSString*)verificationCode;
 //订单列表
 - (void)accessGetOrderList;
-
+//订单详情
+- (void)accessGetOrderDetail:(NSNumber*)orderListId;
 
 
 

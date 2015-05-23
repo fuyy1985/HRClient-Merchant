@@ -88,4 +88,15 @@
 
 @end
 
+@implementation QOrderDetailModel
+
++ (QOrderDetailModel *)getModelFromDic:(NSDictionary *)dic
+{
+    QOrderDetailModel *model = [[QOrderDetailModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
 

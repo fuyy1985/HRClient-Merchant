@@ -199,13 +199,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HRClient/Page/Home/QCheckOrder.m"
-            timestampString = "454044656.796097"
+            filePath = "HRClient/NetWorking/QHttpMessageManager.m"
+            timestampString = "454047456.158305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-successLogin:"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-didGetOrderDetail:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

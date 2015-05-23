@@ -41,7 +41,7 @@
 @property (nonatomic, strong) NSString *orderListNo;
 @property (nonatomic, strong) NSString *verificationCode;
 @property (nonatomic, strong) NSString *subject;
-@property (nonatomic,strong)NSNumber *quantity;
+@property (nonatomic, strong)NSNumber *quantity;
 
 + (QScanModel *)getModelFromDic:(NSDictionary *)dic;
 
@@ -56,8 +56,38 @@
 @property (nonatomic, strong) NSString *nick;
 @property (nonatomic, strong) NSString *subject;
 @property (nonatomic, strong) NSNumber *price;
-@property (nonatomic,strong)NSNumber *status;
-@property (nonatomic,strong)NSNumber *receiptOrdLstId;
+@property (nonatomic, strong) NSNumber *status;
+@property (nonatomic, strong) NSNumber *receiptOrdLstId;
 + (QOrderModel *)getModelFromDic:(NSDictionary *)dic;
+
+@end
+
+@interface QOrderDetailModel : QDataModel
+
+@property (nonatomic, strong) NSNumber *orderListId;
+@property (nonatomic, strong) NSNumber *productId;
+@property (nonatomic, strong) NSNumber *companyId;
+@property (nonatomic, strong) NSNumber *payId;
+@property (nonatomic, strong) NSNumber *total;
+@property (nonatomic, strong) NSNumber *actualSettlement;
+@property (nonatomic, strong) NSNumber *quantity;
+@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSNumber *status;
+@property (nonatomic, strong) NSNumber *gmtCreate;
+@property (nonatomic, strong) NSNumber *gmtModified;
+@property (nonatomic, strong) NSNumber *phone;
+@property (nonatomic, strong) NSString *orderListNo;
+@property (nonatomic, strong) NSNumber *guaranteePeriod;
+@property (nonatomic, strong) NSNumber *or_member;
+@property (nonatomic, strong) NSNumber *returnNotSpending;
+@property (nonatomic, strong) NSNumber *returnOverdue;
+@property (nonatomic, strong) NSNumber *returnDissatisfied;
+@property (nonatomic, strong) NSString *payNo;
+@property (nonatomic, strong) NSNumber *expireDate;
+@property (nonatomic, strong) NSString *verificationCode;
+
++ (QOrderDetailModel *)getModelFromDic:(NSDictionary *)dic;
+
 
 @end

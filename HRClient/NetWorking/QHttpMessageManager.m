@@ -72,6 +72,16 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderList object:dataArr];
 }
 
+//订单详情
+- (void)accessGetOrderDetail:(NSNumber*)orderListId
+{
+    [self.httpManager accessGetOrderDetail:orderListId];
+}
+- (void)didGetOrderDetail:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderDetail object:nil];
+}
+
 
 - (void)accessHotCity{
     [self.httpManager accessHotCity];

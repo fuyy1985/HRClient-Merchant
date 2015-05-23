@@ -69,7 +69,7 @@
 #pragma mark - Noticiation
 - (void)successLogin:(NSNotification*)noti
 {
-    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList];
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderDetail:[NSNumber numberWithInt:1189]];
 }
 
 
