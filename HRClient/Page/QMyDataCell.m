@@ -8,6 +8,7 @@
 
 #import "QMyDataCell.h"
 #import "QHttpMessageManager.h"
+#import "QDataCenter.h"
 
 static BOOL isChange;
 @interface QMyDataCell (){
@@ -18,7 +19,7 @@ static BOOL isChange;
 
 @property (nonatomic,strong)UILabel *beforeLabel;
 @property (nonatomic,strong)UILabel *backLabel;
-@property (nonatomic,strong)UITextField *accountTextFiled;
+@property (nonatomic,strong)UILabel *accountTextFiled;
 
 @end
 
@@ -40,7 +41,7 @@ static BOOL isChange;
         _beforeLabel.font = [UIFont systemFontOfSize:15];
         [self.contentView addSubview:_beforeLabel];
         
-        _backLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_SIZE_WIDTH - 150 - 30, topH, 150, h)];
+        _backLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_SIZE_WIDTH - 200 - 30, topH, 200, h)];
         _backLabel.textColor = [QTools colorWithRGB:136 :136 :136];
         _backLabel.backgroundColor = [UIColor clearColor];
         _backLabel.font = [UIFont systemFontOfSize:15];
@@ -50,13 +51,13 @@ static BOOL isChange;
         tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sureToChangeColor:)];
         [self.contentView addSubview:_backLabel];
         
-        _accountTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(_beforeLabel.deFrameRight, topH, 140, h)];
-        _accountTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        /*
+        _accountTextFiled = [[UILabel alloc] initWithFrame:CGRectMake(_beforeLabel.deFrameRight, topH, 140, h)];
+        _accountTextFiled.textColor = [QTools colorWithRGB:85 :85 :85];
+        _accountTextFiled.textAlignment = NSTextAlignmentRight;
         _accountTextFiled.font = [UIFont systemFontOfSize:15];
-        _accountTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _accountTextFiled.delegate = self;
         [self.contentView addSubview:_accountTextFiled];
-        _accountTextFiled.hidden = YES;
+        _accountTextFiled.hidden = YES;*/
         
         [self awakeFromNib];
     }
@@ -69,31 +70,32 @@ static BOOL isChange;
 
 - (void)configurationCellWithModel:(NSArray *)arr andIndexPath:(NSIndexPath *)indexPath andPayPwd:(NSString *)myPayPwd{
 
-    if (indexPath.section == 0) {
-        
-        _beforeLabel.text = arr[indexPath.section];
-        _backLabel.text = @"修改";
-        [_backLabel addGestureRecognizer:tap];
-        _accountTextFiled.text = [ASUserDefaults objectForKey:AccountNick];
-        _accountTextFiled.hidden = NO;
+    if (indexPath.section == 0)
+    {
+        _backLabel.text = @"";
+        if (indexPath.row == 0) {
+            _beforeLabel.text = arr[0];
+            _backLabel.text = [QDataCenter sharedDataCenter]->loginModel.realName;
+        }
+        else
+        {
+            _beforeLabel.text = arr[1];
+            _backLabel.text = [QDataCenter sharedDataCenter]->loginModel.phone;
+        }
         
     }
     else if (indexPath.section == 1){
         
         if (indexPath.row == 0 && [myPayPwd isEqualToString:@"Y"]) {
             _backLabel.text = @"修改/找回";
-            _beforeLabel.text = arr[indexPath.row + 1];
+            _beforeLabel.text = arr[2];
         }
         else if (indexPath.row == 0){
-            _beforeLabel.text = arr[indexPath.row + 1];
+            _beforeLabel.text = arr[2];
             _backLabel.text = @"设置";
         }
-        else if (indexPath.row == 2){
-            _beforeLabel.text = arr[indexPath.row + 1];
-            _backLabel.text = [ASUserDefaults objectForKey:LoginUserPhone];
-        }
         else{
-            _beforeLabel.text = arr[indexPath.row + 1];
+            _beforeLabel.text = arr[3];
             _backLabel.text = @"修改";
         }
     }

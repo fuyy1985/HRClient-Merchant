@@ -25,12 +25,12 @@
 @implementation QMyData
 
 - (NSString *)title{
-    return @"我的";
+    return @"密码管理";
 }
 
 - (void)setActiveWithParams:(NSDictionary *)params
 {
-    titles = @[@"账户名",@"支付密码",@"登录密码",@"已绑定手机"];
+    titles = @[@"账户名",@"已绑定手机",@"支付密码",@"登录密码"];
 }
 
 - (void)pageEvent:(QPageEventType)eventType
@@ -48,27 +48,10 @@
 - (UIView *)viewWithFrame:(CGRect)frame{
     if ([super viewWithFrame:frame]) {
         _view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
-        
-        CGFloat beforeW = 10.0;
-        CGFloat w = frame.size.width - 20;
-        CGFloat h = 35.0;
-        
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, h + 2*20)];
-        
-        UIButton *leaveBtn = [[UIButton alloc] initWithFrame:CGRectMake(beforeW, 20, w , h)];
-        [leaveBtn setBackgroundImage:[QTools createImageWithColor:ColorTheme] forState:UIControlStateNormal];
-        [leaveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [leaveBtn setTitle:@"退出帐号" forState:UIControlStateNormal];
-        leaveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [leaveBtn addTarget:self action:@selector(gotoLeaveAccount) forControlEvents:UIControlEventTouchUpInside];
-        leaveBtn.layer.masksToBounds = YES;
-        leaveBtn.layer.cornerRadius = 4.0;
-        [footerView addSubview:leaveBtn];
 
         _MyDataTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)style:UITableViewStylePlain];
         _MyDataTableView.dataSource = self;
         _MyDataTableView.delegate = self;
-        _MyDataTableView.tableFooterView = footerView;
         _MyDataTableView.backgroundColor = [QTools colorWithRGB:240 :239 :237];
         [_view addSubview:_MyDataTableView];
     }
@@ -78,28 +61,9 @@
 - (void)acomendNickSucess:(NSNotification*)noti
 {
     [ASRequestHUD dismissWithSuccess:@"修改成功"];
-    
     [ASUserDefaults setObject:newNick forKey:AccountNick];
 }
 
-#pragma mark - Action
-
-- (void)gotoLeaveAccount{
-    [QUser sharedQUser].isLogin = NO;
-    QLoginModel *model = [[QLoginModel alloc] init];
-    [model savetoLocal:nil];
-    [[QUser sharedQUser] clearInfo];
-    [QViewController gotoPage:@"QHomePage" withParam:nil];
-}
-
-#pragma  mark - QMyDataCellDelegate
-- (void)setNick:(NSString*)nick
-{
-    newNick = nick;
-    
-    [[QHttpMessageManager sharedHttpMessageManager] accessAcommendNick:nick];
-    [ASRequestHUD show];
-}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -109,10 +73,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 1;
+            return 2;
             break;
         case 1:
-            return 3;
+            return 2;
             break;
         default:
             return 0;
@@ -160,23 +124,19 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        QMyDataCell *cell = (QMyDataCell*)[tableView cellForRowAtIndexPath:indexPath];
-        [cell beginEditNickName];
-    }
-    else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-//            QAmendPayKey
+    if (indexPath.section == 1)
+    {
+        if (indexPath.row == 0)
+        {
             if ([[ASUserDefaults objectForKey:AccountPayPasswd] isEqualToString:@"Y"]) {
                 [QViewController gotoPage:@"QAmmendOrSetKey" withParam:nil];
             }else{
                 [QViewController gotoPage:@"QSetPayKey" withParam:nil];
             }
-            
-        }else if (indexPath.row == 1){
+        }
+        else if (indexPath.row == 1)
+        {
             [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
-        }else if (indexPath.row == 2){
-            [QViewController gotoPage:@"QChangeTel" withParam:nil];
         }
         
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];

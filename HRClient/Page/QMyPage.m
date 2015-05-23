@@ -37,17 +37,18 @@
 @implementation QMyPage
 
 - (NSString *)title{
-    return @"我的";
+    return @"商户中心";
 }
 
 - (void)pageEvent:(QPageEventType)eventType
 {
     if (eventType == kPageEventViewCreate)
     {
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successUpdateMyAccountInfo:) name:kGetMyAccountInfro object:nil];
     }
     else if (eventType == kPageEventWillShow)
     {
+        //TODO:每次到这里都要更新账户信息
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successUpdateMyAccountInfo:) name:kGetMyAccountInfro object:nil];
     }
     else if (eventType == kPageEventViewDispose)
     {
@@ -99,8 +100,6 @@
         }
         iconImageView.userInteractionEnabled = NO; //yes->no
         [firstImageView addSubview:iconImageView];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editPortrait)];
-        [iconImageView addGestureRecognizer:tap];
         
         //名字
         CGFloat nameTopH = 28;
@@ -206,21 +205,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0)
     {
+        //我的账户
         [QViewController gotoPage:@"QMyAccount" withParam:nil];
     }
     else if (indexPath.row == 1)
     {
+        //可提现订单
         NSString *row = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
         NSDictionary *dic = @{@"page":row};
         [QViewController gotoPage:@"QMyList" withParam:dic];
     }
-    else if (indexPath.row == 3)
-    {
-        [QViewController gotoPage:@"QMyCollect" withParam:nil];
-    }
     else if (indexPath.row == 2)
     {
-        [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:8], @"agreementType", nil]];
+        //密码管理
+        [QViewController gotoPage:@"QMyData" withParam:nil];
     }
 }
 
