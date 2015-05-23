@@ -35,19 +35,19 @@
 {
     if (eventType == kPageEventWillShow)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
-        [[QHttpMessageManager sharedHttpMessageManager] accessLogin:@"15157193193" andPassword:@"000000"];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessLogin:@"15157193193" andPassword:@"000000"];
     }
     else if (eventType == kPageEventWillHide)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
     }
     else if (eventType == kPageEventViewCreate)
     {
     }
     else if (eventType == kPageEventViewDispose)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
 }
 
@@ -122,11 +122,10 @@
     return _view;
 }
 
-#pragma mark - Noticiation
-- (void)successLogin:(NSNotification*)noti
-{
-    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderDetail:[NSNumber numberWithInt:1189]];
-}
-
+//#pragma mark - Noticiation
+//- (void)successLogin:(NSNotification*)noti
+//{
+//    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderDetail:[NSNumber numberWithInt:1189]];
+//}
 
 @end
