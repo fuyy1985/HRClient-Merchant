@@ -13,7 +13,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "QHttpMessageManager.h"
-#import "QLoginModel.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 

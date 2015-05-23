@@ -9,7 +9,6 @@
 #import "QMyData.h"
 #import "QMyDataCell.h"
 #import "QViewController.h"
-#import "QLoginModel.h"
 #import "QHttpMessageManager.h"
 
 

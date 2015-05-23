@@ -1,12 +1,16 @@
 //
-//  QLoginModel.m
+//  QDataModel.m
 //  HRClient
 //
-//  Created by ekoo on 15/1/4.
+//  Created by amy.fu on 15/5/23.
 //  Copyright (c) 2015年 panyj. All rights reserved.
 //
 
-#import "QLoginModel.h"
+#import "QDataModel.h"
+
+@implementation QDataModel
+
+@end
 
 @implementation QLoginModel
 
@@ -19,26 +23,26 @@
 
 /**
  password:
-        nil, 退出登录,清除账号信息
-        @“”, 无密码快速登录,一次有效
-        @“XXXXXX”, 正常登录,下一次启动,自动验证登录
+ nil, 退出登录,清除账号信息
+ @“”, 无密码快速登录,一次有效
+ @“XXXXXX”, 正常登录,下一次启动,自动验证登录
  */
 
 - (void)savetoLocal:(NSString*)password
 {
     NSUserDefaults *usrDefaults = [NSUserDefaults standardUserDefaults];
-//  加密
-//  NSString *password = [DES3Util encrypt:loginMoedel.password];
-//    [usrDefaults setObject:self.realName forKey:@"realName"];
+    //  加密
+    //  NSString *password = [DES3Util encrypt:loginMoedel.password];
+    //    [usrDefaults setObject:self.realName forKey:@"realName"];
     [usrDefaults setObject:self.mail forKey:@"mail"];
     [usrDefaults setObject:self.phone forKey:@"phone"];
-//  [usrDefaults setObject:loginMoedel.password forKey:@"password"];
+    //  [usrDefaults setObject:loginMoedel.password forKey:@"password"];
     [usrDefaults setObject:self.gmtCreate forKey:@"gmtCreate"];
     [usrDefaults setObject:self.gmtModified forKey:@"gmtModified"];
-//  [usrDefaults setObject:loginMoedel.createUser forKey:@"createUser"];
+    //  [usrDefaults setObject:loginMoedel.createUser forKey:@"createUser"];
     [usrDefaults setObject:self.modifiedUser forKey:@"modifiedUser"];
     [usrDefaults setObject:self.status forKey:@"status"];
-//  [usrDefaults setObject:loginMoedel.photoPath forKey:@"photoPath"];
+    //  [usrDefaults setObject:loginMoedel.photoPath forKey:@"photoPath"];
     [usrDefaults synchronize];
     
     if (password && ![password isEqualToString:@""]) {
@@ -60,5 +64,15 @@
     [ASUserDefaults synchronize];
 }
 
+@end
+
+@implementation QScanModel
+
++ (QScanModel *)getModelFromDic:(NSDictionary *)dic
+{
+    QScanModel *model = [[QScanModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
 
 @end

@@ -21,7 +21,8 @@
 #define SERVERADRESS [NSString stringWithFormat:@"%@%@",TESTADRESS,DOMAINN]
 //登陆
 #define Q_Login @"/companyUserController/companydoLogin"
-
+//扫描用户版的二维码
+#define Q_ScanCode @"/companyUserController/scanList"
 
 //热门城市
 #define HOT_CITY_MESSAGE @"/region/findAll"

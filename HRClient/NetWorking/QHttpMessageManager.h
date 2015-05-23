@@ -10,10 +10,13 @@
 #import "QHttpManager.h"
 
 #define kInterfaceFailed @"kInterfaceFailed"
+#define kLogin @"kLogin"
+#define kScanCode @"kScanCode"
+
+
 #define kHotCity @"kHotCity"//热门城市
 #define kGetRegion @"kGetRegion"
 #define kAcquireCode @"kAcquireCode"
-#define kLogin @"kLogin"
 #define kProductComment @"kProductComment"
 #define kBusinessComment @"kBusinessComment"
 #define kAcommendNick @"kAcommendNick"
@@ -72,7 +75,8 @@
 + (QHttpMessageManager *)sharedHttpMessageManager;
 //登录
 - (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
-
+//扫描用户版的二维码
+- (void)accessScanCode:(NSString*)verificationCode;
 
 - (void)accessHotCity;
 //获取区域

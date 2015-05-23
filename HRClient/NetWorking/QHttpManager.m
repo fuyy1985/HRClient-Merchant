@@ -8,7 +8,7 @@
 
 #import "QHttpManager.h"
 #import "QHotCityModel.h"
-#import "QLoginModel.h"
+#import "QDataModel.h"
 #import "QCommentModel.h"
 #import "QRegisterModel.h"
 #import "QDifStatusListQtyModel.h"
@@ -181,7 +181,15 @@
                 }
             }
                 break;
+            case kScanCode:
+            {
                 
+                
+                if ([self.delegate respondsToSelector:@selector(didScanCode:)]) {
+                    [self.delegate didScanCode:nil];
+                }
+            }
+                break;
             case kDrawback:
             {
                 NSNumber *ret = [resultDic objectForKey:@"result"];
@@ -789,6 +797,18 @@
     [request setPostValue:password forKey:@"password"];
     [request setUseCookiePersistence:YES];
     [self setGetMthodWith:request andRequestType:kLogin];
+    [_networkQueue addOperation:request];
+}
+//扫描用户版的二维码
+- (void)accessScanCode:(NSString*)verificationCode
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_ScanCode];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:verificationCode forKey:@"verificationCode"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kScanCode];
     [_networkQueue addOperation:request];
 }
 

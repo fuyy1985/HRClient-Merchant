@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Header.h"
-#import "QLoginModel.h"
+#import "QDataModel.h"
 #import "QDifStatusListQtyModel.h"
 #import "QMyListDetailModel.h"
 #import "QBusinessDetailModel.h"
@@ -24,7 +24,7 @@
 #define USER_INFO_KEY_TYPE          @"requestType"
 typedef enum{
     kLogin = 0,
-    
+    kScanCode,
     
     
     kHotCity,
@@ -37,7 +37,7 @@ typedef enum{
     kConfirmBindPhone,
     kAcommendPayPwd,
     kFindPayPwd,
-    kSetPayPwd = 11 ,//设置支付密码
+    kSetPayPwd,//设置支付密码
     kRegister,
     kFindLoginPwd,
     kSureFindLoginPwd,
@@ -47,7 +47,7 @@ typedef enum{
     kMyListDetail,//我的订单详情
     keditDelegate,//编辑删除
     kListRemark,//订单评价
-    kMyFavorite = 21,//收藏
+    kMyFavorite,//收藏
     kAddMyFavorite,//添加收藏
     kDelectMyFavorite,//删除收藏
     kSearch,//搜索
@@ -56,7 +56,7 @@ typedef enum{
     kBusinessDetail,//商家详情
     kHomePageList,//首页列表
     kProductDetail,//商品详情
-    kCarWashList = 31,//洗车列表
+    kCarWashList,//洗车列表
     kCarWashOption,//洗车选项
     kMyCoupon,//我的车夫券
     kMyCouponDetail,//我的车夫券详情
@@ -81,14 +81,20 @@ typedef enum{
 //代理方法
 //接口返回失败
 - (void)didGetDataFailed:(RequestType)type;
+//登录
+- (void)didGetLogin:(QLoginModel *)dataArr;
+//扫描用户版的二维码
+- (void)didScanCode:(id)model;
+
+
+
 //热门城市的回调方法
 - (void)didGetHotCity:(NSMutableArray *)dataArr;
 //获取区域
 - (void)didGetRegion:(NSMutableArray *)dataArr;
 //验证码的回调方法
 - (void)didGetAcquireCode:(NSString *)code;
-//登录的回调方法
-- (void)didGetLogin:(QLoginModel *)dataArr;
+
 //评论
 - (void)didGetBusinessComment:(NSMutableArray *)dataArr;
 - (void)didGetProductComment:(NSMutableArray *)dataArr;
@@ -210,7 +216,8 @@ typedef enum{
 //需要用的方法
 //登录
 - (void)accessLogin:(NSString *)nick andPassword:(NSString *)password;
-
+//扫描用户版的二维码
+- (void)accessScanCode:(NSString*)verificationCode;
 
 //热门城市
 - (void)accessHotCity;

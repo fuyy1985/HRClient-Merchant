@@ -9,7 +9,7 @@
 #import "QAccountLogin.h"
 #import "QViewController.h"
 #import "QHttpMessageManager.h"
-#import "QLoginModel.h"
+#import "QDataModel.h"
 #import "Header.h"
 #import "QUser.h"
 #import "DES3Util.h"

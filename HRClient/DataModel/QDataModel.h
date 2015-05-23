@@ -1,14 +1,18 @@
 //
-//  QLoginModel.h
+//  QDataModel.h
 //  HRClient
 //
-//  Created by ekoo on 15/1/4.
+//  Created by amy.fu on 15/5/23.
 //  Copyright (c) 2015年 panyj. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface QLoginModel : NSObject
+@interface QDataModel : NSObject
+
+@end
+
+@interface QLoginModel : QDataModel
 
 @property (nonatomic,strong)NSNumber *balance;
 @property (nonatomic,strong)NSNumber *ticket;
@@ -30,5 +34,16 @@
 + (QLoginModel *)getModelFromDic:(NSDictionary *)dic;
 
 - (void)savetoLocal:(NSString*)password;
+
+@end
+
+@interface QScanModel : QDataModel
+@property (nonatomic, strong) NSString *orderListNo;
+@property (nonatomic, strong) NSString *verificationCode;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic,strong)NSNumber *quantity;
+
++ (QScanModel *)getModelFromDic:(NSDictionary *)dic;
+
 
 @end

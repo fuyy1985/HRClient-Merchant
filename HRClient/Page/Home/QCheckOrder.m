@@ -8,6 +8,7 @@
 
 #import "QCheckOrder.h"
 #import "QViewController.h"
+#import "QHttpMessageManager.h"
 
 @implementation QCheckOrder
 
@@ -35,6 +36,7 @@
     if (eventType == kPageEventWillShow)
     {
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDone:) name:Noti_Location_Done object:nil];
+        [[QHttpMessageManager sharedHttpMessageManager] accessScanCode:@"999034926502"];
     }
     else if (eventType == kPageEventWillHide)
     {

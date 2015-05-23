@@ -7,7 +7,7 @@
 //
 
 #import "QHttpMessageManager.h"
-#import "QLoginModel.h"
+#import "QDataModel.h"
 #import "QDifStatusListQtyModel.h"
 #import "QMyListDetailModel.h"
 #import "QProductDetail.h"
@@ -51,6 +51,17 @@ static QHttpMessageManager *httpMessageManager = nil;
 - (void)didGetLogin:(QLoginModel *)dataArr{
     [[NSNotificationCenter defaultCenter] postNotificationName:kLogin object:dataArr];
 }
+
+//扫描用户版的二维码
+- (void)accessScanCode:(NSString*)verificationCode
+{
+    [self.httpManager accessScanCode:verificationCode];
+}
+- (void)didScanCode:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kScanCode object:model];
+}
+
 
 - (void)accessHotCity{
     [self.httpManager accessHotCity];
