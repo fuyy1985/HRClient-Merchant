@@ -185,12 +185,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HRClient/Page/Home/QCheckOrder.m"
-            timestampString = "454044642.351114"
+            filePath = "HRClient/Page/QFindPayKey.m"
+            timestampString = "454062170.571764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79">
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-gotoNext"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -199,13 +201,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HRClient/NetWorking/QHttpMessageManager.m"
-            timestampString = "454047456.158305"
+            filePath = "HRClient/Page/QFindPayKey.m"
+            timestampString = "454062203.786275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-didGetOrderDetail:"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-acquireSuccess:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

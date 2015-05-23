@@ -35,7 +35,7 @@ static BOOL isAnonymous;
 @implementation QRemark
 
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kListRemark object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kListRemark object:nil];
 }
 
 - (void)setActiveWithParams:(NSDictionary*)params //NOTE:方便页面激活时接收参数
@@ -47,7 +47,7 @@ static BOOL isAnonymous;
 {
     if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireRemarkSuccessInro:) name:kListRemark object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireRemarkSuccessInro:) name:kListRemark object:nil];
     }
 }
 
@@ -186,7 +186,7 @@ static BOOL isAnonymous;
     if ([messageTextView.text isEqualToString:@""]) {
         messageTextView.text = @"好评";
     }
-
+/*
     [[QHttpMessageManager sharedHttpMessageManager] accessSetListRemark:messageTextView.text
                                                               andUserId:userId
                                                            andProductId:[orderModel.productId stringValue]
@@ -198,7 +198,7 @@ static BOOL isAnonymous;
                                                            andCompanyId:[orderModel.companyId stringValue]
                                                          andOrderListId:[orderModel.orderListId stringValue]];
     [ASRequestHUD show];
-
+*/
 }
 
 

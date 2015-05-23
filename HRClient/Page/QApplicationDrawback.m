@@ -55,18 +55,17 @@
 {
     if (eventType == kPageEventWillShow)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retDrawback:) name:kDrawback object:nil];
+
     }
     else if (eventType == kPageEventWillHide)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kDrawback object:nil];
+
     }
 }
 
 - (void)drawBackOrder:(id)sender
 {
     //退款操作
-    [[QHttpMessageManager sharedHttpMessageManager] drawBack:orderDetail.payId.stringValue andReson:arr[curIndex]];
     [ASRequestHUD showWithMaskType:ASRequestHUDMaskTypeClear];
 }
 

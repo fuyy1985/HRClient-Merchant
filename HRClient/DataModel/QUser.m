@@ -22,19 +22,19 @@
         _client.isLogin = NO;
         _client.isCategoryCar = NO;
         
-        [[NSNotificationCenter defaultCenter] addObserver:_client selector:@selector(updateInfo:) name:kGetMyAccountInfro object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:_client selector:@selector(updateInfo:) name:kGetMyAccountInfro object:nil];
     });
     return _client;
 }
 
 - (void)updateUserInfo
 {
-    [[QHttpMessageManager sharedHttpMessageManager] accessMyAccount];
+//    [[QHttpMessageManager sharedHttpMessageManager] accessMyAccount];
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetMyAccountInfro object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetMyAccountInfro object:nil];
 }
 
 -(void)updateInfo:(NSNotification*)noti

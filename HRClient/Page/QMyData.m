@@ -37,11 +37,11 @@
 {
     if (eventType == kPageEventWillShow)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acomendNickSucess:) name:kAcommendNick object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acomendNickSucess:) name:kAcommendNick object:nil];
     }
     else if (eventType == kPageEventWillHide)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcommendNick object:nil];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcommendNick object:nil];
     }
 }
 

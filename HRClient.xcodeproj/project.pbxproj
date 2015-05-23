@@ -370,6 +370,9 @@
 		E1639FF01AD56A260046FF14 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1639FE21AD56A260046FF14 /* UIScrollView+MJExtension.m */; };
 		E1639FF11AD56A260046FF14 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E1639FE41AD56A260046FF14 /* UIScrollView+MJRefresh.m */; };
 		E1639FF21AD56A260046FF14 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1639FE61AD56A260046FF14 /* UIView+MJExtension.m */; };
+		E185BDD71B1078AB00B13D46 /* QScanPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E185BDD61B1078AB00B13D46 /* QScanPage.m */; };
+		E185BDDB1B1085F100B13D46 /* scan_now@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185BDDA1B1085F100B13D46 /* scan_now@2x.png */; };
+		E185BDDD1B10860400B13D46 /* scan_corner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185BDDC1B10860400B13D46 /* scan_corner@2x.png */; };
 		E18918041AC6BD77008B5E19 /* icon_quan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18918031AC6BD77008B5E19 /* icon_quan@2x.png */; };
 		E1B980101ADFD96B00AC7A0C /* icon_no_data@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B9800F1ADFD96B00AC7A0C /* icon_no_data@2x.png */; };
 		E1CB6B2D1AE2B50100DCE7D2 /* CustomWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB6B2C1AE2B50100DCE7D2 /* CustomWindow.m */; };
@@ -1124,6 +1127,10 @@
 		E1639FE41AD56A260046FF14 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		E1639FE51AD56A260046FF14 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		E1639FE61AD56A260046FF14 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		E185BDD51B1078AB00B13D46 /* QScanPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QScanPage.h; path = HRClient/Page/QScanPage.h; sourceTree = SOURCE_ROOT; };
+		E185BDD61B1078AB00B13D46 /* QScanPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QScanPage.m; path = HRClient/Page/QScanPage.m; sourceTree = SOURCE_ROOT; };
+		E185BDDA1B1085F100B13D46 /* scan_now@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_now@2x.png"; sourceTree = "<group>"; };
+		E185BDDC1B10860400B13D46 /* scan_corner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_corner@2x.png"; sourceTree = "<group>"; };
 		E18918031AC6BD77008B5E19 /* icon_quan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_quan@2x.png"; sourceTree = "<group>"; };
 		E1B9800F1ADFD96B00AC7A0C /* icon_no_data@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_no_data@2x.png"; path = "../icon_no_data@2x.png"; sourceTree = "<group>"; };
 		E1CB6B2B1AE2B50100DCE7D2 /* CustomWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWindow.h; sourceTree = "<group>"; };
@@ -1776,6 +1783,8 @@
 			children = (
 				A7268F271B07169500A00F88 /* QCheckOrder.h */,
 				A7268F281B07169500A00F88 /* QCheckOrder.m */,
+				E185BDD51B1078AB00B13D46 /* QScanPage.h */,
+				E185BDD61B1078AB00B13D46 /* QScanPage.m */,
 			);
 			name = CheckOrder;
 			path = Home;
@@ -1853,6 +1862,8 @@
 		A75AC2451B102AFA00E16610 /* scan */ = {
 			isa = PBXGroup;
 			children = (
+				E185BDDC1B10860400B13D46 /* scan_corner@2x.png */,
+				E185BDDA1B1085F100B13D46 /* scan_now@2x.png */,
 				A75AC2461B102AFA00E16610 /* bottom_bar@2x.png */,
 				A75AC2471B102AFA00E16610 /* button@2x.png */,
 				A75AC2481B102AFA00E16610 /* button_press@2x.png */,
@@ -2662,6 +2673,7 @@
 				DD2873621A2B55B30000B242 /* QMainMenuPage.plist in Resources */,
 				18F034861A48612D00BEB8C4 /* plus@2x.png in Resources */,
 				A75AC24F1B102AFA00E16610 /* shangjia@2x.png in Resources */,
+				E185BDDB1B1085F100B13D46 /* scan_now@2x.png in Resources */,
 				A7C6E3221AC7F09200CC5E5B /* icon_weixin@2x.png in Resources */,
 				DDAA5FE11AAF48F000230734 /* icon_mine_quan@2x.png in Resources */,
 				67D1F7B61AAC35810067434E /* pic_yindao1@2x.png in Resources */,
@@ -2680,6 +2692,7 @@
 				182A05021A52C27000D9E2C3 /* collect_detail@2x.png in Resources */,
 				182A05281A52C32B00D9E2C3 /* citydict.plist in Resources */,
 				67E7034C1AB7BCD500659F0D /* icon_yellow_check@2x.png in Resources */,
+				E185BDDD1B10860400B13D46 /* scan_corner@2x.png in Resources */,
 				1858B1791A7387BD006C562F /* mapapi.bundle in Resources */,
 				A75AC24C1B102AFA00E16610 /* dingdan_press@2x.png in Resources */,
 				A7C6E3141AC7EEDA00CC5E5B /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -2863,6 +2876,7 @@
 				1897702C1A47F2B2005D234C /* QChangeLoginKey.m in Sources */,
 				E1CB6B2D1AE2B50100DCE7D2 /* CustomWindow.m in Sources */,
 				18AEAAD71A74F4FF00491357 /* QMyFavoritedModel.m in Sources */,
+				E185BDD71B1078AB00B13D46 /* QScanPage.m in Sources */,
 				189770431A47F31A005D234C /* QListDetail.m in Sources */,
 				1858B12F1A737664006C562F /* SDWebImageDownloaderOperation.m in Sources */,
 				1879BA7A1A590C62003A6981 /* ASIS3Request.m in Sources */,
@@ -3041,8 +3055,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Hanren Network Technology Co., Ltd. (P7RG4T26A5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hangzhou Hanren Network Technology Co., Ltd. (P7RG4T26A5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3055,7 +3069,7 @@
 					"$(PROJECT_DIR)/HRClient/Common/ThirdParty/AliPay/**",
 				);
 				INFOPLIST_FILE = HRClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3066,7 +3080,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c7633690-8cda-4220-8054-83ffe8df274c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3077,8 +3091,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Hanren Network Technology Co., Ltd. (P7RG4T26A5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hangzhou Hanren Network Technology Co., Ltd. (P7RG4T26A5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3091,7 +3105,7 @@
 					"$(PROJECT_DIR)/HRClient/Common/ThirdParty/AliPay/**",
 				);
 				INFOPLIST_FILE = HRClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3102,7 +3116,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c7633690-8cda-4220-8054-83ffe8df274c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

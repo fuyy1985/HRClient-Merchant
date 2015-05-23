@@ -47,12 +47,12 @@ static BOOL isAgree;
 {
     if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetMyMemberCard:) name:kMyMemberCard object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetMyMemberCard:) name:kMyMemberCard object:nil];
     }
     else if (eventType == kPageEventWillShow)
     {
-        [[QHttpMessageManager sharedHttpMessageManager] accessGetMyMemberCard];
-        [ASRequestHUD show];
+//        [[QHttpMessageManager sharedHttpMessageManager] accessGetMyMemberCard];
+//        [ASRequestHUD show];
     }
     else if (eventType == kPageEventViewDispose)
     {

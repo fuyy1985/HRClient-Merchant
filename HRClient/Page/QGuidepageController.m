@@ -68,6 +68,7 @@
     {
         [QViewController showMessage:@"登录失败，请检查您的用户名或密码是否正确，如有问题请联系客服。"];
     }
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetMyService];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

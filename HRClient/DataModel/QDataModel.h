@@ -89,5 +89,50 @@
 
 + (QOrderDetailModel *)getModelFromDic:(NSDictionary *)dic;
 
+@end
+
+@interface QCompanyAccount : QDataModel
+
+@property (nonatomic, strong) NSString *legalPerson;
+@property (nonatomic, strong) NSString *telphone;
+@property (nonatomic, strong) NSNumber *balance;
+@property (nonatomic, strong) NSArray *bankList;
+
++ (QCompanyAccount*)getModelFromDic:(NSDictionary *)dic;
 
 @end
+
+@interface QBankModel : QDataModel
+
+@property (nonatomic, strong) NSNumber *userId;
+@property (nonatomic, strong) NSString *accName;
+@property (nonatomic, strong) NSNumber *accType;
+@property (nonatomic, strong) NSNumber *bankId;
+@property (nonatomic, strong) NSString *bankName;
+@property (nonatomic, strong) NSString *bankNo;
+@property (nonatomic, strong) NSString *bankAddress;
+
+@property (nonatomic, strong) NSNumber *createUser;
+@property (nonatomic, strong) NSNumber *gmtCreate;
+@property (nonatomic, strong) NSNumber *modifiedUser;
+@property (nonatomic, strong) NSNumber *gmtModified;
+
+@property (nonatomic, strong) NSNumber *status;
+
++ (QBankModel*)getModelFromDic:(NSDictionary *)dic;
+
+@end
+
+@interface QServiceModel : QDataModel
+
+@property (nonatomic, strong) NSString *categoryName;
+@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic, strong) NSNumber *bidPrice;
+@property (nonatomic, strong) NSNumber *bidType;
+@property (nonatomic, strong) NSNumber *guaranteePeriod;
+@property (nonatomic, strong) NSNumber *gmtModified;
+
++ (QServiceModel*)getModelFromDic:(NSDictionary *)dic;
+
+@end
+

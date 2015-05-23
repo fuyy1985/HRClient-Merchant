@@ -10,6 +10,10 @@
 
 @implementation QDataModel
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+}
+
 @end
 
 @implementation QLoginModel
@@ -93,6 +97,60 @@
 + (QOrderDetailModel *)getModelFromDic:(NSDictionary *)dic
 {
     QOrderDetailModel *model = [[QOrderDetailModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
+@implementation QCompanyAccount
+
++ (QCompanyAccount*)getModelFromDic:(NSDictionary *)dic
+{
+    QCompanyAccount *model = [[QCompanyAccount alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"bankList"])
+    {
+        NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
+        NSArray *list = (NSArray*)value;
+        for (NSDictionary *dict in list)
+        {
+            QBankModel *model = [QBankModel getModelFromDic:dict];
+            [mArray addObject:model];
+        }
+        self.bankList = mArray;
+    }
+    else if ([key isEqualToString:@"legalPerson"])
+        self.legalPerson = value;
+    else if ([key isEqualToString:@"telphone"])
+        self.telphone = value;
+    else if ([key isEqualToString:@"balance"])
+        self.balance = value;
+}
+
+@end
+
+@implementation QBankModel
+
++ (QBankModel*)getModelFromDic:(NSDictionary *)dic
+{
+    QBankModel *model = [[QBankModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
+@implementation QServiceModel
+
++ (QServiceModel*)getModelFromDic:(NSDictionary *)dic
+{
+    QServiceModel *model = [[QServiceModel alloc] init];
     [model setValuesForKeysWithDictionary:dic];
     return model;
 }
