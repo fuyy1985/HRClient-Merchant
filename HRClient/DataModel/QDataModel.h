@@ -37,6 +37,38 @@
 
 @end
 
+@interface QCompanyModel : QDataModel
+
+@property (nonatomic, strong) NSNumber *companyId;
+@property (nonatomic, strong) NSNumber *userId;
+@property (nonatomic, strong) NSString *legalPerson;
+@property (nonatomic, strong) NSString *companyName;
+@property (nonatomic, strong) NSString *companyTel;
+@property (nonatomic, strong) NSString *regionId;
+@property (nonatomic, strong) NSString *regionName;
+@property (nonatomic, strong) NSString *detailAddress;
+@property (nonatomic, strong) NSString *locationBased;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *telphone;
+@property (nonatomic, strong) NSString *tradeLineId;
+@property (nonatomic, strong) NSString *introduction;
+@property (nonatomic, strong) NSString *gmtCreate;
+@property (nonatomic, strong) NSString *gmtModified;
+@property (nonatomic, strong) NSString *createUser;
+@property (nonatomic, strong) NSString *modifiedUser;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *distance;
+@property (nonatomic, strong) NSString *businessLicense;
+@property (nonatomic, strong) NSString *outImage;
+@property (nonatomic, strong) NSString *inImage;
+@property (nonatomic, strong) NSString *photoPath;
+
++ (QCompanyModel*)getModelFromDic:(NSDictionary*)dic;
+
+@end
+
+
 @interface QScanModel : QDataModel
 @property (nonatomic, strong) NSString *orderListNo;
 @property (nonatomic, strong) NSString *verificationCode;

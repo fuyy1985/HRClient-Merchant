@@ -70,6 +70,17 @@
 
 @end
 
+@implementation QCompanyModel
+
++ (QCompanyModel*)getModelFromDic:(NSDictionary*)dic
+{
+    QCompanyModel *model = [[QCompanyModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+@end
+
 @implementation QScanModel
 
 + (QScanModel *)getModelFromDic:(NSDictionary *)dic

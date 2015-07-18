@@ -23,15 +23,6 @@
 
 @implementation QMorePage
 
-typedef enum{
-    moreType_givePrize = 0,
-    moreType_response = 1,
-    moreType_clearcach = 2,
-    moreType_invitefriend = 3,
-    moreType_aboutme = 4,
-}moreType;
-
-
 - (void)pageEvent:(QPageEventType)eventType
 {
     if (eventType == kPageEventWillShow)
@@ -55,14 +46,17 @@ typedef enum{
     if ([super viewWithFrame:frame])
     {
         //数据源
-        titleArray = @[/*@"节省流量",@"消息设置提醒",*/@"给我评价", @"用户反馈",/*@"分享设置",*/@"清除缓存",
-                       @"邀请朋友使用", @"关于我们"];
+        titleArray = @[@"商家结算说明", @"商家结算费率"];
         
         contentTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, _view.deFrameWidth, _view.deFrameHeight)];
         contentTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         contentTable.delegate = self;
         contentTable.dataSource = self;
-        contentTable.backgroundColor = [UIColor whiteColor];
+        contentTable.backgroundColor = [UIColor clearColor];
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, contentTable.deFrameWidth, 20)];
+        view.backgroundColor = [UIColor clearColor];
+        contentTable.tableHeaderView = view;
         
         [_view addSubview:contentTable];
     }
@@ -89,8 +83,9 @@ typedef enum{
         myCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myCellID];
         myCell.textLabel.font = [UIFont systemFontOfSize:14];
         myCell.textLabel.textColor = ColorDarkGray;
+        myCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 44 - 0.5f, tableView.deFrameWidth - 2*10, 0.5f)];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 44 - 0.5f, tableView.deFrameWidth, 0.5f)];
         lineView.backgroundColor = ColorLine;
         [myCell.contentView addSubview:lineView];
     }
@@ -107,36 +102,14 @@ typedef enum{
 {
     switch (indexPath.row)
     {
-        case moreType_givePrize:
+        case 0://商家结算说明
         {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://appsto.re/cn/q9L66.i"]];
+            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"agreementType", nil]];
         }
             break;
-        case moreType_response:
+        case 1://商家结算费率
         {
-            [QViewController gotoPage:@"QSuggestRetroactionPage" withParam:nil];
-        }
-            break;
-        case moreType_aboutme:
-        {
-            [QViewController gotoPage:@"QAboutUs" withParam:nil];
-        }
-            break;
-        case moreType_clearcach:
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"确认要清除缓存吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-            alert.delegate  = self;
-            [alert show];
-        }
-            break;
-        case moreType_invitefriend:
-        {
-            [UMSocialSnsService presentSnsIconSheetView:[QViewController shareController]
-                                              appKey:UMSocalAppKey
-                                           shareText:@"随时随地养车，让服务离您更近，让您养车更省心、有保障更放心，一路都是为了您……"
-                                          shareImage:[UIImage imageNamed:@"icon_share"]
-                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,nil]
-                                            delegate:self];
+            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"agreementType", nil]];
         }
             break;
         default:

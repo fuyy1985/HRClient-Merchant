@@ -147,17 +147,14 @@
             case kLogin:
             {
                 NSDictionary *result1 = [resultDic objectForKey:@"result"];
-                if (![[resultDic objectForKey:@"status"] intValue]) {
-                    
+                QLoginModel  *loginModel = [QLoginModel getModelFromDic:[result1 objectForKey:@"user"]];
+                if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
+                    [self.delegate didGetLogin:loginModel];
                 }
-                else{
-                    QLoginModel  *loginModel = [QLoginModel getModelFromDic:result1];
-                    if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
-                        [self.delegate didGetLogin:loginModel];
-                    }
-                    cookie = [request responseCookies];
-                    debug_NSLog(@"cookie%@",cookie);
-                }
+                QCompanyModel *companyModel = [QCompanyModel getModelFromDic:[result1 objectForKey:@"company"]];
+                
+                cookie = [request responseCookies];
+                debug_NSLog(@"cookie%@",cookie);
             }
                 break;
             case kScanCode:
