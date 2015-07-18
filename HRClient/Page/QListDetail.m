@@ -25,20 +25,7 @@ typedef enum{
 {
     BOOL _isDataChanged;
     NSNumber *_orderID;
-    NSInteger _status;
     QOrderDetailModel *_detailModel;
-
-    UIImageView *productImageView;
-    UILabel *priceLabel;
-    CGFloat contentBeforeW;
-    UILabel *lineLabel;
-    CGFloat contentBlank;
-    UILabel *titleLabel;
-    
-    UIImageView *intimeImageView;
-    UILabel *intimeLabel;
-    UIImageView *overtimeImageView;
-    UILabel *overtimeLabel;
 }
 @property (nonatomic, strong) UITableView *tableView;
 

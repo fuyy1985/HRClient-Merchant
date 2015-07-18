@@ -147,7 +147,7 @@
     double total = 0;
     for (QOrderModel *model in _dataPage.mData)
     {
-        total = [model.price doubleValue];
+        total += [model.price doubleValue];
     }
     
     _lbCashDetail.text = [NSString stringWithFormat:@"目前已验券%d单，实际结算金额%.2f元", _dataPage.mData.count, total];
@@ -199,22 +199,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    QMyListDetailModel *model = _dataPage.mData[indexPath.row];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:model, @"model", nil];
+    QOrderModel *model = _dataPage.mData[indexPath.row];
     
-    switch ([model.status intValue]) {
-        case kOrderStatusUnPayed:
-        case kOrderStatusUnUsed:
-        case kOrderStatusRefund:
-            [QViewController gotoPage:@"QListDetail" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:model.orderListId, @"orderListId", model.status, @"status", nil]];
-            break;
-        case kOrderStatusNeedRemark:
-            [QViewController gotoPage:@"QRemark" withParam:dic];
-            break;
-        default:
-            break;
-    }
+    [QViewController gotoPage:@"QListDetail" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:model.orderListId, @"orderListId", nil]];
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
