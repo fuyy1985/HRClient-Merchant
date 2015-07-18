@@ -11,6 +11,7 @@
 #import "QCountDown.h"
 #import "QHttpMessageManager.h"
 #import "QRegularHelp.h"
+#import "QDataCenter.h"
 
 @interface QFindPayKey (){
     UITextField *numberTextFiled;
@@ -76,7 +77,7 @@
         numberTextFiled.font = [UIFont systemFontOfSize:14];
         numberTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         numberTextFiled.placeholder = @"请输入手机号";
-        numberTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPhone]);
+        numberTextFiled.text = NSString_No_Nil([QDataCenter sharedDataCenter]->loginModel.phone);
         [_view addSubview:numberTextFiled];
         
         inputTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, numberTextFiled.deFrameBottom + blank, w , h)];

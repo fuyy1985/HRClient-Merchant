@@ -12,6 +12,8 @@
 #import "QRegularHelp.h"
 #import "QCountDown.h"
 #import "QHttpMessageManager.h"
+#import "QDataCenter.h"
+
 #define WIDTH(x)  (((CGFloat)x/320)*([[UIScreen mainScreen] bounds].size.width))
 #define HEIGHT(y)  ((CGFloat)y/((480-64)*(([[UIScreen mainScreen] bounds].size.height)-64)))
 
@@ -64,7 +66,7 @@
         codeTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, topH, 200, h)];
         codeTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         codeTextFiled.placeholder = @"输入手机号";
-        codeTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPhone]);
+        codeTextFiled.text = NSString_No_Nil(NSString_No_Nil([QDataCenter sharedDataCenter]->loginModel.phone));
         codeTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         codeTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         codeTextFiled.keyboardType = UIKeyboardTypePhonePad;

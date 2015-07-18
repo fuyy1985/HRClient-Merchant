@@ -31,7 +31,7 @@
 
 - (void)setActiveWithParams:(NSDictionary *)params
 {
-    titles = @[@"找回支付密码",@"修改支付密码",@"修改登录密码"];
+    titles = @[@"修改支付密码",@"找回支付密码",@"修改登录密码"];
 }
 
 - (void)pageEvent:(QPageEventType)eventType
@@ -110,18 +110,17 @@
 {
     if (indexPath.row == 0)
     {
-        if ([[ASUserDefaults objectForKey:AccountPayPasswd] isEqualToString:@"Y"]) {
-            [QViewController gotoPage:@"QAmmendOrSetKey" withParam:nil];
-        }else{
-            [QViewController gotoPage:@"QSetPayKey" withParam:nil];
-        }
+        //修改支付密码
+        [QViewController gotoPage:@"QAmendPayKey" withParam:nil];
     }
     else if (indexPath.row == 1)
     {
-        [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
+        //找回支付密码
+        [QViewController gotoPage:@"QFindPayKey" withParam:nil];
     }
     else if (indexPath.row == 2)
     {
+        //修改登录密码
         [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
     }
     

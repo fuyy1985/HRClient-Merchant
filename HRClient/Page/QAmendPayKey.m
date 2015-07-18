@@ -16,7 +16,6 @@
     UITextField *againKeyTextFiled;
     UITextField *sureKeyTextFiled;
     
-    UITextField *textField;
     NSString *oldPwd;
     NSString *newPwd;
     NSString *surePwd;
@@ -52,31 +51,28 @@
         CGFloat blank = 10.0;
         nowKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, topH, w, h)];
         nowKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        nowKeyTextFiled.placeholder = @"输入原支付密码";
+        nowKeyTextFiled.placeholder = @"原支付密码";
         nowKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         nowKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-        nowKeyTextFiled.keyboardType = UIKeyboardTypePhonePad;
         nowKeyTextFiled.font = [UIFont systemFontOfSize:14];
         nowKeyTextFiled.secureTextEntry = YES;
         [_view addSubview:nowKeyTextFiled];
         
         againKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, nowKeyTextFiled.deFrameBottom + blank, w, h)];
         againKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        againKeyTextFiled.placeholder = @"输入新的支付密码";
+        againKeyTextFiled.placeholder = @"输入6-12英文或者数字";
         againKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         againKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-        againKeyTextFiled.keyboardType = UIKeyboardTypePhonePad;
         againKeyTextFiled.font = [UIFont systemFontOfSize:14];
         againKeyTextFiled.secureTextEntry = YES;
         againKeyTextFiled.delegate = self;
         [_view addSubview:againKeyTextFiled];
         
         sureKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, againKeyTextFiled.deFrameBottom + blank, w, h)];
-        sureKeyTextFiled.placeholder = @"确认输入新的支付密码";
+        sureKeyTextFiled.placeholder = @"确认新密码";
         sureKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         sureKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         sureKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-        sureKeyTextFiled.keyboardType = UIKeyboardTypePhonePad;
         sureKeyTextFiled.font = [UIFont systemFontOfSize:14];
         sureKeyTextFiled.secureTextEntry = YES;
         sureKeyTextFiled.delegate = self;
@@ -102,8 +98,8 @@
     if ([nowKeyTextFiled.text isEqualToString:@""]) {
         
     }
-    else if (againKeyTextFiled.text.length != 6) {
-        [ASRequestHUD showErrorWithStatus:@"请输入6位数字密码"];
+    else if (againKeyTextFiled.text.length < 6) {
+        [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
     }
     else if (![sureKeyTextFiled.text isEqualToString:againKeyTextFiled.text]) {
         [ASRequestHUD showErrorWithStatus:@"新密码两次输入不一致"];
@@ -119,6 +115,34 @@
 - (void)receiveAcommendPayPwd:(NSNotification *)noti{
     [ASRequestHUD dismissWithSuccess:@"新支付密码设置成功"];
     [QViewController backPageWithParam:nil];
+}
+
+#pragma mark - UITextFieldDelegate
+//textField的限制
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if ([string isEqualToString:@"\n"]) {
+        if (againKeyTextFiled == textField && [toBeString length] < 6) {
+            [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
+        }
+        return NO;
+    }
+    
+    if (againKeyTextFiled == textField) {
+        if ([toBeString length] >12) {
+            [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
+            return NO;
+        }
+    }
+    return YES;
+/*
+     NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:kAlphaNum] invertedSet];
+     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+     BOOL canChange = [string isEqualToString:filtered];
+     return canChange;
+*/
 }
 
 @end

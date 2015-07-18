@@ -11,6 +11,7 @@
 #import "QCountDown.h"
 #import "QHttpMessageManager.h"
 #import "QViewController.h"
+#import "QDataCenter.h"
 
 #define kAlphaNum   @"0123456789"
 @interface QSetPayKey () <UITextFieldDelegate>
@@ -77,7 +78,7 @@
                 inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
                 inputTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                 inputTextField.font = [UIFont systemFontOfSize:14];
-                inputTextField.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPhone]);
+                inputTextField.text = NSString_No_Nil(NSString_No_Nil([QDataCenter sharedDataCenter]->loginModel.phone));
                 inputTextField.placeholder = arr[i];
                 [_view addSubview:inputTextField];
                 

@@ -110,7 +110,7 @@
     [self viewResignFirstResponder];
     
     if ([againKeyTextFiled.text length] < 6) {
-        [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
+        [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
         return ;
     }
     if ([againKeyTextFiled.text isEqualToString:sureKeyTextFiled.text]) {
@@ -134,14 +134,14 @@
     
     if ([string isEqualToString:@"\n"]) {
         if (againKeyTextFiled == textField && [toBeString length] < 6) {
-            [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
+            [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
         }
         return NO;
     }
     
     if (againKeyTextFiled == textField) {
         if ([toBeString length] >12) {
-            [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
+            [ASRequestHUD showErrorWithStatus:@"输入6-12英文或者数字"];
             return NO;
         }
     }
