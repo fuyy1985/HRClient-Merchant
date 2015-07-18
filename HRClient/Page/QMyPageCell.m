@@ -37,7 +37,7 @@
         CGFloat titleBeforeW =_iconImageView.deFrameRight + blank;
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleBeforeW, titleTop, titleW, titleH)];
         _nameLabel.font = [UIFont systemFontOfSize:14];
-        _nameLabel.textColor = ColorDarkGray;
+        _nameLabel.textColor = [UIColor colorWithRed:0x6c/255.0 green:0x73/255.0 blue:0x81/255.0 alpha:1];
         _nameLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_nameLabel];
         

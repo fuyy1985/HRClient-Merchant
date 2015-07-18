@@ -24,28 +24,28 @@
 
 @implementation QMyData
 
-- (NSString *)title{
+- (NSString *)title
+{
     return @"密码管理";
 }
 
 - (void)setActiveWithParams:(NSDictionary *)params
 {
-    titles = @[@"账户名",@"已绑定手机",@"支付密码",@"登录密码"];
+    titles = @[@"找回支付密码",@"修改支付密码",@"修改登录密码"];
 }
 
 - (void)pageEvent:(QPageEventType)eventType
 {
     if (eventType == kPageEventWillShow)
     {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acomendNickSucess:) name:kAcommendNick object:nil];
     }
     else if (eventType == kPageEventWillHide)
     {
-//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcommendNick object:nil];
     }
 }
 
-- (UIView *)viewWithFrame:(CGRect)frame{
+- (UIView *)viewWithFrame:(CGRect)frame
+{
     if ([super viewWithFrame:frame]) {
         _view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
 
@@ -58,52 +58,36 @@
     return _view;
 }
 
-- (void)acomendNickSucess:(NSNotification*)noti
-{
-    [ASRequestHUD dismissWithSuccess:@"修改成功"];
-    [ASUserDefaults setObject:newNick forKey:AccountNick];
-}
-
-
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return titles.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return 2;
-            break;
-        case 1:
-            return 2;
-            break;
-        default:
-            return 0;
-            break;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 45;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 10.0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *MyData = @"MyData";
-    QMyDataCell *cell = [tableView dequeueReusableCellWithIdentifier:MyData];
-    if (cell == nil) {
-        cell = [[QMyDataCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:MyData];
-        cell.delegate = self;
-    }
-    if (indexPath.section == 1) {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyData];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:MyData];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.textColor = [QTools colorWithRGB:3 :3 :3];
     }
 
-    [cell configurationCellWithModel:titles andIndexPath:indexPath andPayPwd:[ASUserDefaults objectForKey:AccountPayPasswd]];
+    cell.textLabel.text = titles[indexPath.row];
     return cell;
 }
 
@@ -124,22 +108,21 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    if (indexPath.row == 0)
     {
-        if (indexPath.row == 0)
-        {
-            if ([[ASUserDefaults objectForKey:AccountPayPasswd] isEqualToString:@"Y"]) {
-                [QViewController gotoPage:@"QAmmendOrSetKey" withParam:nil];
-            }else{
-                [QViewController gotoPage:@"QSetPayKey" withParam:nil];
-            }
+        if ([[ASUserDefaults objectForKey:AccountPayPasswd] isEqualToString:@"Y"]) {
+            [QViewController gotoPage:@"QAmmendOrSetKey" withParam:nil];
+        }else{
+            [QViewController gotoPage:@"QSetPayKey" withParam:nil];
         }
-        else if (indexPath.row == 1)
-        {
-            [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
-        }
-        
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    else if (indexPath.row == 1)
+    {
+        [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
+    }
+    else if (indexPath.row == 2)
+    {
+        [QViewController gotoPage:@"QChangeLoginKey" withParam:nil];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

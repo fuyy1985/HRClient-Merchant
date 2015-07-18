@@ -64,7 +64,7 @@
 - (UIView *)viewWithFrame:(CGRect)frame{
     if ([super viewWithFrame:frame]) {
         _view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
-        imageArr = @[@"wodezhanghu",@"icon_dingdan",@"mima"];
+        imageArr = @[@"wodezhanghu",@"dingdan",@"mima"];
         titleArr = @[@"我的账户",@"可提现订单",@"密码管理"];
         
         UIImageView *firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 115)];
@@ -110,7 +110,8 @@
         CGFloat nameH = 26;
         nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameBeforeW, nameTopH, nameW, nameH)];
         nameLabel.backgroundColor = [UIColor clearColor];
-        if (model.realName && ![model.realName isEqualToString:@"N/A"])
+        QCompanyModel *companyModel = [QDataCenter sharedDataCenter]->companyModel;
+        if (companyModel.companyName && ![companyModel.companyName isEqualToString:@"N/A"])
         {
             nameLabel.text = model.realName;
         }

@@ -334,7 +334,9 @@
 		DDB13FEF1A3DB1AD00BA546F /* QBottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB13FEE1A3DB1AD00BA546F /* QBottomMenuView.m */; };
 		E125A0171AC64BAB00775D60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125A0161AC64BAB00775D60 /* CoreLocation.framework */; };
 		E125A01D1AC690F200775D60 /* QDataPaging.m in Sources */ = {isa = PBXBuildFile; fileRef = E125A01C1AC690F200775D60 /* QDataPaging.m */; };
-		E13A91801B5A2B1800309BB0 /* icon_dingdan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A917F1B5A2B1800309BB0 /* icon_dingdan@2x.png */; };
+		E13A91841B5A681700309BB0 /* erweima@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A91811B5A681700309BB0 /* erweima@2x.png */; };
+		E13A91851B5A681700309BB0 /* fuwu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A91821B5A681700309BB0 /* fuwu@2x.png */; };
+		E13A91861B5A681700309BB0 /* pinglun.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A91831B5A681700309BB0 /* pinglun.png */; };
 		E14297CB1AE3759C00D17BC0 /* icon_list_all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297BF1AE3759C00D17BC0 /* icon_list_all@2x.png */; };
 		E14297CC1AE3759C00D17BC0 /* icon_list_baoyang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297C01AE3759C00D17BC0 /* icon_list_baoyang@2x.png */; };
 		E14297CD1AE3759C00D17BC0 /* icon_list_luntai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297C11AE3759C00D17BC0 /* icon_list_luntai@2x.png */; };
@@ -1069,7 +1071,9 @@
 		E125A0161AC64BAB00775D60 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E125A01B1AC690F200775D60 /* QDataPaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDataPaging.h; sourceTree = "<group>"; };
 		E125A01C1AC690F200775D60 /* QDataPaging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDataPaging.m; sourceTree = "<group>"; };
-		E13A917F1B5A2B1800309BB0 /* icon_dingdan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_dingdan@2x.png"; path = "HRClient/Image/common/icon_dingdan@2x.png"; sourceTree = SOURCE_ROOT; };
+		E13A91811B5A681700309BB0 /* erweima@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "erweima@2x.png"; sourceTree = "<group>"; };
+		E13A91821B5A681700309BB0 /* fuwu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fuwu@2x.png"; sourceTree = "<group>"; };
+		E13A91831B5A681700309BB0 /* pinglun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinglun.png; sourceTree = "<group>"; };
 		E14297BF1AE3759C00D17BC0 /* icon_list_all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_all@2x.png"; path = "HRClient/Image/icon_list_all@2x.png"; sourceTree = SOURCE_ROOT; };
 		E14297C01AE3759C00D17BC0 /* icon_list_baoyang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_baoyang@2x.png"; path = "HRClient/Image/icon_list_baoyang@2x.png"; sourceTree = SOURCE_ROOT; };
 		E14297C11AE3759C00D17BC0 /* icon_list_luntai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_luntai@2x.png"; path = "HRClient/Image/icon_list_luntai@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1797,7 +1801,6 @@
 		A7268F0A1B0705C000A00F88 /* merchant */ = {
 			isa = PBXGroup;
 			children = (
-				E13A917F1B5A2B1800309BB0 /* icon_dingdan@2x.png */,
 				A75AC25F1B10759F00E16610 /* accout */,
 				A75AC2581B104B4B00E16610 /* personalCenter */,
 				A75AC23C1B102AFA00E16610 /* menu */,
@@ -1871,7 +1874,10 @@
 			isa = PBXGroup;
 			children = (
 				A75AC2591B104B4B00E16610 /* dingdan@2x.png */,
+				E13A91811B5A681700309BB0 /* erweima@2x.png */,
+				E13A91821B5A681700309BB0 /* fuwu@2x.png */,
 				A75AC25A1B104B4B00E16610 /* mima@2x.png */,
+				E13A91831B5A681700309BB0 /* pinglun.png */,
 				A75AC25B1B104B4B00E16610 /* wodezhanghu@2x.png */,
 			);
 			path = personalCenter;
@@ -2575,6 +2581,7 @@
 				A75AC2511B102AFA00E16610 /* yandan@2x.png in Resources */,
 				189770F11A47F5D5005D234C /* pic03.png in Resources */,
 				A76F9EDC1AA042710039F9E4 /* default_image@2x.png in Resources */,
+				E13A91851B5A681700309BB0 /* fuwu@2x.png in Resources */,
 				E14297D01AE3759C00D17BC0 /* icon_list_paoguang@2x.png in Resources */,
 				18F0348C1A48612D00BEB8C4 /* location_refresh@2x.png in Resources */,
 				E14297DF1AE5387A00D17BC0 /* icon_share@2x.png in Resources */,
@@ -2583,7 +2590,6 @@
 				189770DC1A47F5D5005D234C /* 形状 3.png in Resources */,
 				A7C6E3131AC7EEDA00CC5E5B /* UMSShareListController.xib in Resources */,
 				A75AC2701B10759F00E16610 /* zengjia.png in Resources */,
-				E13A91801B5A2B1800309BB0 /* icon_dingdan@2x.png in Resources */,
 				189770DE1A47F5D5005D234C /* 形状 37.png in Resources */,
 				E14297CE1AE3759C00D17BC0 /* icon_list_more@2x.png in Resources */,
 				A75AC24D1B102AFA00E16610 /* gengduo@2x.png in Resources */,
@@ -2653,6 +2659,7 @@
 				67E703511AB8275100659F0D /* icon_sold_num@2x.png in Resources */,
 				189770AD1A47F440005D234C /* IQKeyboardManager.bundle in Resources */,
 				189770F21A47F5D5005D234C /* pic04.png in Resources */,
+				E13A91861B5A681700309BB0 /* pinglun.png in Resources */,
 				189770E11A47F5D5005D234C /* check01.png in Resources */,
 				182A05031A52C27000D9E2C3 /* mapsign@2x.png in Resources */,
 				189770F01A47F5D5005D234C /* pic02.png in Resources */,
@@ -2690,6 +2697,7 @@
 				1858B1791A7387BD006C562F /* mapapi.bundle in Resources */,
 				A7C6E3141AC7EEDA00CC5E5B /* UMSocialSDKResourcesNew.bundle in Resources */,
 				A75AC2711B10759F00E16610 /* zengjia_press.png in Resources */,
+				E13A91841B5A681700309BB0 /* erweima@2x.png in Resources */,
 				A75AC2691B10759F00E16610 /* button.png in Resources */,
 				67E7034D1AB7BCD500659F0D /* icon_yellow_uncheck@2x.png in Resources */,
 				A7C6E3091AC7EEDA00CC5E5B /* UMSocialLocalizable.strings in Resources */,

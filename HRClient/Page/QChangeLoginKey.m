@@ -48,7 +48,7 @@
         CGFloat blank = 10.0;
         nowKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, topH, w - 20, h)];
         nowKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        nowKeyTextFiled.placeholder = @"当前登录密码";
+        nowKeyTextFiled.placeholder = @"当前密码";
         nowKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         nowKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         nowKeyTextFiled.font = [UIFont systemFontOfSize:14];
@@ -57,7 +57,7 @@
         [_view addSubview:nowKeyTextFiled];
         
         againKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, nowKeyTextFiled.frame.size.height+nowKeyTextFiled.frame.origin.y + blank, w - 20, h)];
-        againKeyTextFiled.placeholder = @"新登录密码";
+        againKeyTextFiled.placeholder = @"6~12位字母或数字";
         againKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         againKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         againKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -67,7 +67,7 @@
         [_view addSubview:againKeyTextFiled];
         
         sureKeyTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(beforeW, againKeyTextFiled.frame.size.height+againKeyTextFiled.frame.origin.y + blank, w - 20, h)];
-        sureKeyTextFiled.placeholder = @"确认新登录密码";
+        sureKeyTextFiled.placeholder = @"确认新密码";
         sureKeyTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         sureKeyTextFiled.borderStyle = UITextBorderStyleRoundedRect;
         sureKeyTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -128,14 +128,19 @@
 
 #pragma mark - UITextFieldDelegate
 //textField的限制
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
     if ([string isEqualToString:@"\n"]) {
+        if (againKeyTextFiled == textField && [toBeString length] < 6) {
+            [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
+        }
         return NO;
     }
-    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
     if (againKeyTextFiled == textField) {
         if ([toBeString length] >12) {
-            textField.text = [toBeString substringToIndex:12];
             [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
             return NO;
         }
