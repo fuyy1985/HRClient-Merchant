@@ -7,26 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QDataModel.h"
 
-#define ListCellHeight      (86)
+#define ListCellHeight      (120)
 
 @class QMyListCell;
 
 @protocol QMyListCellDelegate <NSObject>
 @optional
-/* 选中删除 */
-- (void)setSelectforDelete:(QMyListCell*)cell delete:(BOOL)isDelete;
+
+- (void)didSelectOrder:(QOrderModel*)model;
 
 @end
-@interface QMyListCell : UITableViewCell{
-    UIImageView*	m_checkImageView;
-//  BOOL			m_checked;
+@interface QMyListCell : UITableViewCell
+{
 }
 
 @property (nonatomic, weak) id<QMyListCellDelegate> delegate;
 
-@property (nonatomic,assign)BOOL isChecked;
-
-- (void)configureModelForCell:(NSArray *)arr andInexPath:(NSIndexPath *)indexPath;
+- (void)configureUIwithDataModel:(QOrderModel*)model;
 
 @end

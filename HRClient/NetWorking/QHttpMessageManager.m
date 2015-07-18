@@ -79,7 +79,7 @@ static QHttpMessageManager *httpMessageManager = nil;
 }
 - (void)didGetOrderDetail:(id)model
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderDetail object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderDetail object:model];
 }
 
 //确认提款

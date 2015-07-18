@@ -64,10 +64,10 @@
 - (UIView *)viewWithFrame:(CGRect)frame{
     if ([super viewWithFrame:frame]) {
         _view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
-        imageArr = @[@"wodezhanghu",@"dingdan",@"mima"];
+        imageArr = @[@"wodezhanghu",@"icon_dingdan",@"mima"];
         titleArr = @[@"我的账户",@"可提现订单",@"密码管理"];
         
-        UIImageView *firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 110)];
+        UIImageView *firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 115)];
         firstImageView.image = [UIImage imageNamed:@"backgroundmine01.png"];
         firstImageView.userInteractionEnabled = YES;
         [_view addSubview:firstImageView];
@@ -135,7 +135,6 @@
         _balanceLabel = balanceLabel;
         
         UIImageView *buttomImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, firstImageView.deFrameBottom, frame.size.width, frame.size.height - firstImageView.deFrameBottom)];
-        buttomImageView.image = [UIImage imageNamed:@"backgroundmine02.png"];
         buttomImageView.userInteractionEnabled = YES;
         [_view addSubview:buttomImageView];
         
@@ -143,7 +142,7 @@
         cardView.backgroundColor = [UIColor whiteColor];
         [buttomImageView addSubview:cardView];
         
-        CGFloat buttomTopH = cardView.deFrameBottom + 10;
+        CGFloat buttomTopH = cardView.deFrameBottom;
         CGFloat buttomW = frame.size.width;
         CGFloat buttomH = buttomImageView.frame.size.height - buttomTopH;
         UIView *buttomView = [[UIView alloc] initWithFrame:CGRectMake(0, buttomTopH, buttomW, buttomH)];
@@ -156,7 +155,7 @@
         }else{
             tableH = 300;
         }
-        UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,frame.size.width ,buttomView.deFrameHeight) style:UITableViewStylePlain];
+        UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width ,buttomView.deFrameHeight) style:UITableViewStylePlain];
         myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         myTableView.dataSource = self;
         myTableView.delegate = self;

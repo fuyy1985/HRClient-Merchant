@@ -95,11 +95,12 @@
 @end
 
 @interface QOrderDetailModel : QDataModel
-
 @property (nonatomic, strong) NSNumber *orderListId;
 @property (nonatomic, strong) NSNumber *productId;
 @property (nonatomic, strong) NSNumber *companyId;
 @property (nonatomic, strong) NSNumber *payId;
+@property (nonatomic, strong) NSNumber *unit_price;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSNumber *total;
 @property (nonatomic, strong) NSNumber *actualSettlement;
 @property (nonatomic, strong) NSNumber *quantity;
@@ -108,7 +109,7 @@
 @property (nonatomic, strong) NSNumber *status;
 @property (nonatomic, strong) NSNumber *gmtCreate;
 @property (nonatomic, strong) NSNumber *gmtModified;
-@property (nonatomic, strong) NSNumber *phone;
+@property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *orderListNo;
 @property (nonatomic, strong) NSNumber *guaranteePeriod;
 @property (nonatomic, strong) NSNumber *or_member;
