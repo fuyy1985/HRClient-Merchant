@@ -203,6 +203,7 @@ typedef enum{
             [imageView sd_setImageWithURL:[NSURL URLWithString:PICTUREHTTP(_detailModel.photo)]
                          placeholderImage:[UIImage imageNamed:@"default_image"]
                                   options:SDWebImageRefreshCached];
+            imageView.clipsToBounds = YES;
             [cell.contentView addSubview:imageView];
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(imageView.deFrameRight + 10, 0, tableView.deFrameWidth - imageView.deFrameRight - 10, 50)];

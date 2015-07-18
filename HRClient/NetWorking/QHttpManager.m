@@ -25,6 +25,7 @@
 #import "QCardDetailModel.h"
 #import "QAgreementModel.h"
 #import "QMyListModel.h"
+#import "QDataCenter.h"
 
 @interface QHttpManager (){
     NSArray *cookie;
@@ -91,22 +92,6 @@
 }
 
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0)
-    {
-        [QViewController backPageWithParam:nil];
-    }
-    else if (buttonIndex == 1)
-    {
-        [QViewController gotoPage:@"QMyNoWarry" withParam:nil];
-    }
-    else if (buttonIndex == 2)
-    {
-        [QViewController gotoPage:@"QMyList" withParam:nil];
-    }
-}
-
 //成功返回
 - (void)requestDidFinish:(ASIHTTPRequest*)request
 {
@@ -148,10 +133,13 @@
             {
                 NSDictionary *result1 = [resultDic objectForKey:@"result"];
                 QLoginModel  *loginModel = [QLoginModel getModelFromDic:[result1 objectForKey:@"user"]];
+                [QDataCenter sharedDataCenter]->loginModel = loginModel;
+                
                 if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
                     [self.delegate didGetLogin:loginModel];
                 }
                 QCompanyModel *companyModel = [QCompanyModel getModelFromDic:[result1 objectForKey:@"company"]];
+                [QDataCenter sharedDataCenter]->companyModel = companyModel;
                 
                 cookie = [request responseCookies];
                 debug_NSLog(@"cookie%@",cookie);

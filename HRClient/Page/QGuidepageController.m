@@ -54,11 +54,6 @@
     [ASRequestHUD dismiss];
     QLoginModel *model = noti.object;
     
-    if (model)
-    {
-        [QDataCenter sharedDataCenter]->loginModel = model;
-    }
-    
     //登录成功
     if (model.status.intValue)
     {

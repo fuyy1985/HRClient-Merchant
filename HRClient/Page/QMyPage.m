@@ -82,6 +82,7 @@
         iconImageView.clipsToBounds = YES;
         iconImageView.layer.borderWidth = 3.0f;
         iconImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        iconImageView.contentMode = UIViewContentModeScaleAspectFill;
         
         //头像
         UIImage *iconImage = [UIImage imageNamed:@"head.png"];
