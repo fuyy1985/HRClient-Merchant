@@ -113,11 +113,11 @@
         QCompanyModel *companyModel = [QDataCenter sharedDataCenter]->companyModel;
         if (companyModel.companyName && ![companyModel.companyName isEqualToString:@"N/A"])
         {
-            nameLabel.text = model.realName;
+            nameLabel.text = companyModel.companyName;
         }
         else
         {
-            nameLabel.text = model.phone;
+            nameLabel.text = companyModel.telphone;
         }
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.font = [UIFont boldSystemFontOfSize:18];

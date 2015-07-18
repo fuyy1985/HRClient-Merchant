@@ -194,9 +194,10 @@
             {
                 NSDictionary *dict = [resultDic objectForKey:@"result"];
                 QCompanyAccount *model = [QCompanyAccount getModelFromDic:dict];
-                if ([self respondsToSelector:@selector(didGetCompanyAccount:)]) {
+                if ([self.delegate respondsToSelector:@selector(didGetCompanyAccount:)]) {
                     [self.delegate didGetCompanyAccount:model];
                 }
+                [QDataCenter sharedDataCenter]->companyAccountModel = model;
             }
                 break;
             case kAcquireCode://验证码

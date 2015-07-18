@@ -15,6 +15,7 @@
 @public
     QLoginModel *loginModel;
     QCompanyModel *companyModel;
+    QCompanyAccount *companyAccountModel;
 }
 
 + (QDataCenter *) sharedDataCenter;
