@@ -303,6 +303,17 @@
                 }
             }
                 break;
+            case kGetAgreement:
+            {
+                NSDictionary *agreeDict = [resultDic objectForKey:@"result"];
+                
+                QAgreementModel *model = [QAgreementModel getModelFromDic:agreeDict];
+                
+                if (self.delegate && [self.delegate respondsToSelector:@selector(didGetAgreement:)]) {
+                    [self.delegate didGetAgreement:model];
+                }
+            }
+                break;
             default:
                 break;
         }
@@ -573,6 +584,18 @@
     [request setPostValue:verifyPayPasswd forKey:@"verifyNewPayPasswd"];
     [request setUseCookiePersistence:YES];
     [self setGetMthodWith:request andRequestType:kReSetPayPwd];
+    [_networkQueue addOperation:request];
+}
+
+//协议
+- (void)accessGetAgreement:(int)agreementType
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@", SERVERADRESS, Q_GET_AGREEMENT];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:path]];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:[NSNumber numberWithInt:agreementType] forKey:@"agreementType"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kGetAgreement];
     [_networkQueue addOperation:request];
 }
 

@@ -33,6 +33,12 @@
     else if (3 == _agreementType) {
         title = @"洗车会员卡使用规则";
     }
+    else if (4 == _agreementType) {
+        title = @"商家结算费率";
+    }
+    else if (5 == _agreementType) {
+        title = @"商家结算说明";
+    }
     else if (6 == _agreementType){
         title = @"使用帮助";
     }
@@ -71,15 +77,15 @@
 {
     if (eventType == kPageEventViewCreate)
     {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetAgreement:) name:kGetAgreement object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetAgreement:) name:kGetAgreement object:nil];
         
-//        [[QHttpMessageManager sharedHttpMessageManager] accessGetAgreement:_agreementType];
+        [[QHttpMessageManager sharedHttpMessageManager] accessGetAgreement:_agreementType];
         [ASRequestHUD show];
     }
     else if (eventType == kPageEventViewDispose)
     {
         [ASRequestHUD dismiss];
-//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetAgreement object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kGetAgreement object:nil];
     }
 }
 
@@ -87,12 +93,9 @@
 
 - (void)successGetAgreement:(NSNotification*)noti
 {
-    [ASRequestHUD dismiss];
+    QAgreementModel *model = noti.object;
+    _contentTextView.text = model.content;
     
-    NSArray *array = noti.object;
-    if (array.count > 0) {
-        QAgreementModel *model = [array objectAtIndex:0];
-        _contentTextView.text = model.content;
-    }
+    [ASRequestHUD dismiss];
 }
 @end

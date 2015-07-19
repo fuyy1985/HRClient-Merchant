@@ -59,7 +59,8 @@
 #define Q_SET_PAYPWD @"/user/setPayPasswd"
 //重置支付密码
 #define Q_RESET_PAYPWD @"/user/updatePayPasswd"
-
+//app协议
+#define Q_GET_AGREEMENT @"/agreement/getAgreement"
 
 
 
@@ -137,8 +138,7 @@
 #define Q_SEARCH_BUSINESS   @"/company/getCompanyByWords"
 //会员卡概览
 #define Q_CARD_DETAILS  @"/prepaidBill/mbrAccDetails"
-//app协议
-#define Q_GET_AGREEMENT @"/agreement/getAgreement"
+
 //用户反馈
 #define Q_SUGGEST_RETROACTION @"/feedback/addFeedback"
 //延长会员卡使用时间

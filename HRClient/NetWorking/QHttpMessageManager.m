@@ -218,4 +218,15 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kReSetPayPwd object:message];
 }
 
+//协议
+- (void)accessGetAgreement:(int)agreementType
+{
+    [self.httpManager accessGetAgreement:agreementType];
+}
+
+- (void)didGetAgreement:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGetAgreement object:model];
+}
+
 @end

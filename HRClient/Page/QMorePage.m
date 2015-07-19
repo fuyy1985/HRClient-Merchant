@@ -104,12 +104,12 @@
     {
         case 0://商家结算说明
         {
-            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"agreementType", nil]];
+            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:5], @"agreementType", nil]];
         }
             break;
         case 1://商家结算费率
         {
-            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"agreementType", nil]];
+            [QViewController gotoPage:@"QAgreementPage" withParam:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:4], @"agreementType", nil]];
         }
             break;
         default:

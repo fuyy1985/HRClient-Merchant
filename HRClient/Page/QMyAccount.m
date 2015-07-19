@@ -55,10 +55,6 @@
     return @"我的账户";
 }
 
-- (void)gotoApplyCrash:(id)sender
-{
-    
-}
 
 - (UIView *)viewWithFrame:(CGRect)frame{
     if ([super viewWithFrame:frame]) {
@@ -102,6 +98,11 @@
 - (void)onAddCard
 {
     [QViewController gotoPage:@"QAddCardPage" withParam:nil];
+}
+
+- (void)gotoApplyCrash:(id)sender
+{
+    
 }
 
 #pragma mark - Notification

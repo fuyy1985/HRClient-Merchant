@@ -33,6 +33,8 @@
 #define kSureFindLoginPwd @"kSureFindLoginPwd"
 #define kAcommendLoginPwd @"kAcommendLoginPwd"
 
+#define kGetAgreement @"kGetAgreement"
+
 @interface QHttpMessageManager : NSObject<QiaoHttpDelegate>
 
 @property (nonatomic,copy)NSString *filePath;
@@ -77,6 +79,7 @@
 - (void)accessSetPayPwd:(NSString *)payPasswd andVerifyPayPasswd:(NSString *)verifyPayPasswd andPhone:(NSString *)phone andVerifyCode:(NSString *)verifyCode;
 //重置支付密码
 - (void)accessReSetPayPwd:(NSString *)payPasswd andVerifyPayPasswd:(NSString *)verifyPayPasswd;
-
+//协议
+- (void)accessGetAgreement:(int)agreementType;
 
 @end

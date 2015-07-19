@@ -45,6 +45,8 @@ typedef enum{
     kSetPayPwd,//设置支付密码
     kReSetPayPwd,
     
+    kGetAgreement,//用户使用协议
+    
 }RequestType;
 
 @protocol QiaoHttpDelegate <NSObject>
@@ -92,6 +94,8 @@ typedef enum{
 - (void)didSetPayPwd:(NSString *)message;
 //重置支付密码
 - (void)didReSetPayPwd:(NSString*)message;
+//协议
+- (void)didGetAgreement:(id)model;
 
 @end
 
@@ -150,6 +154,7 @@ typedef enum{
 - (void)accessSetPayPwd:(NSString *)payPasswd andVerifyPayPasswd:(NSString *)verifyPayPasswd andPhone:(NSString *)phone andVerifyCode:(NSString *)verifyCode;
 //重置支付密码
 - (void)accessReSetPayPwd:(NSString *)payPasswd andVerifyPayPasswd:(NSString *)verifyPayPasswd;
-
+//协议
+- (void)accessGetAgreement:(int)agreementType;
 
 @end
