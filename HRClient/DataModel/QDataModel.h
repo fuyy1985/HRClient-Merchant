@@ -73,7 +73,8 @@
 @property (nonatomic, strong) NSString *orderListNo;
 @property (nonatomic, strong) NSString *verificationCode;
 @property (nonatomic, strong) NSString *subject;
-@property (nonatomic, strong)NSNumber *quantity;
+@property (nonatomic, strong) NSNumber *quantity;
+@property (nonatomic, strong) NSNumber *total;
 
 + (QScanModel *)getModelFromDic:(NSDictionary *)dic;
 

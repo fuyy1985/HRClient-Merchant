@@ -112,7 +112,7 @@ static QHttpMessageManager *httpMessageManager = nil;
 
 - (void)didGetCompanyAccount:(id)model
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kCompanyAccount object:model];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGetCompanyAccount object:model];
 }
 
 - (void)accessAcquireCode:(NSString *)phone andMessage:(NSString *)message{

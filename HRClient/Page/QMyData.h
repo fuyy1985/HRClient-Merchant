@@ -7,7 +7,6 @@
 //
 
 #import "QPage.h"
-#import "QAccountLogin.h"
 
 @interface QMyData : QPage<UITableViewDelegate,UITableViewDataSource>
 

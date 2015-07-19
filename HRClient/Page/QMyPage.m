@@ -15,6 +15,7 @@
 #import "QHttpMessageManager.h"
 #import "QDataCenter.h"
 #import "UIImageView+WebCache.h"
+#import "QDataCenter.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -48,7 +49,7 @@
     else if (eventType == kPageEventWillShow)
     {
         //TODO:每次到这里都要更新账户信息
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successUpdateMyAccountInfo:) name:kGetMyAccountInfro object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCompanyAccountData:) name:kGetCompanyAccount object:nil];
     }
     else if (eventType == kPageEventViewDispose)
     {
@@ -175,9 +176,11 @@
 
 #pragma mark - Notification
 
-- (void)successUpdateMyAccountInfo:(NSNotification*)noti
+- (void)updateCompanyAccountData:(NSNotification*)noti
 {
-    //_balanceLabel.text = [NSString stringWithFormat:@"账户余额：%.2f元", [[QUser sharedQUser].normalAccount.balance doubleValue]];
+    //balance
+    _balanceLabel.text = [NSString stringWithFormat:@"可提现余额：%.2f元", [[QDataCenter sharedDataCenter]->companyAccountModel.balance doubleValue]];
+    [QDataCenter sharedDataCenter]->loginModel.balance = [QDataCenter sharedDataCenter]->companyAccountModel.balance;
 }
 
 #pragma mark - UITableViewDataSource
@@ -191,9 +194,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     static NSString *myCellID = @"myCell_Identifer";
+    
     QMyPageCell *myCell = [tableView dequeueReusableCellWithIdentifier:myCellID];
-    if (myCell == nil) {
+    if (myCell == nil)
+    {
         myCell = [[QMyPageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myCellID];
         myCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

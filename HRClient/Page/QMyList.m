@@ -112,6 +112,11 @@
     [ASRequestHUD show];
 }
 
+- (void)onBack
+{
+    [QViewController backPageWithParam:nil];
+}
+
 #pragma mark - Notification
 /**
  成功获取商家可提现订单列表
@@ -136,7 +141,10 @@
 
 - (void)successAllOrderNotarize:(NSNotification*)noti
 {
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetCompanyAccount];//刷新账号余额信息
+    
     [ASRequestHUD dismissWithSuccess:@"结算成功"];
+    [self performSelector:@selector(onBack) withObject:nil afterDelay:2.f];
 }
 
 

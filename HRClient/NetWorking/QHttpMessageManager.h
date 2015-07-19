@@ -16,7 +16,7 @@
 #define kGetOrderDetail @"kGetOrderDetail"
 #define kOrderNotarize @"kOrderNotarize"
 #define kAllOrderNotarize @"kAllOrderNotarize"
-#define kCompanyAccount @"kCompanyAccount"
+#define kGetCompanyAccount @"kGetCompanyAccount"
 #define kAcquireCode @"kAcquireCode"
 #define kInsertBank @"kInsertBank"
 #define kDeleteBank @"kDeleteBank"

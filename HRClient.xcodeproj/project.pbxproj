@@ -108,7 +108,6 @@
 		1897702F1A47F2C8005D234C /* QFindPayKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897702E1A47F2C8005D234C /* QFindPayKey.m */; };
 		189770321A47F2DB005D234C /* QFindLoginKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770311A47F2DB005D234C /* QFindLoginKey.m */; };
 		189770351A47F2F1005D234C /* QAgainSetPayKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770341A47F2F1005D234C /* QAgainSetPayKey.m */; };
-		189770381A47F308005D234C /* QAccountLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770371A47F308005D234C /* QAccountLogin.m */; };
 		189770431A47F31A005D234C /* QListDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897703A1A47F31A005D234C /* QListDetail.m */; };
 		189770461A47F31A005D234C /* QMyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770401A47F31A005D234C /* QMyList.m */; };
 		189770471A47F31A005D234C /* QMyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770421A47F31A005D234C /* QMyListCell.m */; };
@@ -322,6 +321,8 @@
 		E13A91981B5A8C0800309BB0 /* zengjia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A918F1B5A8C0800309BB0 /* zengjia@2x.png */; };
 		E13A919B1B5AA20E00309BB0 /* QAddCardPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A919A1B5AA20E00309BB0 /* QAddCardPage.m */; };
 		E13A919E1B5AA27500309BB0 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = E13A919C1B5AA27500309BB0 /* pinyin.c */; };
+		E13A91A11B5B400500309BB0 /* QCheckOrderResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A91A01B5B400500309BB0 /* QCheckOrderResult.m */; };
+		E13A91A31B5B4D5300309BB0 /* icon_success_yandan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13A91A21B5B4D5300309BB0 /* icon_success_yandan@2x.png */; };
 		E14297CB1AE3759C00D17BC0 /* icon_list_all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297BF1AE3759C00D17BC0 /* icon_list_all@2x.png */; };
 		E14297CC1AE3759C00D17BC0 /* icon_list_baoyang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297C01AE3759C00D17BC0 /* icon_list_baoyang@2x.png */; };
 		E14297CD1AE3759C00D17BC0 /* icon_list_luntai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14297C11AE3759C00D17BC0 /* icon_list_luntai@2x.png */; };
@@ -626,8 +627,6 @@
 		189770311A47F2DB005D234C /* QFindLoginKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFindLoginKey.m; sourceTree = "<group>"; };
 		189770331A47F2F1005D234C /* QAgainSetPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAgainSetPayKey.h; sourceTree = "<group>"; };
 		189770341A47F2F1005D234C /* QAgainSetPayKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAgainSetPayKey.m; sourceTree = "<group>"; };
-		189770361A47F308005D234C /* QAccountLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAccountLogin.h; sourceTree = "<group>"; };
-		189770371A47F308005D234C /* QAccountLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAccountLogin.m; sourceTree = "<group>"; };
 		189770391A47F31A005D234C /* QListDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QListDetail.h; sourceTree = "<group>"; };
 		1897703A1A47F31A005D234C /* QListDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QListDetail.m; sourceTree = "<group>"; };
 		1897703F1A47F31A005D234C /* QMyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyList.h; sourceTree = "<group>"; };
@@ -1038,6 +1037,9 @@
 		E13A919A1B5AA20E00309BB0 /* QAddCardPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAddCardPage.m; sourceTree = "<group>"; };
 		E13A919C1B5AA27500309BB0 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
 		E13A919D1B5AA27500309BB0 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		E13A919F1B5B400500309BB0 /* QCheckOrderResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCheckOrderResult.h; path = HRClient/Page/QCheckOrderResult.h; sourceTree = SOURCE_ROOT; };
+		E13A91A01B5B400500309BB0 /* QCheckOrderResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCheckOrderResult.m; path = HRClient/Page/QCheckOrderResult.m; sourceTree = SOURCE_ROOT; };
+		E13A91A21B5B4D5300309BB0 /* icon_success_yandan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_success_yandan@2x.png"; sourceTree = "<group>"; };
 		E14297BF1AE3759C00D17BC0 /* icon_list_all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_all@2x.png"; path = "HRClient/Image/icon_list_all@2x.png"; sourceTree = SOURCE_ROOT; };
 		E14297C01AE3759C00D17BC0 /* icon_list_baoyang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_baoyang@2x.png"; path = "HRClient/Image/icon_list_baoyang@2x.png"; sourceTree = SOURCE_ROOT; };
 		E14297C11AE3759C00D17BC0 /* icon_list_luntai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_list_luntai@2x.png"; path = "HRClient/Image/icon_list_luntai@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1524,8 +1526,6 @@
 				189770401A47F31A005D234C /* QMyList.m */,
 				189770411A47F31A005D234C /* QMyListCell.h */,
 				189770421A47F31A005D234C /* QMyListCell.m */,
-				189770361A47F308005D234C /* QAccountLogin.h */,
-				189770371A47F308005D234C /* QAccountLogin.m */,
 				189770331A47F2F1005D234C /* QAgainSetPayKey.h */,
 				189770341A47F2F1005D234C /* QAgainSetPayKey.m */,
 				189770301A47F2DB005D234C /* QFindLoginKey.h */,
@@ -1717,6 +1717,8 @@
 				A7268F281B07169500A00F88 /* QCheckOrder.m */,
 				E185BDD51B1078AB00B13D46 /* QScanPage.h */,
 				E185BDD61B1078AB00B13D46 /* QScanPage.m */,
+				E13A919F1B5B400500309BB0 /* QCheckOrderResult.h */,
+				E13A91A01B5B400500309BB0 /* QCheckOrderResult.m */,
 			);
 			name = CheckOrder;
 			path = Home;
@@ -1792,6 +1794,7 @@
 		A75AC2451B102AFA00E16610 /* scan */ = {
 			isa = PBXGroup;
 			children = (
+				E13A91A21B5B4D5300309BB0 /* icon_success_yandan@2x.png */,
 				E185BDDC1B10860400B13D46 /* scan_corner@2x.png */,
 				E185BDDA1B1085F100B13D46 /* scan_now@2x.png */,
 				A75AC2461B102AFA00E16610 /* bottom_bar@2x.png */,
@@ -2595,6 +2598,7 @@
 				182A05031A52C27000D9E2C3 /* mapsign@2x.png in Resources */,
 				DDAA5FDE1AAF48F000230734 /* icon_mine_crash@2x.png in Resources */,
 				A7C6E30C1AC7EEDA00CC5E5B /* UMSCommentDetailController.xib in Resources */,
+				E13A91A31B5B4D5300309BB0 /* icon_success_yandan@2x.png in Resources */,
 				DDAA5FC51AAF3BE700230734 /* icon_collect_unselected@2x.png in Resources */,
 				A75AC2551B102AFA00E16610 /* button_press@2x.png in Resources */,
 				A75AC2521B102AFA00E16610 /* yandan_press@2x.png in Resources */,
@@ -2673,7 +2677,6 @@
 				189770AC1A47F440005D234C /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				E1639FEB1AD56A260046FF14 /* MJRefreshGifFooter.m in Sources */,
 				A7268F6E1B0B875600A00F88 /* QDifStatusListQtyModel.m in Sources */,
-				189770381A47F308005D234C /* QAccountLogin.m in Sources */,
 				1897702F1A47F2C8005D234C /* QFindPayKey.m in Sources */,
 				DD2872D21A2B53B60000B242 /* SBJsonWriter.m in Sources */,
 				186315F41A6206F2003764AC /* DES3Util.m in Sources */,
@@ -2683,6 +2686,7 @@
 				189770A91A47F440005D234C /* IQBarButtonItem.m in Sources */,
 				DD2872C01A2B53B60000B242 /* QAppDelegate.mm in Sources */,
 				189770351A47F2F1005D234C /* QAgainSetPayKey.m in Sources */,
+				E13A91A11B5B400500309BB0 /* QCheckOrderResult.m in Sources */,
 				DD2872CE1A2B53B60000B242 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				DD2872D51A2B53B60000B242 /* UIDevice+Resolutions.m in Sources */,
 				E1639FE91AD56A260046FF14 /* MJRefreshConst.m in Sources */,

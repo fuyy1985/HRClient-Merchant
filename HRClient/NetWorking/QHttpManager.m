@@ -147,10 +147,11 @@
                 break;
             case kScanCode:
             {
-                
+                NSDictionary *dict = [resultDic objectForKey:@"result"];
+                QScanModel *model = [QScanModel getModelFromDic:dict];
                 
                 if ([self.delegate respondsToSelector:@selector(didScanCode:)]) {
-                    [self.delegate didScanCode:nil];
+                    [self.delegate didScanCode:model];
                 }
             }
                 break;
@@ -185,7 +186,7 @@
                 break;
             case kAllOrderNotarize:
             {
-                if ([self respondsToSelector:@selector(didFinishAllOrderNotarize:)]) {
+                if ([self.delegate respondsToSelector:@selector(didFinishAllOrderNotarize:)]) {
                     [self.delegate didFinishAllOrderNotarize:nil];
                 }
             }
@@ -193,11 +194,13 @@
             case kGetCompanyAccount:
             {
                 NSDictionary *dict = [resultDic objectForKey:@"result"];
+                
                 QCompanyAccount *model = [QCompanyAccount getModelFromDic:dict];
+                [QDataCenter sharedDataCenter]->companyAccountModel = model;
+                
                 if ([self.delegate respondsToSelector:@selector(didGetCompanyAccount:)]) {
                     [self.delegate didGetCompanyAccount:model];
                 }
-                [QDataCenter sharedDataCenter]->companyAccountModel = model;
             }
                 break;
             case kAcquireCode://验证码

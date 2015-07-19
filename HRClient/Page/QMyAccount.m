@@ -38,7 +38,7 @@
     }
     else if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetCompanyAccout:) name:kCompanyAccount object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetCompanyAccout:) name:kGetCompanyAccount object:nil];
         [[QHttpMessageManager sharedHttpMessageManager] accessGetCompanyAccount];
         [ASRequestHUD show];
         

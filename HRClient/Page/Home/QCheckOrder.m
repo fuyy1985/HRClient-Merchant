@@ -37,19 +37,20 @@
 {
     if (eventType == kPageEventWillShow)
     {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
-//        [[QHttpMessageManager sharedHttpMessageManager] accessLogin:@"15157193193" andPassword:@"000000"];
+        
     }
     else if (eventType == kPageEventWillHide)
     {
-//        [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
+        
     }
     else if (eventType == kPageEventViewCreate)
     {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:kScanCode
+                                                   object:nil];
     }
     else if (eventType == kPageEventViewDispose)
     {
-//        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
 }
 
@@ -67,8 +68,8 @@
         scanBtn.frame = CGRectMake(14,13,frame.size.width - 28,45);
         [scanBtn setTitle:@"  扫描验单" forState:UIControlStateNormal];
         [scanBtn setImage:IMAGEOF(@"shaomiao") forState:UIControlStateNormal];
-        [scanBtn setTitleColor:ColorTheme forState:UIControlStateNormal];
-        [scanBtn setTitleColor:ColorLightGray forState:UIControlStateHighlighted];
+        [scanBtn setTitleColor:ColorLightGray forState:UIControlStateNormal];
+        [scanBtn setTitleColor:ColorTheme forState:UIControlStateHighlighted];
         scanBtn.backgroundColor = [UIColor whiteColor];
         scanBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [scanBtn addTarget:self action:@selector(gotoScanPage:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,7 +90,7 @@
         inputNewTextFiled.tag = 10000;
         inputNewTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         inputNewTextFiled.keyboardType = UIKeyboardTypeNumberPad;
-        inputNewTextFiled.font = [UIFont systemFontOfSize:15];
+        inputNewTextFiled.font = [UIFont systemFontOfSize:18];
         inputNewTextFiled.secureTextEntry = NO;
         inputNewTextFiled.placeholder = @"输入8位消费劵密码";
         inputNewTextFiled.textAlignment = NSTextAlignmentCenter;
@@ -122,7 +123,24 @@
 - (void)gotoCheck:(id)sender
 {
     UITextField *infoText = (UITextField*)[_view viewWithTag:10000];
-    NSLog(@"%@",infoText.text);
+    if ([infoText.text isEqualToString:@""]) {
+        return;
+    }
+    
+    [[QHttpMessageManager sharedHttpMessageManager] accessScanCode:infoText.text];
+    [ASRequestHUD show];
+}
+
+#pragma mark - Notification
+
+- (void)successCheckOrder:(NSNotification*)noti
+{
+    UITextField *infoText = (UITextField*)[_view viewWithTag:10000];
+    infoText.text = @"";
+    
+    [QViewController gotoPage:@"QCheckOrderResult"
+                    withParam:[[NSDictionary alloc] initWithObjectsAndKeys:noti.object, @"QScanModel", nil]];
+    [ASRequestHUD dismiss];
 }
 
 @end
