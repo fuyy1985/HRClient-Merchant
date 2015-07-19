@@ -13,6 +13,7 @@
 #import "QMyListDetailModel.h"
 #import "QDataPaging.h"
 #import "MJRefresh.h"
+#import "QDataCenter.h"
 
 @interface QMyList ()<QMyListCellDelegate>
 {
@@ -20,7 +21,6 @@
     QDataPaging *_dataPage;
 }
 @property (nonatomic,strong)UITableView *myListTableView;
-@property (nonatomic,strong)NSDictionary *dic;
 
 @end
 
@@ -57,28 +57,6 @@
     else if (eventType == kPageEventViewDispose)
     {
         [[NSNotificationCenter defaultCenter] removeObserver:self];
-    }
-}
-
-- (void)setActiveWithParams:(NSDictionary*)params //NOTE:方便页面激活时接收参数
-{
-    self.dic = [NSDictionary dictionary];
-    self.dic = params;
-}
-
--(void)ChangeSegmentFont:(UIView *)aView
-{
-    if ([aView isKindOfClass:[UILabel class]]) {
-        UILabel *lb = (UILabel    *)aView;
-        [lb setTextAlignment:NSTextAlignmentCenter];
-        [lb setFrame:CGRectMake(0, 0, 120, 30)];
-        [lb setFont:[UIFont systemFontOfSize:14]];
-    }
-    NSArray *na = [aView subviews];
-    NSEnumerator *ne = [na objectEnumerator];
-    UIView *subView;
-    while (subView = [ne nextObject]) {
-        [self ChangeSegmentFont:subView];
     }
 }
 
@@ -140,17 +118,16 @@
  */
 - (void)successGetOrderList:(NSNotification *)noti
 {
-    [_dataPage setMData:noti.object];
-    
+    NSMutableArray *cashArray = [[NSMutableArray alloc] initWithCapacity:0];//可提现订单
+  
+    for (QOrderModel *model in noti.object)
+    {
+        if ([model.status intValue] == 7) [cashArray addObject:model];
+    }
+    [_dataPage setMData:cashArray];
     [_myListTableView reloadData];
     
-    double total = 0;
-    for (QOrderModel *model in _dataPage.mData)
-    {
-        total += [model.price doubleValue];
-    }
-    
-    _lbCashDetail.text = [NSString stringWithFormat:@"目前已验券%d单，实际结算金额%.2f元", _dataPage.mData.count, total];
+    _lbCashDetail.text = [NSString stringWithFormat:@"目前已验券%d单，实际结算金额%.2f元", [[QDataCenter sharedDataCenter]->loginModel.ticket intValue], [[QDataCenter sharedDataCenter]->loginModel.balance doubleValue]];
     
     if (_myListTableView.legendHeader.isRefreshing)
         [_myListTableView.legendHeader endRefreshing];

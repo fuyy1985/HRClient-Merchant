@@ -108,8 +108,9 @@
         CGFloat nameBeforeW = iconImageView.deFrameRight +contentBlank;
         CGFloat nameW = 140;
         CGFloat nameH = 26;
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameBeforeW, nameTopH, nameW, nameH)];
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameBeforeW, nameTopH, 200, nameH)];
         nameLabel.backgroundColor = [UIColor clearColor];
+        nameLabel.adjustsFontSizeToFitWidth = YES;
         QCompanyModel *companyModel = [QDataCenter sharedDataCenter]->companyModel;
         if (companyModel.companyName && ![companyModel.companyName isEqualToString:@"N/A"])
         {
