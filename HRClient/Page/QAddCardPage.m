@@ -18,6 +18,7 @@
     UITextField *_locationTextField;
     UITextField *_bankNoTextField;
     UITextField *_sureBankNoTextField;
+    UITextField *_verifyCodeTextField;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -39,6 +40,36 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_view addSubview:_tableView];
+        
+        _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _nameTextField.placeholder = @"请输入持卡人姓名";
+        _nameTextField.font = [UIFont systemFontOfSize:14];
+        _nameTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        
+        _bankTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _bankTextField.placeholder = @"请输入银行名称";
+        _bankTextField.font = [UIFont systemFontOfSize:14];
+        _bankTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        
+        _locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _locationTextField.placeholder = @"请输入开户行地址";
+        _locationTextField.font = [UIFont systemFontOfSize:14];
+        _locationTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        
+        _bankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _bankNoTextField.placeholder = @"请输入银行卡卡号";
+        _bankNoTextField.font = [UIFont systemFontOfSize:14];
+        _bankNoTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        
+        _sureBankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _sureBankNoTextField.placeholder = @"请输入确认银行卡号";
+        _sureBankNoTextField.font = [UIFont systemFontOfSize:14];
+        _sureBankNoTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        
+        _verifyCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 100, 36)];
+        _verifyCodeTextField.placeholder = @"输入验证码";
+        _verifyCodeTextField.font = [UIFont systemFontOfSize:14];
+        _verifyCodeTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
     }
     return _view;
 }
@@ -87,7 +118,45 @@
     
     cell.textLabel.text = _titleArray[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.textLabel.textColor = [QTools colorWithRGB:3 :3 :3];
+    cell.textLabel.textColor = [QTools colorWithRGB:0x33 :0x33 :0x33];
+    switch (indexPath.row) {
+        case 0:
+        {
+            [cell.contentView addSubview:_nameTextField];
+        }
+            break;
+        case 1:
+        {
+            [cell.contentView addSubview:_bankTextField];
+        }
+            break;
+        case 2:
+        {
+            [cell.contentView addSubview:_locationTextField];
+        }
+            break;
+        case 3:
+        {
+            [cell.contentView addSubview:_bankNoTextField];
+        }
+            break;
+        case 4:
+        {
+            [cell.contentView addSubview:_sureBankNoTextField];
+        }
+            break;
+        case 5:
+        {
+            [cell.contentView addSubview:_verifyCodeTextField];
+            
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(_verifyCodeTextField.deFrameRight, 2, 40, 36)];
+            [button setTitle:@"获取验证码" forState:UIControlStateNormal];
+            [cell.contentView addSubview:button];
+        }
+            break;
+        default:
+            break;
+    }
     
     return cell;
 }
