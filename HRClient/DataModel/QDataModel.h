@@ -130,6 +130,8 @@
 @property (nonatomic, strong) NSString *legalPerson;
 @property (nonatomic, strong) NSString *telphone;
 @property (nonatomic, strong) NSNumber *balance;
+@property (nonatomic, strong) NSNumber *limitMin;
+@property (nonatomic, strong) NSNumber *limitMax;
 @property (nonatomic, strong) NSArray *bankList;
 
 + (QCompanyAccount*)getModelFromDic:(NSDictionary *)dic;

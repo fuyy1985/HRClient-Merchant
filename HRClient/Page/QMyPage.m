@@ -159,6 +159,7 @@
         }else{
             tableH = 300;
         }
+        
         UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width ,buttomView.deFrameHeight) style:UITableViewStylePlain];
         myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         myTableView.dataSource = self;
@@ -170,8 +171,31 @@
         }
         [buttomView addSubview:myTableView];
         
+        
+        UIView* footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 55)];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(14,10,frame.size.width - 28,45);
+        [button setTitle:@"退出账号" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setTitleColor:ColorLightGray forState:UIControlStateHighlighted];
+        button.backgroundColor = ColorTheme;
+        button.titleLabel.font = [UIFont systemFontOfSize:15];
+        [button addTarget:self action:@selector(onLogOut:) forControlEvents:UIControlEventTouchUpInside];
+        [footView addSubview:button];
+        
+        myTableView.tableFooterView = footView;
+        
     }
     return _view;
+}
+
+#pragma mark - Action
+- (void)onLogOut:(id)sender
+{
+    //清理密码
+    [ASUserDefaults setObject:@"" forKey:LoginUserPassCode];
+    [[QViewController shareController] showGuideView];
 }
 
 #pragma mark - Notification

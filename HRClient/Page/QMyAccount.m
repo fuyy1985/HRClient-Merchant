@@ -39,9 +39,10 @@
     else if (eventType == kPageEventViewCreate)
     {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetCompanyAccout:) name:kGetCompanyAccount object:nil];
-        [[QHttpMessageManager sharedHttpMessageManager] accessGetCompanyAccount];
-        [ASRequestHUD show];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successWithdrawCash:) name:kWithdrawCash object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successDeleteCard:) name:kDeleteBank object:nil];
         
+        [self tryGetCompanyAccount];
         _bankList = [[NSArray alloc] initWithArray:[QDataCenter sharedDataCenter]->companyAccountModel.bankList];
         if (_bankList.count > 0) _selectBankModel = _bankList[0];
     }
@@ -102,10 +103,32 @@
 
 - (void)gotoApplyCrash:(id)sender
 {
+    //for test
+    /*
+    [[QHttpMessageManager sharedHttpMessageManager] accessDeleteBankCard:_selectBankModel.bankId];
+    return ;
+    */
+    if (!_selectBankModel)
+        return ;
+    if ([_pwdTextField.text isEqualToString:@""])
+    {
+        [ASRequestHUD showErrorWithStatus:@"请先输入提现密码"];
+        return;
+    }
     
+    [[QHttpMessageManager sharedHttpMessageManager] accessWithdrawCash:_selectBankModel.bankId
+                                                        andPayPassword:_pwdTextField.text
+                                                              andMoney:[NSNumber numberWithFloat:[_cashTextField.text floatValue]]];
+    [ASRequestHUD showWithMaskType:ASRequestHUDMaskTypeClear];
 }
 
 #pragma mark - Notification
+
+- (void)tryGetCompanyAccount
+{
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetCompanyAccount];
+    [ASRequestHUD show];
+}
 
 - (void)successGetCompanyAccout:(NSNotification*)noti
 {
@@ -117,6 +140,24 @@
     [collectTableView reloadData];
     
     [ASRequestHUD dismiss];
+}
+
+- (void)successWithdrawCash:(NSNotification*)noti
+{
+    [ASRequestHUD dismissWithSuccess:@"提现成功"];
+    
+    //清理数据
+    _pwdTextField.text = @"";
+    if (_pwdTextField.isFirstResponder) [_pwdTextField resignFirstResponder];
+    _cashTextField.text = @"";
+    if (_cashTextField.isFirstResponder) [_pwdTextField resignFirstResponder];
+    //刷新新数据
+    [self tryGetCompanyAccount];
+}
+
+- (void)successDeleteCard:(NSNotification*)noti
+{
+    [self tryGetCompanyAccount];
 }
 
 #pragma mark - UITableView DataSource
@@ -249,10 +290,10 @@
             label.text = @"提现金额";
             [cell.contentView addSubview:label];
             
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(label.deFrameRight, 0, 100, 40)];
-            textField.secureTextEntry = YES;
-            textField.textAlignment = NSTextAlignmentRight;
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(label.deFrameRight, 0, 200, 40)];
+            textField.font = [UIFont systemFontOfSize:15];
             textField.delegate = self;
+            textField.placeholder = @"提现金额不能少于200元";
             [cell.contentView addSubview:textField];
             _cashTextField = textField;
             
@@ -261,12 +302,13 @@
             label.textColor = [QTools colorWithRGB:3 :3 :3];
             label.text = @"元";
             [cell.contentView addSubview:label];
-            
+            /*
             label = [[UILabel alloc] initWithFrame:CGRectMake(tableView.deFrameWidth - 100 -10, 0, 100, 40)];
             label.font = [UIFont systemFontOfSize:12];
             label.textColor = ColorLightGray;
             label.text = @"最低提现：200元";
             [cell.contentView addSubview:label];
+            */
         }
             break;
             
@@ -280,8 +322,10 @@
             
             UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(label.deFrameRight, 0, 120, 40)];
             textField.secureTextEntry = YES;
+            textField.font = [UIFont systemFontOfSize:15];
             textField.clearButtonMode = UITextFieldViewModeWhileEditing;
             textField.delegate = self;
+            textField.placeholder = @"请输入提现密码";
             [cell.contentView addSubview:textField];
             _pwdTextField = textField;
             

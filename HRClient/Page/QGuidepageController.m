@@ -14,10 +14,6 @@
 #import "QDataCenter.h"
 
 @interface QGuidepageController ()
-/*
-@property (nonatomic, strong) UIScrollView      *scrollView;
-@property (nonatomic, strong) UIPageControl     *pageControl;
-@property (nonatomic, assign) NSInteger         nCurrentPage;*/
 {
     UITextField *keyTextFiled;
     UITextField *accountTextFiled;
@@ -27,12 +23,6 @@
 @end
 
 @implementation QGuidepageController
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
-}
 
 - (void)viewDidLoad
 {
@@ -117,16 +107,27 @@
     
     //初始化数据
     NSNumber *isAutoLogin = [ASUserDefaults objectForKey:LoginIsAutoLogin];
-    if (!isAutoLogin || [isAutoLogin boolValue]) {
+    if (!isAutoLogin || [isAutoLogin boolValue])
+    {
         autoLoginButton.selected = YES;
+        
+        accountTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPhone]);
+        keyTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPassCode]);
     }
     
-    accountTextFiled.text = [ASUserDefaults objectForKey:LoginUserPhone];
-    keyTextFiled.text = [ASUserDefaults objectForKey:LoginUserPassCode];
-    if ([isAutoLogin boolValue])
+    
+    if ([isAutoLogin boolValue]
+        && ![accountTextFiled.text isEqualToString:@""]
+        && ![keyTextFiled.text isEqualToString:@""])
     {
         [self loginToAccount];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogin object:nil];
 }
 
 - (void)enter

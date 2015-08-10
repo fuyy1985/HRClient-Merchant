@@ -38,4 +38,6 @@
 + (void)showStautsBar:(BOOL)isShown;
 + (void)showMessage:(NSString*)message lastSecond:(NSTimeInterval)second;
 
+- (void)showGuideView;
+
 @end
