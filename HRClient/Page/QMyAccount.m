@@ -195,7 +195,7 @@
         titleLabel.adjustsFontSizeToFitWidth = YES;
         titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         titleLabel.font = [UIFont systemFontOfSize:12];
-        titleLabel.text = @"  您有未确认的订单，请进行确认后再提现";
+        titleLabel.text = @"  如有未确认的订单，请进行确认后再提现";
         
         return titleLabel;
     }

@@ -92,7 +92,7 @@
         inputNewTextFiled.keyboardType = UIKeyboardTypeNumberPad;
         inputNewTextFiled.font = [UIFont systemFontOfSize:18];
         inputNewTextFiled.secureTextEntry = NO;
-        inputNewTextFiled.placeholder = @"输入8位消费劵密码";
+        inputNewTextFiled.placeholder = @"输入12位消费劵密码";
         inputNewTextFiled.textAlignment = NSTextAlignmentCenter;
         inputNewTextFiled.backgroundColor = [UIColor whiteColor];
         inputNewTextFiled.textColor = ColorTheme;

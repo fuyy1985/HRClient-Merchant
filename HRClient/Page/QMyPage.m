@@ -65,8 +65,8 @@
 - (UIView *)viewWithFrame:(CGRect)frame{
     if ([super viewWithFrame:frame]) {
         _view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
-        imageArr = @[@"wodezhanghu",@"dingdan",@"mima"];
-        titleArr = @[@"我的账户",@"可提现订单",@"密码管理"];
+        imageArr = @[@"wodezhanghu",@"dingdan",@"mima", @"fuwu"];
+        titleArr = @[@"我的账户",@"订单结算",@"密码管理", @"我的订单"];
         
         UIImageView *firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 115)];
         firstImageView.image = [UIImage imageNamed:@"backgroundmine01.png"];
@@ -242,7 +242,7 @@
     }
     else if (indexPath.row == 1)
     {
-        //可提现订单
+        //订单结算
         NSString *row = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
         NSDictionary *dic = @{@"page":row};
         [QViewController gotoPage:@"QMyList" withParam:dic];
@@ -251,6 +251,11 @@
     {
         //密码管理
         [QViewController gotoPage:@"QMyData" withParam:nil];
+    }
+    else if (indexPath.row == 3)
+    {
+        //我的订单
+        [QViewController gotoPage:@"QMyOrders" withParam:nil];
     }
 }
 

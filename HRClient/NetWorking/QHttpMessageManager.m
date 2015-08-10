@@ -69,7 +69,7 @@ static QHttpMessageManager *httpMessageManager = nil;
 }
 - (void)didGetOrderList:(NSMutableArray*)dataArr
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGetOrderList object:dataArr];
+    [[NSNotificationCenter defaultCenter] postNotificationName:GetOrderList object:dataArr];
 }
 
 //订单详情

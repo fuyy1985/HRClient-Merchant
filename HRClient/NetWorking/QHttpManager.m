@@ -375,7 +375,7 @@
     [self setGetMthodWith:request andRequestType:kScanCode];
     [_networkQueue addOperation:request];
 }
-//订单列表
+//订单列表, 2-待服务，5-退款，7-待确认 , 8-已提款（已成交
 - (void)accessGetOrderList
 {
     NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderList];

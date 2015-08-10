@@ -260,7 +260,7 @@ typedef enum{
             label.font = [UIFont systemFontOfSize:14];
             label.textAlignment = NSTextAlignmentRight;
             label.textColor = ColorTheme;
-            label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.price doubleValue] * [_detailModel.quantity intValue]];
+            label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.total doubleValue]];
             [cell.contentView addSubview:label];
             
             UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 40, tableView.deFrameWidth - 2*10, .5f)];
@@ -278,7 +278,7 @@ typedef enum{
             label.font = [UIFont systemFontOfSize:14];
             label.textAlignment = NSTextAlignmentRight;
             label.textColor = ColorTheme;
-            label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.total doubleValue]];
+            label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.actualSettlement doubleValue]];
             [cell.contentView addSubview:label];
         }
             break;

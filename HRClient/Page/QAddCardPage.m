@@ -33,7 +33,7 @@
 {
     if ([super viewWithFrame:frame]) {
         
-        _titleArray = @[@"持卡人", @"银行名称", @"开户银行所在地", @"银卡卡号", @"确认银卡卡号", @"验证码"];
+        _titleArray = @[@"持卡人", @"银行名称", @"开户地址", @"银卡卡号", @"确认银卡卡号", @"验证码"];
         
         _tableView = [[UITableView alloc] initWithFrame:_view.bounds style:UITableViewStylePlain];
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

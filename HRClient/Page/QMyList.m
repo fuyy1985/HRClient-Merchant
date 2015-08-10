@@ -28,7 +28,7 @@
 
 - (NSString *)title
 {
-    return _T(@"可提现订单");;
+    return _T(@"订单结算");
 }
 
 - (QCacheType)pageCacheType //NOTE:页面缓存方式
@@ -45,7 +45,8 @@
     {
         _dataPage = [[QDataPaging alloc] init];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetOrderList:) name:kGetOrderList object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetOrderList:) name:GetOrderList object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failedGetOrderList:) name:kInterfaceFailed object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successAllOrderNotarize:) name: kAllOrderNotarize object:nil];
         
         [_myListTableView.legendHeader beginRefreshing];
@@ -119,7 +120,7 @@
 
 #pragma mark - Notification
 /**
- 成功获取商家可提现订单列表
+ 成功获取商家我的订单列表
  */
 - (void)successGetOrderList:(NSNotification *)noti
 {
@@ -137,6 +138,15 @@
     if (_myListTableView.legendHeader.isRefreshing)
         [_myListTableView.legendHeader endRefreshing];
 
+}
+
+- (void)failedGetOrderList:(NSNotification*)noti
+{
+    RequestType type = [noti.object intValue];
+    if (kGetOrderList == type)//网络原因,接口失败
+    {
+        [_myListTableView.header endRefreshing];
+    }
 }
 
 - (void)successAllOrderNotarize:(NSNotification*)noti

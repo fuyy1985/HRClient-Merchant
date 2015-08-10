@@ -12,7 +12,7 @@
 #define kInterfaceFailed @"kInterfaceFailed"
 #define kLogin @"kLogin"
 #define kScanCode @"kScanCode"
-#define kGetOrderList @"kGetOrderList"
+#define GetOrderList @"kGetOrderList"
 #define kGetOrderDetail @"kGetOrderDetail"
 #define kOrderNotarize @"kOrderNotarize"
 #define kAllOrderNotarize @"kAllOrderNotarize"

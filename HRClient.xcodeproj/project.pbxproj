@@ -364,7 +364,6 @@
 		E1CF90B21AC7A3EE00370E8F /* QSuggestRetroactionPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF90B11AC7A3EE00370E8F /* QSuggestRetroactionPage.m */; };
 		E1CF90B51AC7AA7200370E8F /* QAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF90B41AC7AA7200370E8F /* QAboutUs.m */; };
 		E1DAF5981B10205F00C46862 /* QDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DAF5971B10205F00C46862 /* QDataModel.m */; };
-		E1F8279C1B7632690020B6D1 /* pic_Bar_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F8279B1B7632690020B6D1 /* pic_Bar_code@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1106,7 +1105,6 @@
 		E1CF90B41AC7AA7200370E8F /* QAboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAboutUs.m; sourceTree = "<group>"; };
 		E1DAF5961B10205F00C46862 /* QDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDataModel.h; sourceTree = "<group>"; };
 		E1DAF5971B10205F00C46862 /* QDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDataModel.m; sourceTree = "<group>"; };
-		E1F8279B1B7632690020B6D1 /* pic_Bar_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_Bar_code@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1793,7 +1791,6 @@
 		A75AC2451B102AFA00E16610 /* scan */ = {
 			isa = PBXGroup;
 			children = (
-				E1F8279B1B7632690020B6D1 /* pic_Bar_code@2x.png */,
 				E13A91A21B5B4D5300309BB0 /* icon_success_yandan@2x.png */,
 				E185BDDC1B10860400B13D46 /* scan_corner@2x.png */,
 				E185BDDA1B1085F100B13D46 /* scan_now@2x.png */,
@@ -2588,7 +2585,6 @@
 				67E703551AB8336A00659F0D /* icon_refund_n@2x.png in Resources */,
 				18F0348E1A48612D00BEB8C4 /* phone_cell@2x.png in Resources */,
 				DD28739A1A2B55B30000B242 /* manifest.plist in Resources */,
-				E1F8279C1B7632690020B6D1 /* pic_Bar_code@2x.png in Resources */,
 				A7C6E30E1AC7EEDA00CC5E5B /* UMSCommentInputControlleriPad.xib in Resources */,
 				67E703511AB8275100659F0D /* icon_sold_num@2x.png in Resources */,
 				189770AD1A47F440005D234C /* IQKeyboardManager.bundle in Resources */,
