@@ -34,7 +34,7 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.deFrameWidth, 44)];
     titleLabel.backgroundColor = ColorTheme;
-    titleLabel.font = [UIFont systemFontOfSize:18];
+    titleLabel.font = [UIFont boldSystemFontOfSize:18];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.text = @"车夫商户版";

@@ -45,7 +45,7 @@
     }
     else if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:kScanCode
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:ScanCode
                                                    object:nil];
     }
     else if (eventType == kPageEventViewDispose)

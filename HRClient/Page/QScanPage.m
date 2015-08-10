@@ -70,8 +70,9 @@
     }
     else if (eventType == kPageEventViewCreate)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:kScanCode
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:ScanCode
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failedCheckOrder:) name:ScanCode object:nil];
         
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if (authStatus == AVAuthorizationStatusAuthorized)
@@ -329,6 +330,8 @@
     if (!_resultBarCode) {
         return;
     }
+    //开始验证消费码是否有效,先停止扫描
+    [self stopScan];
     
     [[QHttpMessageManager sharedHttpMessageManager] accessScanCode:_resultBarCode];
     [ASRequestHUD show];
@@ -341,6 +344,14 @@
     [QViewController gotoPage:@"QCheckOrderResult"
                     withParam:[[NSDictionary alloc] initWithObjectsAndKeys:noti.object, @"QScanModel", nil]];
     [ASRequestHUD dismiss];
+}
+
+- (void)failedCheckOrder:(NSNotification*)noti
+{
+    RequestType type = [noti.object intValue];
+    if (kScanCode == type) {
+        [self startScan]; //验证码无效,重新开始扫描
+    }
 }
 
 

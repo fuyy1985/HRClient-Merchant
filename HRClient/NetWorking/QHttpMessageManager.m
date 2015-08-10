@@ -59,7 +59,7 @@ static QHttpMessageManager *httpMessageManager = nil;
 }
 - (void)didScanCode:(id)model
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kScanCode object:model];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ScanCode object:model];
 }
 
 //订单列表

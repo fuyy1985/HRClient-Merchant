@@ -50,8 +50,8 @@
         _tableView.tableFooterView = view;
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, _tableView.deFrameWidth - 2*10, 45)];
-        [button setImage:[UIImage imageNamed:@"icon_success_yandan@2x"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"icon_success_yandan@2x"] forState:UIControlStateHighlighted];
+        [button setImage:[UIImage imageNamed:@"icon_success_yandan"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"icon_success_yandan"] forState:UIControlStateHighlighted];
         [button setTitle:@"验单成功!" forState:UIControlStateNormal];
         [button setTitleColor:[QTools colorWithRGB:0x6c :0xba :0x07] forState:UIControlStateNormal];
         [button setTitleColor:[QTools colorWithRGB:0x6c :0xba :0x07] forState:UIControlStateHighlighted];
