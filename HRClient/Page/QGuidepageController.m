@@ -30,7 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failedLogin:) name:kInterfaceFailed object:nil];
 
-    self.view.backgroundColor = [QTools colorWithRGB:0xf0 :0xef :0xf5];
+    self.view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.deFrameWidth, 44)];
     titleLabel.backgroundColor = ColorTheme;
@@ -86,7 +86,7 @@
     [loginBtn addTarget:self action:@selector(loginToAccount) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20, loginBtn.deFrameBottom, 100, 60)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10, loginBtn.deFrameBottom, 100, 60)];
     [button setTitle:@" 自动登录" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"loging_select_n"] forState:UIControlStateNormal];
@@ -95,15 +95,15 @@
     [button addTarget:self action:@selector(onSelectAutoLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     autoLoginButton = button;
-    /*
-    button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.deFrameWidth - 100 - 20, loginBtn.deFrameBottom, 100, 60)];
+    
+    button = [[UIButton alloc] initWithFrame:CGRectMake(0, loginBtn.deFrameBottom, 80, 60)];
+    button.deFrameRight = self.view.deFrameWidth - 10;
     [button setTitle:@"忘记密码" forState:UIControlStateNormal];
     [button setTitleColor:[QTools colorWithRGB:0xc4 :0x00 :0x01] forState:UIControlStateNormal];
     button.titleLabel.textAlignment = NSTextAlignmentRight;
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button addTarget:self action:@selector(gotoFindeKey) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-    */
     
     //初始化数据
     NSNumber *isAutoLogin = [ASUserDefaults objectForKey:LoginIsAutoLogin];
@@ -114,7 +114,6 @@
         accountTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPhone]);
         keyTextFiled.text = NSString_No_Nil([ASUserDefaults objectForKey:LoginUserPassCode]);
     }
-    
     
     if ([isAutoLogin boolValue]
         && ![accountTextFiled.text isEqualToString:@""]
@@ -146,9 +145,7 @@
 
 - (void)gotoFindeKey
 {
-    [self enter];
     [QViewController gotoPage:@"QFindLoginKey" withParam:nil];
-    
 }
 
 - (void)loginToAccount

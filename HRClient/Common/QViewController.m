@@ -27,7 +27,6 @@
 {
     QGuidepageController *_guideViewController;
 }
-@property (nonatomic,strong) QMainMenuView        *mainMenu;
 @property (nonatomic,strong) NSMutableArray       *pageStack;
 @property (nonatomic,strong) NSMutableDictionary  *pageCache;       //永久缓存
 @property (nonatomic,copy)   NSString             *mainMenuID;
@@ -177,6 +176,9 @@ static QViewController * _shareViewController = nil;
 #pragma mark - GuideView
 - (void)showGuideView
 {
+    if (_guideViewController) {
+        return;
+    }
     _guideViewController = [[QGuidepageController alloc] init];
     CGRect frame = _guideViewController.view.frame;
     
@@ -187,7 +189,7 @@ static QViewController * _shareViewController = nil;
 }
 
 - (void)closeGuideView
-{
+{   
     if (_guideViewController && [_guideViewController isViewLoaded]) {
         [_guideViewController.view removeFromSuperview];
     }
@@ -216,7 +218,7 @@ static QViewController * _shareViewController = nil;
 - (void)launchStart
 {
     [_shareViewController exitMainMenu];
-    [QViewController gotoPage:@"QHomePage" withParam:nil];
+    [QViewController gotoPage:@"QCheckOrder" withParam:nil];
     
     //显示登录
     [self showGuideView];
@@ -832,7 +834,7 @@ static QViewController * _shareViewController = nil;
 + (QPage*)gotoPage:(NSString*)pageName withParam:(NSDictionary*)param
 {
     BOOL needAnimation = YES;
-    if ([pageName isEqualToString:@"QHomePage"] || [pageName isEqualToString:@"QBusinessPage"]
+    if ([pageName isEqualToString:@"QCheckOrder"] || [pageName isEqualToString:@"QBusinessPage"]
         || [pageName isEqualToString:@"QMyPage"] /*|| [pageName isEqualToString:@"QMorePage"]*/)
     {
         QBottomMenuView * mainMenu = [_shareViewController valueForKey:@"btMenuView"];

@@ -70,6 +70,7 @@
         sureBtn.frame = CGRectMake(beforeW, againKeyTextFiled.frame.size.height+againKeyTextFiled.frame.origin.y+2*blank, w - 20, h);
         [sureBtn setTitle:@"确认修改" forState:UIControlStateNormal];
         [sureBtn setBackgroundImage:[QTools createImageWithColor:ColorTheme] forState:UIControlStateNormal];
+        sureBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         sureBtn.layer.masksToBounds = YES;
         sureBtn.layer.cornerRadius = 4.0;
         [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -80,7 +81,13 @@
     return _view;
 }
 
-- (void)gotoSuccessReplance{
+- (void)gotoSuccessReplance
+{
+    /*
+    [QViewController gotoPage:@"QMyPage" withParam:nil];
+    [[QViewController shareController] showGuideView];
+    return ;
+    */
     if ([nowKeyTextFiled.text length] < 6) {
         [ASRequestHUD showErrorWithStatus:@"请输入6-12英文或者数字"];
         return ;
@@ -96,10 +103,13 @@
 /**
  密码修改成功
  */
-- (void)sureToFindLoginPwd:(NSNotification *)noti{
+- (void)sureToFindLoginPwd:(NSNotification *)noti
+{
     [ASRequestHUD dismissWithSuccess:@"密码修改成功"];
     
+    //登录页面->忘记密码->验证码->修改密码
     [QViewController gotoPage:@"QMyPage" withParam:nil];
+    [[QViewController shareController] showGuideView];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "QPage.h"
 #import "QNavigationBar.h"
+#import "QMainMenuView.h"
 
 @interface QViewController : UIViewController<QNavigationBarDelegate,UIAlertViewDelegate>{
 }
 
 @property (nonatomic,readonly) QNavigationBar           *navigationBar;
 @property (nonatomic,readonly) UIInterfaceOrientation   toInterfaceOrientation;
+@property (nonatomic,strong) QMainMenuView        *mainMenu;
 
 + (QViewController *)shareController;
 
@@ -39,5 +41,6 @@
 + (void)showMessage:(NSString*)message lastSecond:(NSTimeInterval)second;
 
 - (void)showGuideView;
+- (void)closeGuideView;
 
 @end

@@ -33,15 +33,19 @@
     {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireCode:) name:kAcquireCode object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acquireFindLoginPwd:) name:kFindLoginPwd object:nil];
+        //从登录页面过来
+        [self performSelector:@selector(closeLoginView) withObject:nil afterDelay:.1f];
     }
     else if (eventType == kPageEventWillHide)
     {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kFindLoginPwd object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kAcquireCode object:nil];
     }
+    else if (eventType == kPageEventViewDispose)
+    {
+        [[QViewController shareController] showGuideView];
+    }
 }
-
-
 
 - (NSString *)title{
     return @"找回登录密码";
@@ -100,7 +104,22 @@
         }
     return _view;
 }
-- (void)gotoNewTel{
+
+#pragma mark - Private
+
+- (void)closeLoginView
+{
+    [[QViewController shareController] closeGuideView];
+}
+
+#pragma mark - Action
+
+- (void)gotoNewTel
+{
+    /*
+    [QViewController gotoPage:@"QFindNewLoginKey" withParam:nil];
+    return ;
+    */
     if ([QRegularHelp validateUserPhone:codeTextFiled.text] == NO) {
         [ASRequestHUD showErrorWithStatus:@"电话号码输入有误"];
     }
@@ -112,8 +131,21 @@
         [ASRequestHUD show];
     }
 }
+
+- (void)gotoAcquireNeedCode{
+    if ([QRegularHelp validateUserPhone:codeTextFiled.text]) {
+        [QCountDown startTime:acquireBtn];
+        [[QHttpMessageManager sharedHttpMessageManager] accessAcquireCode:codeTextFiled.text andMessage:@"(找回登陆密码验证码)"];
+    }else{
+        [ASRequestHUD showErrorWithStatus:@"电话号码输入有误"];
+    }
+}
+
+#pragma mark - Notification
+
 //验证码获取成功
-- (void)acquireCode:(NSNotification *)noti{
+- (void)acquireCode:(NSNotification *)noti
+{
     [ASRequestHUD dismiss];
 }
 //找回登录密码获取数据成功获取
@@ -127,15 +159,5 @@
     
     [QViewController gotoPage:@"QFindNewLoginKey" withParam:nil];
 }
-
-- (void)gotoAcquireNeedCode{
-    if ([QRegularHelp validateUserPhone:codeTextFiled.text]) {
-        [QCountDown startTime:acquireBtn];
-        [[QHttpMessageManager sharedHttpMessageManager] accessAcquireCode:codeTextFiled.text andMessage:@"(找回登陆密码验证码)"];
-    }else{
-        [ASRequestHUD showErrorWithStatus:@"电话号码输入有误"];
-    }
-}
-
 
 @end

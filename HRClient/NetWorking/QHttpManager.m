@@ -135,11 +135,13 @@
                 QLoginModel  *loginModel = [QLoginModel getModelFromDic:[result1 objectForKey:@"user"]];
                 [QDataCenter sharedDataCenter]->loginModel = loginModel;
                 
+                QCompanyModel *companyModel = [QCompanyModel getModelFromDic:[result1 objectForKey:@"company"]];
+                [QDataCenter sharedDataCenter]->companyModel = companyModel;
+                
                 if ([self.delegate respondsToSelector:@selector(didGetLogin:)]) {
                     [self.delegate didGetLogin:loginModel];
                 }
-                QCompanyModel *companyModel = [QCompanyModel getModelFromDic:[result1 objectForKey:@"company"]];
-                [QDataCenter sharedDataCenter]->companyModel = companyModel;
+                
                 
                 cookie = [request responseCookies];
                 debug_NSLog(@"cookie%@",cookie);
@@ -375,7 +377,7 @@
     [self setGetMthodWith:request andRequestType:kScanCode];
     [_networkQueue addOperation:request];
 }
-//订单列表, 2-待服务，5-退款，7-待确认 , 8-已提款（已成交
+//订单列表, 2-待服务，5-退款，7-待确认 , 8-已提款（已成交)
 - (void)accessGetOrderList
 {
     NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderList];

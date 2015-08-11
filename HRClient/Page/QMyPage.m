@@ -50,6 +50,7 @@
     {
         //TODO:每次到这里都要更新账户信息
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCompanyAccountData:) name:kGetCompanyAccount object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successLogin:) name:kLogin object:nil];
     }
     else if (eventType == kPageEventViewDispose)
     {
@@ -195,6 +196,7 @@
 {
     //清理密码
     [ASUserDefaults setObject:@"" forKey:LoginUserPassCode];
+    [QViewController gotoPage:@"QCheckOrder" withParam:nil];
     [[QViewController shareController] showGuideView];
 }
 
@@ -205,6 +207,31 @@
     //balance
     _balanceLabel.text = [NSString stringWithFormat:@"可提现余额：%.2f元", [[QDataCenter sharedDataCenter]->companyAccountModel.balance doubleValue]];
     [QDataCenter sharedDataCenter]->loginModel.balance = [QDataCenter sharedDataCenter]->companyAccountModel.balance;
+}
+
+- (void)successLogin:(NSNotification*)noti
+{
+    //更新数据
+    QLoginModel *model = [QDataCenter sharedDataCenter]->loginModel;
+    QCompanyModel *companyModel = [QDataCenter sharedDataCenter]->companyModel;
+    if (companyModel.companyName && ![companyModel.companyName isEqualToString:@"N/A"])
+    {
+        nameLabel.text = companyModel.companyName;
+    }
+    else
+    {
+        nameLabel.text = companyModel.telphone;
+    }
+    
+    
+    _balanceLabel.text = [NSString stringWithFormat:@"可提现余额：%.2f元", [model.balance doubleValue]];
+    if (model.photoPath && ![model.photoPath isEqualToString:@""])
+    {
+        NSString *str = PICTUREHTTP(model.photoPath);
+        [iconImageView sd_setImageWithURL:[NSURL URLWithString:str]
+                         placeholderImage:[UIImage imageNamed:@"head.png"]
+                                  options:SDWebImageRefreshCached];
+    }
 }
 
 #pragma mark - UITableViewDataSource
