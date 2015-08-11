@@ -126,14 +126,19 @@
 {
     NSMutableArray *cashArray = [[NSMutableArray alloc] initWithCapacity:0];//可提现订单
   
+    double total = 0;
     for (QOrderModel *model in noti.object)
     {
-        if ([model.status intValue] == 7) [cashArray addObject:model];
+        if ([model.status intValue] == 7)
+        {
+            [cashArray addObject:model];
+            total += [model.price doubleValue];
+        }
     }
     [_dataPage setMData:cashArray];
     [_myListTableView reloadData];
     
-    _lbCashDetail.text = [NSString stringWithFormat:@"目前已验券%d单，实际结算金额%.2f元", [[QDataCenter sharedDataCenter]->loginModel.ticket intValue], [[QDataCenter sharedDataCenter]->loginModel.balance doubleValue]];
+    _lbCashDetail.text = [NSString stringWithFormat:@"共%ld个订单，结算金额%.2f元", _dataPage.mData.count, total];
     
     if (_myListTableView.legendHeader.isRefreshing)
         [_myListTableView.legendHeader endRefreshing];

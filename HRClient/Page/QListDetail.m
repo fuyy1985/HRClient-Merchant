@@ -142,7 +142,7 @@ typedef enum{
             height = 40;
             break;
         case kCellOrderTotalPrice:
-            height = 80;
+            height = ( 2 == [_detailModel.status intValue]) ? 40 : 80;
             break;
         case kCellOrderDetail:
             height = 250;
@@ -244,6 +244,12 @@ typedef enum{
             label.textAlignment = NSTextAlignmentRight;
             label.textColor = ColorTheme;
             label.text = @"已服务";
+            if (7 == [_detailModel.status intValue])
+                label.text = @"待确认";
+            else if (2 == [_detailModel.status intValue])
+                label.text = @"待服务";
+            else if (8 == [_detailModel.status intValue])
+                label.text = @"已成交";
             [cell.contentView addSubview:label];
         }
             break;
@@ -267,19 +273,23 @@ typedef enum{
             lineView.backgroundColor = ColorLine;
             [cell.contentView addSubview:lineView];
             
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, tableView.deFrameWidth - 2*10, 40)];
-            label.backgroundColor = [UIColor clearColor];
-            label.font = [UIFont systemFontOfSize:15];
-            label.textColor = [UIColor blackColor];
-            label.text = @"实际结算";
-            [cell.contentView addSubview:label];
-            
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, tableView.deFrameWidth - 2*10, 40)];
-            label.font = [UIFont systemFontOfSize:14];
-            label.textAlignment = NSTextAlignmentRight;
-            label.textColor = ColorTheme;
-            label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.actualSettlement doubleValue]];
-            [cell.contentView addSubview:label];
+            cell.clipsToBounds = YES;
+//            if (2 != [_detailModel.status intValue]
+            {
+                label = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, tableView.deFrameWidth - 2*10, 40)];
+                label.backgroundColor = [UIColor clearColor];
+                label.font = [UIFont systemFontOfSize:15];
+                label.textColor = [UIColor blackColor];
+                label.text = @"实际结算";
+                [cell.contentView addSubview:label];
+                
+                label = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, tableView.deFrameWidth - 2*10, 40)];
+                label.font = [UIFont systemFontOfSize:14];
+                label.textAlignment = NSTextAlignmentRight;
+                label.textColor = ColorTheme;
+                label.text = [NSString stringWithFormat:@"%.2f元", [_detailModel.actualSettlement doubleValue]];
+                [cell.contentView addSubview:label];
+            }
         }
             break;
         case kCellOrderDetail:

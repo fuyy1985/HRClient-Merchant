@@ -181,7 +181,7 @@
                 break;
             case kOrderNotarize:
             {
-                if (self.delegate && [self respondsToSelector:@selector(didFinishOrderNotarize:)]) {
+                if (self.delegate && [self.delegate respondsToSelector:@selector(didFinishOrderNotarize:)]) {
                     [self.delegate didFinishOrderNotarize:nil];
                 }
             }
@@ -402,7 +402,7 @@
     [_networkQueue addOperation:request];
 }
 
-//确认提款
+//确认订单
 - (void)accessOrderNotarize:(NSNumber*)orderListId
 {
     NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderNotarize];

@@ -97,7 +97,6 @@
 		187EB30A1A6A230E0019FD7A /* QBusinessDetailResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EB3091A6A230E0019FD7A /* QBusinessDetailResult.m */; };
 		189770021A47F190005D234C /* QMyVIPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770011A47F190005D234C /* QMyVIPCard.m */; };
 		1897700D1A47F1BC005D234C /* QCarryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770091A47F1BC005D234C /* QCarryImageCell.m */; };
-		1897700E1A47F1BC005D234C /* QOrderKeyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897700B1A47F1BC005D234C /* QOrderKeyCell.m */; };
 		189770131A47F1DF005D234C /* QMyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770101A47F1DF005D234C /* QMyData.m */; };
 		189770141A47F1DF005D234C /* QMyDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770121A47F1DF005D234C /* QMyDataCell.m */; };
 		189770191A47F204005D234C /* QChangeTel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770161A47F204005D234C /* QChangeTel.m */; };
@@ -604,8 +603,6 @@
 		189770011A47F190005D234C /* QMyVIPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyVIPCard.m; sourceTree = "<group>"; };
 		189770081A47F1BC005D234C /* QCarryImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCarryImageCell.h; sourceTree = "<group>"; };
 		189770091A47F1BC005D234C /* QCarryImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCarryImageCell.m; sourceTree = "<group>"; };
-		1897700A1A47F1BC005D234C /* QOrderKeyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QOrderKeyCell.h; sourceTree = "<group>"; };
-		1897700B1A47F1BC005D234C /* QOrderKeyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QOrderKeyCell.m; sourceTree = "<group>"; };
 		1897700F1A47F1DF005D234C /* QMyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyData.h; sourceTree = "<group>"; };
 		189770101A47F1DF005D234C /* QMyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyData.m; sourceTree = "<group>"; };
 		189770111A47F1DF005D234C /* QMyDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyDataCell.h; sourceTree = "<group>"; };
@@ -1543,8 +1540,6 @@
 				189770121A47F1DF005D234C /* QMyDataCell.m */,
 				189770081A47F1BC005D234C /* QCarryImageCell.h */,
 				189770091A47F1BC005D234C /* QCarryImageCell.m */,
-				1897700A1A47F1BC005D234C /* QOrderKeyCell.h */,
-				1897700B1A47F1BC005D234C /* QOrderKeyCell.m */,
 				189770001A47F190005D234C /* QMyVIPCard.h */,
 				189770011A47F190005D234C /* QMyVIPCard.m */,
 				E13A91991B5AA20E00309BB0 /* QAddCardPage.h */,
@@ -2777,7 +2772,6 @@
 				67D1F7B01AAC2AB50067434E /* ASUserDefaults.m in Sources */,
 				A7268F721B0B875600A00F88 /* QRegularHelp.m in Sources */,
 				1879BA761A590C62003A6981 /* ASIS3Bucket.m in Sources */,
-				1897700E1A47F1BC005D234C /* QOrderKeyCell.m in Sources */,
 				189770801A47F413005D234C /* QFindNewLoginKey.m in Sources */,
 				189770A71A47F440005D234C /* IQSegmentedNextPrevious.m in Sources */,
 				187EB3071A6A1CB70019FD7A /* QBusinessDetailComment.m in Sources */,

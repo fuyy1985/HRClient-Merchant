@@ -28,7 +28,7 @@
 //订单详情
 #define Q_OrderDetail @"/companyOrderController/getOrderDetail"
 //确认提款
-#define Q_OrderNotarize @"/companyOrderController/notarizeOrder"
+#define Q_OrderNotarize    @"/companyOrderController/notarizeOrder"
 //一键确认订单
 #define Q_AllOrderNotarize @"/companyOrderController/notarizeOrders"
 //账户信息,银行卡列表
