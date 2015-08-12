@@ -13,6 +13,7 @@
 {
 }
 
+@property (nonatomic, strong) NSDateFormatter *orderTimeFormatter;
 #define STRNCPY(destion, source, size) { strncpy(destion, source, size-1); destion[size-1] = 0;}
 
 + (QTools *) sharedQTools;

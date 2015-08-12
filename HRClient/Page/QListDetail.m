@@ -350,9 +350,8 @@ typedef enum{
             label.text = @"下单时间：";
             [cell.contentView addSubview:label];
             
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-            NSString *orderTime = [dateFormatter stringFromDate: [NSDate dateWithTimeIntervalSince1970:([_detailModel.gmtCreate unsignedLongLongValue]/1000)]];//毫秒->秒
+            NSDateFormatter *dateFormatter = [QTools sharedQTools].orderTimeFormatter;
+            NSString *orderTime = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:([_detailModel.gmtCreate unsignedLongLongValue]/1000)]];//毫秒->秒
             
             label = [[UILabel alloc] initWithFrame:CGRectMake(90, orginY, 200, 35)];
             label.font = [UIFont systemFontOfSize:13];

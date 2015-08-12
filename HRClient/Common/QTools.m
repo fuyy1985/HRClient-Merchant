@@ -38,6 +38,16 @@ static QTools* __shareQTools = nil;
     return __shareQTools;
 }
 
+- (NSDateFormatter*)orderTimeFormatter
+{
+    if (!_orderTimeFormatter) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        _orderTimeFormatter = dateFormatter;
+    }
+    return _orderTimeFormatter;
+}
+
 + (UIColor*)colorOfString16:(NSString*)color
 {
     unichar uc = [color characterAtIndex:0];

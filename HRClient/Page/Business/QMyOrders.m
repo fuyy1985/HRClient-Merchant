@@ -162,8 +162,7 @@
     x += label.deFrameWidth + 5;
     
     //购买时间
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDateFormatter *dateFormatter = [QTools sharedQTools].orderTimeFormatter;
     NSString *orderTime = [dateFormatter stringFromDate: [NSDate dateWithTimeIntervalSince1970:([model.gmtCreate unsignedLongLongValue]/1000)]];//毫秒->秒
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 200, 35)];

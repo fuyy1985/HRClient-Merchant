@@ -32,13 +32,17 @@
 
     self.view.backgroundColor = [QTools colorWithRGB:240 :239 :237];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.deFrameWidth, 44)];
-    titleLabel.backgroundColor = ColorTheme;
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.deFrameWidth, 64)];
+    titleView.backgroundColor = ColorTheme;
+    [self.view addSubview:titleView];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.deFrameWidth, 44)];
+    titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont boldSystemFontOfSize:18];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.text = @"车夫商户版";
-    [self.view addSubview:titleLabel];
+    [titleView addSubview:titleLabel];
     
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, titleLabel.deFrameBottom + 16, self.view.deFrameWidth, 80)];
     bgView.backgroundColor = [UIColor whiteColor];

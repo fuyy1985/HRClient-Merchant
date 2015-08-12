@@ -180,10 +180,7 @@ static QViewController * _shareViewController = nil;
         return;
     }
     _guideViewController = [[QGuidepageController alloc] init];
-    CGRect frame = _guideViewController.view.frame;
-    
-    frame.origin.y = 20;
-    _guideViewController.view.frame = frame;
+
     _guideViewController.delegate = self;
     [self.view addSubview:_guideViewController.view];
 }
