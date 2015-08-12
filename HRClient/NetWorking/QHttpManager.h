@@ -109,7 +109,7 @@ typedef enum{
 //扫描用户版的二维码
 - (void)accessScanCode:(NSString*)verificationCode;
 //订单列表
-- (void)accessGetOrderList;
+- (void)accessGetOrderList:(int)nextPage;
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId;
 //确认提款

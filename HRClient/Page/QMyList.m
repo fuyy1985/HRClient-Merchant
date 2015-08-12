@@ -99,7 +99,7 @@
 
 - (void)headerRereshing
 {
-    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList];
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList:_dataPage.nextPage];
 }
 
 #pragma mark - Action

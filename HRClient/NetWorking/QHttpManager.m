@@ -362,12 +362,14 @@
     [_networkQueue addOperation:request];
 }
 //订单列表, 2-待服务，5-退款，7-待确认 , 8-已提款（已成交)
-- (void)accessGetOrderList
+- (void)accessGetOrderList:(int)nextPage
 {
     NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_OrderList];
     NSURL *url = [NSURL URLWithString:path];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];
+    [request setPostValue:[NSNumber numberWithInt:nextPage] forKey:@"currentPage"];
+    [request setPostValue:[NSNumber numberWithInt:10] forKey:@"pageSize"];
     [request setUseCookiePersistence:YES];
     [self setGetMthodWith:request andRequestType:kGetOrderList];
     [_networkQueue addOperation:request];

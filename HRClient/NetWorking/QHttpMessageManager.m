@@ -58,9 +58,9 @@ static QHttpMessageManager *httpMessageManager = nil;
 }
 
 //订单列表
-- (void)accessGetOrderList
+- (void)accessGetOrderList:(int)nextPage
 {
-    [self.httpManager accessGetOrderList];
+    [self.httpManager accessGetOrderList:nextPage];
 }
 - (void)didGetOrderList:(NSMutableArray*)dataArr
 {

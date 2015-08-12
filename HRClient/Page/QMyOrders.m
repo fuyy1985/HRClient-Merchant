@@ -236,7 +236,7 @@
 @interface QMyOrders ()<UITableViewDataSource, UITableViewDelegate>
 {
     QDataPaging *_dataPage;
-    NSArray *_ordersArray;
+    NSArray *_tableData;
 }
 
 @property (nonatomic,strong)UISegmentedControl *segmentControl;
@@ -295,7 +295,7 @@
 {
     if ([super viewWithFrame:frame]) {
         //segmentControl
-        _segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"全部(0)", @"待确认(0)", @"待服务(0)", @"已成交(0)"]];//
+        _segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"全部", @"待确认", @"待服务", @"已成交"]];
         _segmentControl.frame = CGRectMake(10, 8, (_view.frame.size.width - 20), 30);
         _segmentControl.tintColor = ColorTheme;
         _segmentControl.selectedSegmentIndex = 0;
@@ -321,7 +321,18 @@
 
 - (void)headerRereshing
 {
-    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList];
+    _dataPage.nextPage = 1;
+    if (_myListTableView.legendFooter.isRefreshing) {
+        [_myListTableView.legendFooter endRefreshing];
+    }
+    
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList:_dataPage.nextPage];
+}
+
+- (void)footerLoadMore
+{
+    if (_myListTableView.legendHeader.isRefreshing) return;
+    [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList:_dataPage.nextPage];
 }
 
 - (void)updateSegmentCtrlTitle:(NSArray*)titles
@@ -332,22 +343,16 @@
     }
 }
 
-- (void)updateTableViewList
+- (void)updateTableViewList:(NSArray*)array
 {
-    
-    int allCount = 0;
-    int seg1Count = 0;
-    int seg2Count = 0;
-    int seg3Count = 0;
-    
     NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (0 == _segmentControl.selectedSegmentIndex)
     {
-        [mArray addObjectsFromArray:_ordersArray];
+        [mArray addObjectsFromArray:array];
     }
     else
     {
-        for (QOrderModel *model in _ordersArray)
+        for (QOrderModel *model in array)
         {
             switch (_segmentControl.selectedSegmentIndex) {
                 case 1:
@@ -373,12 +378,38 @@
             
         }
     }
-    [_dataPage setMData:mArray];
     
+    _tableData = mArray;
+    
+    if (_tableData.count < 10) {
+        [_myListTableView removeFooter];
+    }
+    else {
+        [_myListTableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore)];
+    }
+    
+    if (_dataPage.mData.count
+        && !(_dataPage.mData.count%_dataPage.pageSize)) //订单列表没有全部取完
+    {
+        if (_tableData.count < _dataPage.pageSize) //该类型订单未满一页,再取一次
+        {
+            [[QHttpMessageManager sharedHttpMessageManager] accessGetOrderList:_dataPage.nextPage];
+            return;
+        }
+            
+    }
     
     [_myListTableView reloadData];
+    if (_myListTableView.legendHeader.isRefreshing)
+        [_myListTableView.legendHeader endRefreshing];
+    if (_myListTableView.legendFooter.isRefreshing)
+        [_myListTableView.legendFooter endRefreshing];
     
-    
+    /*
+    int allCount = 0;
+    int seg1Count = 0;
+    int seg2Count = 0;
+    int seg3Count = 0;
     for (QOrderModel *model in _ordersArray)
     {
         allCount++;
@@ -386,22 +417,21 @@
         else if ([model.status intValue] == 2) seg2Count++;
         else if ([model.status intValue] == 8) seg3Count++;
     }
+
     [self updateSegmentCtrlTitle:@[[NSString stringWithFormat:@"全部(%d)",allCount],
                                    [NSString stringWithFormat:@"待确认(%d)",seg1Count],
                                    [NSString stringWithFormat:@"待服务(%d)",seg2Count],
                                    [NSString stringWithFormat:@"已成交(%d)",seg3Count]]];
+    */
 }
 
 #pragma mark - Notification
 
 - (void)successGetOrderList:(NSNotification*)noti
 {
-    _ordersArray = noti.object;
-    
-    [self updateTableViewList];
-    
-    if (_myListTableView.legendHeader.isRefreshing)
-        [_myListTableView.legendHeader endRefreshing];
+    [_dataPage setMData:noti.object];
+    _dataPage.nextPage++;
+    [self updateTableViewList:_dataPage.mData];
 }
 
 - (void)failedGetOrderList:(NSNotification*)noti
@@ -409,7 +439,10 @@
     RequestType type = [noti.object intValue];
     if (kGetOrderList == type)//网络原因,接口失败
     {
-        [_myListTableView.header endRefreshing];
+        if (_myListTableView.legendHeader.isRefreshing)
+            [_myListTableView.legendHeader endRefreshing];
+        if (_myListTableView.legendFooter.isRefreshing)
+            [_myListTableView.legendFooter endRefreshing];
     }
 }
 
@@ -422,20 +455,20 @@
 #pragma mark - UISegmentedControl Delegate
 - (void)segmentedControl:(UISegmentedControl*)segmentedControl
 {
-    [self updateTableViewList];
+    [_myListTableView.legendHeader beginRefreshing];
 }
 
 #pragma mark - UITabelViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataPage.mData.count;
+    return _tableData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QMyOrdersCell *contentView = [[QMyOrdersCell alloc] init];
-    contentView.model = [_dataPage.mData objectAtIndex:indexPath.row];
+    contentView.model = [_tableData objectAtIndex:indexPath.row];
     
     return contentView.deFrameHeight;
 }
@@ -450,10 +483,10 @@
     }
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    if (_dataPage.mData.count > indexPath.row)
+    if (_tableData.count > indexPath.row)
     {
         QMyOrdersCell *contentView = [[QMyOrdersCell alloc] initWithDelegate:self];
-        contentView.model = [_dataPage.mData objectAtIndex:indexPath.row];
+        contentView.model = [_tableData objectAtIndex:indexPath.row];
         [cell.contentView addSubview:contentView];
     }
     
