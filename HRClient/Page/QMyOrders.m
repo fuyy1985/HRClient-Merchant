@@ -408,7 +408,7 @@
     
     _tableData = mArray;
     
-    if (_tableData.count < 10) {
+    if (_tableData.count < _dataPage.pageSize) {
         [_myListTableView removeFooter];
     }
     else {
@@ -427,6 +427,7 @@
     }
     
     [_myListTableView reloadData];
+    
     if (_myListTableView.legendHeader.isRefreshing)
         [_myListTableView.legendHeader endRefreshing];
     if (_myListTableView.legendFooter.isRefreshing)
