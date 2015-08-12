@@ -16,6 +16,7 @@ typedef enum{
     kLogin = 0,
     kScanCode,
     kGetOrderList,
+    kDeleteOrder,
     kGetOrderDetail,
     kOrderNotarize,
     kAllOrderNotarize,
@@ -49,6 +50,8 @@ typedef enum{
 - (void)didScanCode:(id)model;
 //订单列表
 - (void)didGetOrderList:(NSMutableArray*)dataArr;
+//删除订单
+- (void)didDeleteOrder:(id)model;
 //订单详情
 - (void)didGetOrderDetail:(id)model;
 //确认提款
@@ -110,6 +113,8 @@ typedef enum{
 - (void)accessScanCode:(NSString*)verificationCode;
 //订单列表
 - (void)accessGetOrderList:(int)nextPage;
+//删除订单
+- (void)accessDeleteOrder:(NSNumber*)orderListId;
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId;
 //确认提款

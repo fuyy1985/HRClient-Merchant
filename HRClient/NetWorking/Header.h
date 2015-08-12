@@ -25,6 +25,8 @@
 #define Q_ScanCode @"/companyUserController/scanList"
 //订单列表
 #define Q_OrderList @"/companyOrderController/companyOrderlist"
+//删除订单
+#define Q_DeleteOrder @"/companyOrderController/deleteOrder"
 //订单详情
 #define Q_OrderDetail @"/companyOrderController/getOrderDetail"
 //确认提款

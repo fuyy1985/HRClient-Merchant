@@ -67,6 +67,17 @@ static QHttpMessageManager *httpMessageManager = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:GetOrderList object:dataArr];
 }
 
+//删除订单
+- (void)accessDeleteOrder:(NSNumber*)orderListId;
+{
+    [self.httpManager accessDeleteOrder:orderListId];
+}
+
+- (void)didDeleteOrder:(id)model
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:DeleteOrder object:model];
+}
+
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId
 {

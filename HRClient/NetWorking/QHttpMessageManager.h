@@ -13,6 +13,7 @@
 #define kLogin @"kLogin"
 #define ScanCode @"kScanCode"
 #define GetOrderList @"kGetOrderList"
+#define DeleteOrder @"kDeleteOrder"
 #define kGetOrderDetail @"kGetOrderDetail"
 #define kOrderNotarize @"kOrderNotarize"
 #define kAllOrderNotarize @"kAllOrderNotarize"
@@ -45,6 +46,8 @@
 - (void)accessScanCode:(NSString*)verificationCode;
 //订单列表
 - (void)accessGetOrderList:(int)nextPage;
+//删除订单
+- (void)accessDeleteOrder:(NSNumber*)orderListId;
 //订单详情
 - (void)accessGetOrderDetail:(NSNumber*)orderListId;
 //确认提款

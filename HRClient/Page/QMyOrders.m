@@ -21,6 +21,7 @@
 @optional
 //确认订单
 - (void)checkOrder:(QMyOrdersCell*)cell;
+- (void)deleteOrder:(QMyOrdersCell*)cell;
 
 @end
 
@@ -205,6 +206,22 @@
         [button addTarget:self action:@selector(onCheckOrder) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
+    else if (8 == [model.status intValue])
+    {
+        button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 30)];
+        button.deFrameTop = y + 3;
+        button.deFrameRight = self.deFrameWidth - 75 - 15;
+        [button setTitle:@"删除订单" forState:UIControlStateNormal];
+        [button setTitleColor:ColorTheme forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        button.layer.cornerRadius = 2.5f;
+        button.layer.masksToBounds = YES;
+        button.layer.borderWidth = .5f;
+        button.layer.borderColor = ColorTheme.CGColor;
+        [button addTarget:self action:@selector(onDeleteOrder) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+    }
+    
     
     x = 0;
     y += 35;
@@ -228,6 +245,14 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(checkOrder:)])
     {
         [self.delegate checkOrder:self];
+    }
+}
+
+- (void)onDeleteOrder
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(deleteOrder:)])
+    {
+        [self.delegate deleteOrder:self];
     }
 }
 
@@ -271,11 +296,13 @@
     {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successGetOrderList:) name:GetOrderList object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successOrderNo:) name:kOrderNotarize object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successDeleteOrder:) name:DeleteOrder object:nil];
     }
     else if (eventType == kPageEventWillHide)
     {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:GetOrderList object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kOrderNotarize object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:DeleteOrder object:nil];
         [ASRequestHUD dismiss];
     }
     else if (eventType == kPageEventViewCreate)
@@ -452,6 +479,12 @@
     [_myListTableView.legendHeader beginRefreshing];
 }
 
+- (void)successDeleteOrder:(NSNotification*)noti
+{
+    [ASRequestHUD dismiss];
+    [_myListTableView.legendHeader beginRefreshing];
+}
+
 #pragma mark - UISegmentedControl Delegate
 - (void)segmentedControl:(UISegmentedControl*)segmentedControl
 {
@@ -504,6 +537,12 @@
 - (void)checkOrder:(QMyOrdersCell*)cell
 {
     [[QHttpMessageManager sharedHttpMessageManager] accessOrderNotarize:cell.model.receiptOrdLstId];
+    [ASRequestHUD show];
+}
+
+- (void)deleteOrder:(QMyOrdersCell*)cell
+{
+    [[QHttpMessageManager sharedHttpMessageManager] accessDeleteOrder:cell.model.orderListId];
     [ASRequestHUD show];
 }
 

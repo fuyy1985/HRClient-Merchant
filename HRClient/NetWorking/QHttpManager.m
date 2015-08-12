@@ -154,6 +154,13 @@
                 }
             }
                 break;
+            case kDeleteOrder:
+            {
+                if ([self.delegate respondsToSelector:@selector(didDeleteOrder:)]) {
+                    [self.delegate didDeleteOrder:nil];
+                }
+            }
+                break;
             case kGetOrderDetail:
             {
                 NSDictionary *dict = [resultDic objectForKey:@"result"];
@@ -372,6 +379,19 @@
     [request setPostValue:[NSNumber numberWithInt:10] forKey:@"pageSize"];
     [request setUseCookiePersistence:YES];
     [self setGetMthodWith:request andRequestType:kGetOrderList];
+    [_networkQueue addOperation:request];
+}
+
+//删除订单
+- (void)accessDeleteOrder:(NSNumber*)orderListId
+{
+    NSString *path = [NSString stringWithFormat:@"%@%@",SERVERADRESS, Q_DeleteOrder];
+    NSURL *url = [NSURL URLWithString:path];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request setPostValue:orderListId forKey:@"orderListId"];
+    [request setUseCookiePersistence:YES];
+    [self setGetMthodWith:request andRequestType:kDeleteOrder];
     [_networkQueue addOperation:request];
 }
 
