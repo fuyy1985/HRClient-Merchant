@@ -44,7 +44,9 @@ static QViewController * _shareViewController = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
     [SYSafeCategory callSafeCategory];
+     */
     _pageCache = [[NSMutableDictionary alloc] initWithCapacity:16];//Page缓存
     // status bar
     CGFloat yOff = 0.0;
@@ -86,7 +88,7 @@ static QViewController * _shareViewController = nil;
     _maskView.backgroundColor = [UIColor blackColor];
     _maskView.alpha = 0.0;
     [_maskView addTarget:self action:@selector(onMaskViewTouched:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     /* 目前暂时不需要 - 后续根据需求增加
     //add gesture
     UISwipeGestureRecognizer * swipeGesture = [[UISwipeGestureRecognizer alloc]
@@ -216,7 +218,7 @@ static QViewController * _shareViewController = nil;
 {
     [_shareViewController exitMainMenu];
     [QViewController gotoPage:@"QCheckOrder" withParam:nil];
-    
+
     //显示登录
     [self showGuideView];
 }
