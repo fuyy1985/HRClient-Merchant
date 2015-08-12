@@ -11,7 +11,6 @@
 #import "QDataModel.h"
 #import "QCommentModel.h"
 #import "QRegisterModel.h"
-#import "QDifStatusListQtyModel.h"
 #import "QMyAccountMoel.h"
 #import "QMyListDetailModel.h"
 #import "QViewController.h"

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Header.h"
 #import "QDataModel.h"
-#import "QDifStatusListQtyModel.h"
 #import "QMyListDetailModel.h"
 #import "QBusinessDetailModel.h"
 #import "QBusinessDetailComment.h"

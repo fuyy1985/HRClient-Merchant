@@ -8,7 +8,6 @@
 
 #import "QHttpMessageManager.h"
 #import "QDataModel.h"
-#import "QDifStatusListQtyModel.h"
 #import "QMyListDetailModel.h"
 #import "QProductDetail.h"
 #import "QMyListModel.h"
