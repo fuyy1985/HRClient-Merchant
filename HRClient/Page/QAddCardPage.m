@@ -12,7 +12,7 @@
 #import "QCountDown.h"
 #import "QViewController.h"
 
-@interface QAddCardPage ()<UITableViewDataSource,UITableViewDelegate>
+@interface QAddCardPage ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 {
     NSArray *_titleArray;
     UITextField *_nameTextField;
@@ -33,7 +33,7 @@
 {
     if ([super viewWithFrame:frame]) {
         
-        _titleArray = @[@"持卡人", @"银行名称", @"开户地址", @"银卡卡号", @"确认银卡卡号", @"验证码"];
+        _titleArray = @[@"持卡人", @"银行名称", @"开户地址", @"银卡卡号", @"确认卡号", @"验证码"];
         
         _tableView = [[UITableView alloc] initWithFrame:_view.bounds style:UITableViewStylePlain];
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -57,35 +57,39 @@
         
         _tableView.tableFooterView = footView;
         
-        _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
-        _nameTextField.placeholder = @"请输入持卡人姓名";
-        _nameTextField.font = [UIFont systemFontOfSize:14];
-        _nameTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        CGFloat x = 120;
         
-        _bankTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 170, 36)];
+        _nameTextField.placeholder = @"请输入持卡人姓名";
+        _nameTextField.text = [QDataCenter sharedDataCenter]->companyModel.legalPerson;
+        _nameTextField.font = [UIFont systemFontOfSize:14];
+        _nameTextField.delegate = self;
+        _nameTextField.textColor = [QTools colorWithRGB:150 :150 :150];
+        
+        _bankTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 170, 36)];
         _bankTextField.placeholder = @"请输入银行名称";
         _bankTextField.font = [UIFont systemFontOfSize:14];
-        _bankTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        _bankTextField.textColor = [QTools colorWithRGB:150 :150 :150];
         
-        _locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 170, 36)];
         _locationTextField.placeholder = @"请输入开户行地址";
         _locationTextField.font = [UIFont systemFontOfSize:14];
-        _locationTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        _locationTextField.textColor = [QTools colorWithRGB:150 :150 :150];
         
-        _bankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
+        _bankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 170, 36)];
         _bankNoTextField.placeholder = @"请输入银行卡卡号";
         _bankNoTextField.font = [UIFont systemFontOfSize:14];
-        _bankNoTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        _bankNoTextField.textColor = [QTools colorWithRGB:150 :150 :150];
         
-        _sureBankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 170, 36)];
-        _sureBankNoTextField.placeholder = @"请输入确认银行卡号";
+        _sureBankNoTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 170, 36)];
+        _sureBankNoTextField.placeholder = @"请输入确认卡号";
         _sureBankNoTextField.font = [UIFont systemFontOfSize:14];
-        _sureBankNoTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        _sureBankNoTextField.textColor = [QTools colorWithRGB:150 :150 :150];
         
-        _verifyCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 2, 80, 36)];
+        _verifyCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(x, 2, 80, 36)];
         _verifyCodeTextField.placeholder = @"输入验证码";
         _verifyCodeTextField.font = [UIFont systemFontOfSize:14];
-        _verifyCodeTextField.textColor = [QTools colorWithRGB:0xc4 :0xc4 :0xc4];
+        _verifyCodeTextField.textColor = [QTools colorWithRGB:150 :150 :150];
     }
     return _view;
 }
@@ -133,7 +137,7 @@
     }
     if ([_bankNoTextField.text isEqualToString:@""])
     {
-        [ASRequestHUD showErrorWithStatus:@"请输入银行卡卡号"];
+        [ASRequestHUD showErrorWithStatus:@"请输入银行卡号"];
         return ;
     }
     if (![_bankNoTextField.text isEqualToString:_sureBankNoTextField.text])
@@ -236,6 +240,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 40;
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == _nameTextField) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

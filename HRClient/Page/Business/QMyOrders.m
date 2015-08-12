@@ -120,7 +120,7 @@
     label.font = [UIFont systemFontOfSize:13];
     label.textColor = ColorTheme;
     label.textAlignment = NSTextAlignmentRight;
-    label.text = [NSString stringWithFormat:@"结算金额%.2f元", [model.price doubleValue]];
+    label.text = [NSString stringWithFormat:@"成交价格%.2f元", [model.price doubleValue]];
     [self addSubview:label];
     
     //3.

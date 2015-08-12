@@ -72,7 +72,7 @@
     {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successCheckOrder:) name:ScanCode
                                                    object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failedCheckOrder:) name:ScanCode object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failedCheckOrder:) name:kInterfaceFailed object:nil];
         
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if (authStatus == AVAuthorizationStatusAuthorized)

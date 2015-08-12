@@ -97,7 +97,7 @@
     _dataModel = model;
     
     _titleLabel.text = model.subject;
-    _totalLabel.text = [NSString stringWithFormat:@"实际结算：%.2f", [model.price doubleValue]];
+    _totalLabel.text = [NSString stringWithFormat:@"实际结算%.2f元", [model.price doubleValue]];
     
     [_totalLabel sizeToFit];
     _totalLabel.deFrameRight = self.deFrameWidth - 10;
