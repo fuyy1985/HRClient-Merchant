@@ -18,7 +18,6 @@
 #import "QMyCouponDetailModel.h"
 #import "QAppDelegate.h"
 #import "QMyListModel.h"
-#import "QRegisterModel.h"
 
 #define USER_INFO_KEY_TYPE          @"requestType"
 typedef enum{

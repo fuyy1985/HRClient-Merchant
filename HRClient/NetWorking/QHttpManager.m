@@ -10,7 +10,6 @@
 #import "QHotCityModel.h"
 #import "QDataModel.h"
 #import "QCommentModel.h"
-#import "QRegisterModel.h"
 #import "QMyAccountMoel.h"
 #import "QMyListDetailModel.h"
 #import "QViewController.h"

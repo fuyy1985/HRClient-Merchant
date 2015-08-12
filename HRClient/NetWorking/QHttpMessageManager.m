@@ -11,7 +11,6 @@
 #import "QMyListDetailModel.h"
 #import "QProductDetail.h"
 #import "QMyListModel.h"
-#import "QRegisterModel.h"
 
 @interface QHttpMessageManager ()
 @property (nonatomic,strong)QHttpManager *httpManager;

@@ -51,7 +51,6 @@
 		186315F41A6206F2003764AC /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 186315EE1A6206F2003764AC /* DES3Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		186315F51A6206F2003764AC /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 186315F01A6206F2003764AC /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		186315F61A6206F2003764AC /* NSString+NSReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = 186315F31A6206F2003764AC /* NSString+NSReplace.m */; };
-		186574591A5F788900041B66 /* QRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186574581A5F788900041B66 /* QRegisterModel.m */; };
 		18661E0E1A5D42A900CC9C73 /* QMyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18661E0D1A5D42A900CC9C73 /* QMyListModel.m */; };
 		18667CE61A6B56CA0001F67F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 18667CE31A6B56CA0001F67F /* JRSwizzle.m */; };
 		18667CE71A6B56CA0001F67F /* SYSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 18667CE51A6B56CA0001F67F /* SYSafeCategory.m */; };
@@ -99,8 +98,6 @@
 		1897700D1A47F1BC005D234C /* QCarryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770091A47F1BC005D234C /* QCarryImageCell.m */; };
 		189770131A47F1DF005D234C /* QMyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770101A47F1DF005D234C /* QMyData.m */; };
 		189770141A47F1DF005D234C /* QMyDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770121A47F1DF005D234C /* QMyDataCell.m */; };
-		189770191A47F204005D234C /* QChangeTel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770161A47F204005D234C /* QChangeTel.m */; };
-		1897701A1A47F204005D234C /* QNewTel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770181A47F204005D234C /* QNewTel.m */; };
 		189770231A47F242005D234C /* QSetPayKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770221A47F242005D234C /* QSetPayKey.m */; };
 		189770291A47F27D005D234C /* QPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770281A47F27D005D234C /* QPersonalData.m */; };
 		1897702C1A47F2B2005D234C /* QChangeLoginKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897702B1A47F2B2005D234C /* QChangeLoginKey.m */; };
@@ -110,15 +107,12 @@
 		189770431A47F31A005D234C /* QListDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897703A1A47F31A005D234C /* QListDetail.m */; };
 		189770461A47F31A005D234C /* QMyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770401A47F31A005D234C /* QMyList.m */; };
 		189770471A47F31A005D234C /* QMyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770421A47F31A005D234C /* QMyListCell.m */; };
-		189770561A47F36C005D234C /* QRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770551A47F36C005D234C /* QRegister.m */; };
 		1897705D1A47F37E005D234C /* QMyPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770581A47F37E005D234C /* QMyPage.m */; };
 		1897705E1A47F37E005D234C /* QMyPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897705A1A47F37E005D234C /* QMyPageCell.m */; };
 		1897705F1A47F37E005D234C /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897705C1A47F37E005D234C /* VPImageCropperViewController.m */; };
-		189770661A47F394005D234C /* AllenProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770611A47F394005D234C /* AllenProvince.m */; };
 		189770701A47F3B4005D234C /* QMyAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897706D1A47F3B4005D234C /* QMyAccount.m */; };
 		189770711A47F3B4005D234C /* QMyCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897706F1A47F3B4005D234C /* QMyCollectCell.m */; };
 		1897707A1A47F3F7005D234C /* QAmendPayKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770791A47F3F7005D234C /* QAmendPayKey.m */; };
-		1897707D1A47F404005D234C /* QNoAccountLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897707C1A47F404005D234C /* QNoAccountLogin.m */; };
 		189770801A47F413005D234C /* QFindNewLoginKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897707F1A47F412005D234C /* QFindNewLoginKey.m */; };
 		189770A21A47F440005D234C /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770841A47F440005D234C /* IQNSArray+Sort.m */; };
 		189770A31A47F440005D234C /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 189770861A47F440005D234C /* IQUIView+Hierarchy.m */; };
@@ -185,8 +179,6 @@
 		67E703521AB8275100659F0D /* icon_sale_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67E7034F1AB8275100659F0D /* icon_sale_date@2x.png */; };
 		67E703531AB8275100659F0D /* icon_refund@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67E703501AB8275100659F0D /* icon_refund@2x.png */; };
 		67E703551AB8336A00659F0D /* icon_refund_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67E703541AB8336A00659F0D /* icon_refund_n@2x.png */; };
-		A7268F291B07169500A00F88 /* QCheckOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = A7268F281B07169500A00F88 /* QCheckOrder.m */; };
-		A7268F2C1B07181100A00F88 /* QMyOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = A7268F2B1B07181100A00F88 /* QMyOrders.m */; };
 		A75AC24D1B102AFA00E16610 /* gengduo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A75AC23F1B102AFA00E16610 /* gengduo@2x.png */; };
 		A75AC24E1B102AFA00E16610 /* gengduo_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A75AC2401B102AFA00E16610 /* gengduo_press@2x.png */; };
 		A75AC24F1B102AFA00E16610 /* shangjia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A75AC2411B102AFA00E16610 /* shangjia@2x.png */; };
@@ -352,9 +344,9 @@
 		E1B980101ADFD96B00AC7A0C /* icon_no_data@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B9800F1ADFD96B00AC7A0C /* icon_no_data@2x.png */; };
 		E1C6B48C1B7AEE33005D680F /* QCountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C6B4891B7AEE33005D680F /* QCountDown.m */; };
 		E1C6B48D1B7AEE33005D680F /* QRegularHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C6B48B1B7AEE33005D680F /* QRegularHelp.m */; };
+		E1C6B4931B7AEF2A005D680F /* QMyOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C6B4921B7AEF2A005D680F /* QMyOrders.m */; };
+		E1C6B4961B7AEFE2005D680F /* QCheckOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C6B4951B7AEFE2005D680F /* QCheckOrder.m */; };
 		E1CB6B2D1AE2B50100DCE7D2 /* CustomWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB6B2C1AE2B50100DCE7D2 /* CustomWindow.m */; };
-		E1CF90B21AC7A3EE00370E8F /* QSuggestRetroactionPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF90B11AC7A3EE00370E8F /* QSuggestRetroactionPage.m */; };
-		E1CF90B51AC7AA7200370E8F /* QAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CF90B41AC7AA7200370E8F /* QAboutUs.m */; };
 		E1DAF5981B10205F00C46862 /* QDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DAF5971B10205F00C46862 /* QDataModel.m */; };
 /* End PBXBuildFile section */
 
@@ -504,8 +496,6 @@
 		186315F11A6206F2003764AC /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = ../GTMDefines.h; sourceTree = "<group>"; };
 		186315F21A6206F2003764AC /* NSString+NSReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSReplace.h"; path = "../NSString+NSReplace.h"; sourceTree = "<group>"; };
 		186315F31A6206F2003764AC /* NSString+NSReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSReplace.m"; path = "../NSString+NSReplace.m"; sourceTree = "<group>"; };
-		186574571A5F788800041B66 /* QRegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRegisterModel.h; sourceTree = "<group>"; };
-		186574581A5F788900041B66 /* QRegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRegisterModel.m; sourceTree = "<group>"; };
 		18661E0C1A5D42A900CC9C73 /* QMyListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyListModel.h; sourceTree = "<group>"; };
 		18661E0D1A5D42A900CC9C73 /* QMyListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyListModel.m; sourceTree = "<group>"; };
 		18667CE21A6B56CA0001F67F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
@@ -600,10 +590,6 @@
 		189770101A47F1DF005D234C /* QMyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyData.m; sourceTree = "<group>"; };
 		189770111A47F1DF005D234C /* QMyDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyDataCell.h; sourceTree = "<group>"; };
 		189770121A47F1DF005D234C /* QMyDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyDataCell.m; sourceTree = "<group>"; };
-		189770151A47F204005D234C /* QChangeTel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QChangeTel.h; sourceTree = "<group>"; };
-		189770161A47F204005D234C /* QChangeTel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QChangeTel.m; sourceTree = "<group>"; };
-		189770171A47F204005D234C /* QNewTel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNewTel.h; sourceTree = "<group>"; };
-		189770181A47F204005D234C /* QNewTel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNewTel.m; sourceTree = "<group>"; };
 		189770211A47F242005D234C /* QSetPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSetPayKey.h; sourceTree = "<group>"; };
 		189770221A47F242005D234C /* QSetPayKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSetPayKey.m; sourceTree = "<group>"; };
 		189770271A47F27D005D234C /* QPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPersonalData.h; sourceTree = "<group>"; };
@@ -622,24 +608,18 @@
 		189770401A47F31A005D234C /* QMyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyList.m; sourceTree = "<group>"; };
 		189770411A47F31A005D234C /* QMyListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyListCell.h; sourceTree = "<group>"; };
 		189770421A47F31A005D234C /* QMyListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyListCell.m; sourceTree = "<group>"; };
-		189770541A47F36C005D234C /* QRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRegister.h; sourceTree = "<group>"; };
-		189770551A47F36C005D234C /* QRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRegister.m; sourceTree = "<group>"; };
 		189770571A47F37E005D234C /* QMyPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyPage.h; sourceTree = "<group>"; };
 		189770581A47F37E005D234C /* QMyPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyPage.m; sourceTree = "<group>"; };
 		189770591A47F37E005D234C /* QMyPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyPageCell.h; sourceTree = "<group>"; };
 		1897705A1A47F37E005D234C /* QMyPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyPageCell.m; sourceTree = "<group>"; };
 		1897705B1A47F37E005D234C /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		1897705C1A47F37E005D234C /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
-		189770601A47F394005D234C /* AllenProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllenProvince.h; sourceTree = "<group>"; };
-		189770611A47F394005D234C /* AllenProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllenProvince.m; sourceTree = "<group>"; };
 		1897706C1A47F3B4005D234C /* QMyAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyAccount.h; sourceTree = "<group>"; };
 		1897706D1A47F3B4005D234C /* QMyAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyAccount.m; sourceTree = "<group>"; };
 		1897706E1A47F3B4005D234C /* QMyCollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyCollectCell.h; sourceTree = "<group>"; };
 		1897706F1A47F3B4005D234C /* QMyCollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyCollectCell.m; sourceTree = "<group>"; };
 		189770781A47F3F7005D234C /* QAmendPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAmendPayKey.h; sourceTree = "<group>"; };
 		189770791A47F3F7005D234C /* QAmendPayKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAmendPayKey.m; sourceTree = "<group>"; };
-		1897707B1A47F404005D234C /* QNoAccountLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNoAccountLogin.h; sourceTree = "<group>"; };
-		1897707C1A47F404005D234C /* QNoAccountLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNoAccountLogin.m; sourceTree = "<group>"; };
 		1897707E1A47F412005D234C /* QFindNewLoginKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFindNewLoginKey.h; sourceTree = "<group>"; };
 		1897707F1A47F412005D234C /* QFindNewLoginKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFindNewLoginKey.m; sourceTree = "<group>"; };
 		189770831A47F440005D234C /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -729,10 +709,6 @@
 		67E7034F1AB8275100659F0D /* icon_sale_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sale_date@2x.png"; sourceTree = "<group>"; };
 		67E703501AB8275100659F0D /* icon_refund@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_refund@2x.png"; sourceTree = "<group>"; };
 		67E703541AB8336A00659F0D /* icon_refund_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_refund_n@2x.png"; sourceTree = "<group>"; };
-		A7268F271B07169500A00F88 /* QCheckOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCheckOrder.h; sourceTree = "<group>"; };
-		A7268F281B07169500A00F88 /* QCheckOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCheckOrder.m; sourceTree = "<group>"; };
-		A7268F2A1B07181100A00F88 /* QMyOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyOrders.h; sourceTree = "<group>"; };
-		A7268F2B1B07181100A00F88 /* QMyOrders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyOrders.m; sourceTree = "<group>"; };
 		A75AC23F1B102AFA00E16610 /* gengduo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gengduo@2x.png"; sourceTree = "<group>"; };
 		A75AC2401B102AFA00E16610 /* gengduo_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gengduo_press@2x.png"; sourceTree = "<group>"; };
 		A75AC2411B102AFA00E16610 /* shangjia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shangjia@2x.png"; sourceTree = "<group>"; };
@@ -1073,12 +1049,12 @@
 		E1C6B4891B7AEE33005D680F /* QCountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCountDown.m; sourceTree = "<group>"; };
 		E1C6B48A1B7AEE33005D680F /* QRegularHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRegularHelp.h; sourceTree = "<group>"; };
 		E1C6B48B1B7AEE33005D680F /* QRegularHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRegularHelp.m; sourceTree = "<group>"; };
+		E1C6B4911B7AEF2A005D680F /* QMyOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMyOrders.h; sourceTree = "<group>"; };
+		E1C6B4921B7AEF2A005D680F /* QMyOrders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMyOrders.m; sourceTree = "<group>"; };
+		E1C6B4941B7AEFE2005D680F /* QCheckOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCheckOrder.h; path = HRClient/Page/QCheckOrder.h; sourceTree = SOURCE_ROOT; };
+		E1C6B4951B7AEFE2005D680F /* QCheckOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCheckOrder.m; path = HRClient/Page/QCheckOrder.m; sourceTree = SOURCE_ROOT; };
 		E1CB6B2B1AE2B50100DCE7D2 /* CustomWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWindow.h; sourceTree = "<group>"; };
 		E1CB6B2C1AE2B50100DCE7D2 /* CustomWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWindow.m; sourceTree = "<group>"; };
-		E1CF90B01AC7A3EE00370E8F /* QSuggestRetroactionPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSuggestRetroactionPage.h; sourceTree = "<group>"; };
-		E1CF90B11AC7A3EE00370E8F /* QSuggestRetroactionPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSuggestRetroactionPage.m; sourceTree = "<group>"; };
-		E1CF90B31AC7AA7200370E8F /* QAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAboutUs.h; sourceTree = "<group>"; };
-		E1CF90B41AC7AA7200370E8F /* QAboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAboutUs.m; sourceTree = "<group>"; };
 		E1DAF5961B10205F00C46862 /* QDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDataModel.h; sourceTree = "<group>"; };
 		E1DAF5971B10205F00C46862 /* QDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1471,58 +1447,50 @@
 		18976FF31A47F135005D234C /* PersonData */ = {
 			isa = PBXGroup;
 			children = (
-				1897707E1A47F412005D234C /* QFindNewLoginKey.h */,
-				1897707F1A47F412005D234C /* QFindNewLoginKey.m */,
-				1897707B1A47F404005D234C /* QNoAccountLogin.h */,
-				1897707C1A47F404005D234C /* QNoAccountLogin.m */,
+				E13A91991B5AA20E00309BB0 /* QAddCardPage.h */,
+				E13A919A1B5AA20E00309BB0 /* QAddCardPage.m */,
+				189770331A47F2F1005D234C /* QAgainSetPayKey.h */,
+				189770341A47F2F1005D234C /* QAgainSetPayKey.m */,
 				189770781A47F3F7005D234C /* QAmendPayKey.h */,
 				189770791A47F3F7005D234C /* QAmendPayKey.m */,
+				189770081A47F1BC005D234C /* QCarryImageCell.h */,
+				189770091A47F1BC005D234C /* QCarryImageCell.m */,
+				1897702A1A47F2B2005D234C /* QChangeLoginKey.h */,
+				1897702B1A47F2B2005D234C /* QChangeLoginKey.m */,
+				189770301A47F2DB005D234C /* QFindLoginKey.h */,
+				189770311A47F2DB005D234C /* QFindLoginKey.m */,
+				1897707E1A47F412005D234C /* QFindNewLoginKey.h */,
+				1897707F1A47F412005D234C /* QFindNewLoginKey.m */,
+				1897702D1A47F2C8005D234C /* QFindPayKey.h */,
+				1897702E1A47F2C8005D234C /* QFindPayKey.m */,
+				189770391A47F31A005D234C /* QListDetail.h */,
+				1897703A1A47F31A005D234C /* QListDetail.m */,
 				1897706C1A47F3B4005D234C /* QMyAccount.h */,
 				1897706D1A47F3B4005D234C /* QMyAccount.m */,
 				1897706E1A47F3B4005D234C /* QMyCollectCell.h */,
 				1897706F1A47F3B4005D234C /* QMyCollectCell.m */,
-				189770601A47F394005D234C /* AllenProvince.h */,
-				189770611A47F394005D234C /* AllenProvince.m */,
-				189770571A47F37E005D234C /* QMyPage.h */,
-				189770581A47F37E005D234C /* QMyPage.m */,
-				189770591A47F37E005D234C /* QMyPageCell.h */,
-				1897705A1A47F37E005D234C /* QMyPageCell.m */,
-				1897705B1A47F37E005D234C /* VPImageCropperViewController.h */,
-				1897705C1A47F37E005D234C /* VPImageCropperViewController.m */,
-				189770541A47F36C005D234C /* QRegister.h */,
-				189770551A47F36C005D234C /* QRegister.m */,
-				189770391A47F31A005D234C /* QListDetail.h */,
-				1897703A1A47F31A005D234C /* QListDetail.m */,
-				1897703F1A47F31A005D234C /* QMyList.h */,
-				189770401A47F31A005D234C /* QMyList.m */,
-				189770411A47F31A005D234C /* QMyListCell.h */,
-				189770421A47F31A005D234C /* QMyListCell.m */,
-				189770331A47F2F1005D234C /* QAgainSetPayKey.h */,
-				189770341A47F2F1005D234C /* QAgainSetPayKey.m */,
-				189770301A47F2DB005D234C /* QFindLoginKey.h */,
-				189770311A47F2DB005D234C /* QFindLoginKey.m */,
-				1897702D1A47F2C8005D234C /* QFindPayKey.h */,
-				1897702E1A47F2C8005D234C /* QFindPayKey.m */,
-				1897702A1A47F2B2005D234C /* QChangeLoginKey.h */,
-				1897702B1A47F2B2005D234C /* QChangeLoginKey.m */,
-				189770271A47F27D005D234C /* QPersonalData.h */,
-				189770281A47F27D005D234C /* QPersonalData.m */,
-				189770211A47F242005D234C /* QSetPayKey.h */,
-				189770221A47F242005D234C /* QSetPayKey.m */,
-				189770151A47F204005D234C /* QChangeTel.h */,
-				189770161A47F204005D234C /* QChangeTel.m */,
-				189770171A47F204005D234C /* QNewTel.h */,
-				189770181A47F204005D234C /* QNewTel.m */,
 				1897700F1A47F1DF005D234C /* QMyData.h */,
 				189770101A47F1DF005D234C /* QMyData.m */,
 				189770111A47F1DF005D234C /* QMyDataCell.h */,
 				189770121A47F1DF005D234C /* QMyDataCell.m */,
-				189770081A47F1BC005D234C /* QCarryImageCell.h */,
-				189770091A47F1BC005D234C /* QCarryImageCell.m */,
+				1897703F1A47F31A005D234C /* QMyList.h */,
+				189770401A47F31A005D234C /* QMyList.m */,
+				189770411A47F31A005D234C /* QMyListCell.h */,
+				189770421A47F31A005D234C /* QMyListCell.m */,
+				E1C6B4911B7AEF2A005D680F /* QMyOrders.h */,
+				E1C6B4921B7AEF2A005D680F /* QMyOrders.m */,
+				189770571A47F37E005D234C /* QMyPage.h */,
+				189770581A47F37E005D234C /* QMyPage.m */,
+				189770591A47F37E005D234C /* QMyPageCell.h */,
+				1897705A1A47F37E005D234C /* QMyPageCell.m */,
 				189770001A47F190005D234C /* QMyVIPCard.h */,
 				189770011A47F190005D234C /* QMyVIPCard.m */,
-				E13A91991B5AA20E00309BB0 /* QAddCardPage.h */,
-				E13A919A1B5AA20E00309BB0 /* QAddCardPage.m */,
+				189770271A47F27D005D234C /* QPersonalData.h */,
+				189770281A47F27D005D234C /* QPersonalData.m */,
+				189770211A47F242005D234C /* QSetPayKey.h */,
+				189770221A47F242005D234C /* QSetPayKey.m */,
+				1897705B1A47F37E005D234C /* VPImageCropperViewController.h */,
+				1897705C1A47F37E005D234C /* VPImageCropperViewController.m */,
 			);
 			name = PersonData;
 			sourceTree = "<group>";
@@ -1669,21 +1637,11 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		18F034AB1A48614200BEB8C4 /* MyOrders */ = {
-			isa = PBXGroup;
-			children = (
-				A7268F2A1B07181100A00F88 /* QMyOrders.h */,
-				A7268F2B1B07181100A00F88 /* QMyOrders.m */,
-			);
-			name = MyOrders;
-			path = Business;
-			sourceTree = "<group>";
-		};
 		18F034B21A48614200BEB8C4 /* CheckOrder */ = {
 			isa = PBXGroup;
 			children = (
-				A7268F271B07169500A00F88 /* QCheckOrder.h */,
-				A7268F281B07169500A00F88 /* QCheckOrder.m */,
+				E1C6B4941B7AEFE2005D680F /* QCheckOrder.h */,
+				E1C6B4951B7AEFE2005D680F /* QCheckOrder.m */,
 				E185BDD51B1078AB00B13D46 /* QScanPage.h */,
 				E185BDD61B1078AB00B13D46 /* QScanPage.m */,
 				E13A919F1B5B400500309BB0 /* QCheckOrderResult.h */,
@@ -2211,8 +2169,6 @@
 				187EB2F41A6A03680019FD7A /* QProductDetail.m */,
 				187EB2F61A6A087A0019FD7A /* QProductDetailCompany.h */,
 				187EB2F71A6A087A0019FD7A /* QProductDetailCompany.m */,
-				186574571A5F788800041B66 /* QRegisterModel.h */,
-				186574581A5F788900041B66 /* QRegisterModel.m */,
 				18C1870B1A4FDE5C00CBE018 /* QUser.h */,
 				18C1870C1A4FDE5C00CBE018 /* QUser.m */,
 				A7C768FB1AC01D64002C7716 /* QAgreementModel.h */,
@@ -2231,7 +2187,6 @@
 				A7268F261B07078E00A00F88 /* guideAndLoginPage */,
 				E1CF90AF1AC7A37A00370E8F /* morePage */,
 				18F034B21A48614200BEB8C4 /* CheckOrder */,
-				18F034AB1A48614200BEB8C4 /* MyOrders */,
 				18976FF31A47F135005D234C /* PersonData */,
 			);
 			path = Page;
@@ -2363,10 +2318,6 @@
 				DD2873251A2B55B30000B242 /* QMorePage.m */,
 				A7C710611AC0356A00DE5CF4 /* QAgreementPage.h */,
 				A7C710621AC0356A00DE5CF4 /* QAgreementPage.m */,
-				E1CF90B01AC7A3EE00370E8F /* QSuggestRetroactionPage.h */,
-				E1CF90B11AC7A3EE00370E8F /* QSuggestRetroactionPage.m */,
-				E1CF90B31AC7AA7200370E8F /* QAboutUs.h */,
-				E1CF90B41AC7AA7200370E8F /* QAboutUs.m */,
 			);
 			path = morePage;
 			sourceTree = "<group>";
@@ -2619,7 +2570,6 @@
 				1879BA751A590C62003A6981 /* Reachability.m in Sources */,
 				18F034C91A4861B900BEB8C4 /* ALScrollViewPaging.m in Sources */,
 				1858B12D1A737664006C562F /* SDWebImageDecoder.m in Sources */,
-				189770661A47F394005D234C /* AllenProvince.m in Sources */,
 				DD2873B61A2B55B30000B242 /* QTextButton.m in Sources */,
 				189770AC1A47F440005D234C /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				E1639FEB1AD56A260046FF14 /* MJRefreshGifFooter.m in Sources */,
@@ -2692,16 +2642,13 @@
 				DD2873AD1A2B55B30000B242 /* QMainMenuView.m in Sources */,
 				1879BA6F1A590C62003A6981 /* ASICloudFilesContainer.m in Sources */,
 				DD2872C51A2B53B60000B242 /* DHHudPrecess.m in Sources */,
-				189770191A47F204005D234C /* QChangeTel.m in Sources */,
 				1858B12C1A737664006C562F /* SDWebImageCompat.m in Sources */,
-				E1CF90B21AC7A3EE00370E8F /* QSuggestRetroactionPage.m in Sources */,
 				1879BA701A590C62003A6981 /* ASICloudFilesContainerRequest.m in Sources */,
 				1858B1301A737664006C562F /* SDWebImageManager.m in Sources */,
 				A7C20E911ABDB2F5009C807A /* RSADataVerifier.m in Sources */,
 				18C1870D1A4FDE5C00CBE018 /* QUser.m in Sources */,
 				DD2872C31A2B53B60000B242 /* QTools.m in Sources */,
 				DD2872D11A2B53B60000B242 /* SBJsonUTF8Stream.m in Sources */,
-				186574591A5F788900041B66 /* QRegisterModel.m in Sources */,
 				A7C20E8B1ABDB2F5009C807A /* DataSigner.m in Sources */,
 				1858B1341A737664006C562F /* UIImage+MultiFormat.m in Sources */,
 				E1639FB11AD2AF3F0046FF14 /* QRCodeGenerator.m in Sources */,
@@ -2732,7 +2679,6 @@
 				1897700D1A47F1BC005D234C /* QCarryImageCell.m in Sources */,
 				E1C6B48C1B7AEE33005D680F /* QCountDown.m in Sources */,
 				E1639FB31AD2AF3F0046FF14 /* qrinput.c in Sources */,
-				A7268F291B07169500A00F88 /* QCheckOrder.m in Sources */,
 				18C187041A4ED15100CBE018 /* QPersistentBackgroundLabel.m in Sources */,
 				189770131A47F1DF005D234C /* QMyData.m in Sources */,
 				189770AB1A47F440005D234C /* IQToolbar.m in Sources */,
@@ -2740,6 +2686,7 @@
 				187EB2F81A6A087A0019FD7A /* QProductDetailCompany.m in Sources */,
 				186315F51A6206F2003764AC /* GTMBase64.m in Sources */,
 				189770461A47F31A005D234C /* QMyList.m in Sources */,
+				E1C6B4961B7AEFE2005D680F /* QCheckOrder.m in Sources */,
 				DD2872D31A2B53B60000B242 /* Stack.m in Sources */,
 				E1DAF5981B10205F00C46862 /* QDataModel.m in Sources */,
 				A7C20E8F1ABDB2F5009C807A /* openssl_wrapper.m in Sources */,
@@ -2754,13 +2701,11 @@
 				E1639FEE1AD56A260046FF14 /* MJRefreshLegendFooter.m in Sources */,
 				1879BA651A590C62003A6981 /* ASIAuthenticationDialog.m in Sources */,
 				E1639FEA1AD56A260046FF14 /* MJRefreshFooter.m in Sources */,
-				1897707D1A47F404005D234C /* QNoAccountLogin.m in Sources */,
 				DD2873BA1A2B55B30000B242 /* QZoomScrollView.m in Sources */,
 				1879BA6A1A590C62003A6981 /* ASIHTTPRequest.m in Sources */,
-				1897701A1A47F204005D234C /* QNewTel.m in Sources */,
 				189770021A47F190005D234C /* QMyVIPCard.m in Sources */,
-				E1CF90B51AC7AA7200370E8F /* QAboutUs.m in Sources */,
 				189770AA1A47F440005D234C /* IQTitleBarButtonItem.m in Sources */,
+				E1C6B4931B7AEF2A005D680F /* QMyOrders.m in Sources */,
 				1879BA6E1A590C62003A6981 /* ASICloudFilesCDNRequest.m in Sources */,
 				189770A41A47F440005D234C /* IQUIWindow+Hierarchy.m in Sources */,
 				DD2872CB1A2B53B60000B242 /* SBJsonStreamParserAdapter.m in Sources */,
@@ -2786,13 +2731,11 @@
 				DD28739C1A2B55B30000B242 /* QGuidepageController.m in Sources */,
 				189770A81A47F440005D234C /* IQTextView.m in Sources */,
 				1879BA8A1A59188A003A6981 /* QHttpManager.m in Sources */,
-				A7268F2C1B07181100A00F88 /* QMyOrders.m in Sources */,
 				E1639FF11AD56A260046FF14 /* UIScrollView+MJRefresh.m in Sources */,
 				1858B12E1A737664006C562F /* SDWebImageDownloader.m in Sources */,
 				DD2873AF1A2B55B30000B242 /* QNavigationBar.m in Sources */,
 				DD2873A11A2B55B30000B242 /* DHTwoTabControl.m in Sources */,
 				1879BA6C1A590C62003A6981 /* ASINetworkQueue.m in Sources */,
-				189770561A47F36C005D234C /* QRegister.m in Sources */,
 				E1639FF21AD56A260046FF14 /* UIView+MJExtension.m in Sources */,
 				A7C20E8E1ABDB2F5009C807A /* NSDataEx.m in Sources */,
 			);
