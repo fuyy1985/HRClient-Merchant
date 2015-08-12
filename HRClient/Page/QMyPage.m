@@ -9,8 +9,6 @@
 #import "QMyPage.h"
 #import "QMyPageCell.h"
 #import "QViewController.h"
-#import "VPImageCropperViewController.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "QHttpMessageManager.h"
 #import "QDataCenter.h"

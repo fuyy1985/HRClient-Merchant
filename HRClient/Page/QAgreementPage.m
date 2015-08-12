@@ -8,7 +8,6 @@
 
 #import "QAgreementPage.h"
 #import "QHttpMessageManager.h"
-#import "QAgreementModel.h"
 
 @interface QAgreementPage ()
 {

@@ -149,15 +149,10 @@
     [ASRequestHUD dismiss];
 }
 //找回登录密码获取数据成功获取
-- (void)acquireFindLoginPwd:(NSNotification *)noti{
-    [ASRequestHUD dismiss];
-    QLoginModel *loginModel = noti.object;
-    if (loginModel) {
-        [QUser sharedQUser].isLogin = YES;
-        [loginModel savetoLocal:@""];
-    }
-    
+- (void)acquireFindLoginPwd:(NSNotification *)noti
+{
     [QViewController gotoPage:@"QFindNewLoginKey" withParam:nil];
+    [ASRequestHUD dismiss];
 }
 
 @end

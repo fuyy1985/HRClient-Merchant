@@ -9,7 +9,6 @@
 #import "QListDetail.h"
 #import "QViewController.h"
 #import "QHttpMessageManager.h"
-#import "QMyListDetailModel.h"
 #import "UIImageView+WebCache.h"
 
 

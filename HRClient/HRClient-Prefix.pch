@@ -17,7 +17,6 @@
     #import "DHHudPrecess.h"
     #import "QDefine.h"
     #import "UIView+DEFrameAdditions.h"
-    #import "QUser.h"
     #import "ASUserDefaults.h"
     #import "ASRequestHUD.h"
     #import "UIColor+Styles.h"

@@ -168,4 +168,24 @@
 
 @end
 
+@implementation QAgreementModel
+
++ (QAgreementModel *)getModelFromDic:(NSDictionary *)dic{
+    QAgreementModel *model = [[QAgreementModel alloc] init];
+    [model setValuesForKeysWithDictionary:dic];
+    return model;
+}
+
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+}
+
+-(id)valueForUndefinedKey:(NSString *)key
+{
+    return nil;
+}
+
+
+@end
+
 

@@ -9,15 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Header.h"
 #import "QDataModel.h"
-#import "QMyListDetailModel.h"
-#import "QBusinessDetailModel.h"
-#import "QBusinessDetailComment.h"
-#import "QBusinessDetailResult.h"
-#import "QProductDetailCompany.h"
-#import "QProductDetail.h"
-#import "QMyCouponDetailModel.h"
 #import "QAppDelegate.h"
-#import "QMyListModel.h"
 
 #define USER_INFO_KEY_TYPE          @"requestType"
 typedef enum{

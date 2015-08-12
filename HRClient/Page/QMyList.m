@@ -10,7 +10,6 @@
 #import "QMyListCell.h"
 #import "QViewController.h"
 #import "QHttpMessageManager.h"
-#import "QMyListDetailModel.h"
 #import "QDataPaging.h"
 #import "MJRefresh.h"
 #import "QDataCenter.h"

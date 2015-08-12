@@ -8,7 +8,6 @@
 
 #import "QMyListCell.h"
 #import "UIImageView+WebCache.h"
-#import "QMyListDetailModel.h"
 
 @interface QMyListCell ()
 

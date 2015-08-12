@@ -8,7 +8,6 @@
 
 #import "QBottomMenuView.h"
 #import "QViewController.h"
-#import "QUser.h"
 #import "QPage.h"
 
 @implementation QBottomMenu

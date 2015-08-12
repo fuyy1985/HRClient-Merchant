@@ -7,22 +7,8 @@
 //
 
 #import "QHttpManager.h"
-#import "QHotCityModel.h"
 #import "QDataModel.h"
-#import "QCommentModel.h"
-#import "QMyAccountMoel.h"
-#import "QMyListDetailModel.h"
 #import "QViewController.h"
-#import "QBusinessListModel.h"
-#import "QHomePageModel.h"
-#import "QProductDetail.h"
-#import "QProductDdtailComment.h"
-#import "QCarWashModel.h"
-#import "QMyFavoritedModel.h"
-#import "QMyCoupon.h"
-#import "QCardDetailModel.h"
-#import "QAgreementModel.h"
-#import "QMyListModel.h"
 #import "QDataCenter.h"
 
 @interface QHttpManager (){

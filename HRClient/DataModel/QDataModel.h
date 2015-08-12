@@ -172,3 +172,12 @@
 
 @end
 
+@interface QAgreementModel : NSObject
+
+@property (nonatomic, strong) NSNumber *agreementType;
+@property (nonatomic, copy) NSString *content;
+
++ (QAgreementModel *)getModelFromDic:(NSDictionary *)dic;
+
+@end
+
