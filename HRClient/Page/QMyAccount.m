@@ -293,7 +293,9 @@
             UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(label.deFrameRight, 0, 200, 40)];
             textField.font = [UIFont systemFontOfSize:15];
             textField.delegate = self;
-            textField.placeholder = @"提现金额不能少于200元";
+            if ([QDataCenter sharedDataCenter]->companyAccountModel)
+                textField.placeholder = [NSString stringWithFormat:@"提现金额不少于%d元", [[QDataCenter sharedDataCenter]->companyAccountModel.limitMin intValue]];
+            
             [cell.contentView addSubview:textField];
             _cashTextField = textField;
             
@@ -302,13 +304,6 @@
             label.textColor = [QTools colorWithRGB:3 :3 :3];
             label.text = @"元";
             [cell.contentView addSubview:label];
-            /*
-            label = [[UILabel alloc] initWithFrame:CGRectMake(tableView.deFrameWidth - 100 -10, 0, 100, 40)];
-            label.font = [UIFont systemFontOfSize:12];
-            label.textColor = ColorLightGray;
-            label.text = @"最低提现：200元";
-            [cell.contentView addSubview:label];
-            */
         }
             break;
             

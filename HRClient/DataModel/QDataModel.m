@@ -142,6 +142,10 @@
         self.telphone = value;
     else if ([key isEqualToString:@"balance"])
         self.balance = value;
+    else if ([key isEqualToString:@"limitMax"])
+        self.limitMax = value;
+    else if ([key isEqualToString:@"limitMin"])
+        self.limitMin = value;
 }
 
 @end
